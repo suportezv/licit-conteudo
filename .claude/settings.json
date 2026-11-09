@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 .claude/skills/watch/scripts/setup.py *)",
+      "Bash(python3 .claude/skills/watch/scripts/watch.py *)",
+      "Bash(python3 /home/user/licit-conteudo/.claude/skills/watch/scripts/setup.py *)",
+      "Bash(python3 /home/user/licit-conteudo/.claude/skills/watch/scripts/watch.py *)"
+    ]
+  }
+}
