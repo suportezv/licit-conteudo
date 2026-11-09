@@ -1,49 +1,44 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
-import { marca } from "./marca";
+import { Tema, tema } from "./marca";
 
 /**
- * Fundo padrao do estudio: manchas desfocadas que derivam devagar sobre base
- * clara, com muito espaco negativo. Desenha so a partir dos tokens de
- * `marca.ts`, entao trocar a paleta la muda o visual inteiro.
+ * Fundo do estudio na gramatica da marca: plano chapado com uma grade tecnica
+ * discreta num dos lados (fundo "03 Grade Tecnica" do kit). Sem brilho difuso,
+ * sem ruido e sem movimento atras do texto: o manual pede superficie plana
+ * onde ha leitura. A grade so respira de leve na opacidade.
  */
-export const Fundo: React.FC = () => {
+export const Fundo: React.FC<{ variante?: Tema }> = ({ variante = "escuro" }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
-  const t = frame / durationInFrames;
-
-  const manchas = [
-    { cor: marca.mancha1, x: 22, y: 28, r: 46, fase: 0 },
-    { cor: marca.mancha2, x: 74, y: 24, r: 40, fase: 0.33 },
-    { cor: marca.mancha3, x: 62, y: 76, r: 44, fase: 0.66 },
-    { cor: marca.mancha4, x: 30, y: 74, r: 36, fase: 0.85 },
-  ];
+  const { durationInFrames, width, height } = useVideoConfig();
+  const c = tema(variante);
+  const passo = 64;
+  const inicio = Math.round((width * 0.56) / passo) * passo;
+  const colunas = Array.from({ length: Math.ceil((width - inicio) / passo) + 1 }, (_, i) => inicio + i * passo);
+  const linhas = Array.from({ length: Math.ceil(height / passo) + 1 }, (_, i) => i * passo);
+  const op = interpolate(frame, [0, durationInFrames], [0.045, 0.06]);
 
   return (
-    <AbsoluteFill style={{ backgroundColor: marca.fundo }}>
-      {manchas.map((m, i) => {
-        const ang = (t + m.fase) * Math.PI * 2;
-        const dx = Math.cos(ang) * 4;
-        const dy = Math.sin(ang * 0.8) * 3;
-        return (
-          <AbsoluteFill
-            key={i}
-            style={{
-              // gradiente radial em porcentagem: escala com qualquer formato
-              background: `radial-gradient(circle at ${m.x + dx}% ${m.y + dy}%, ${m.cor} 0%, transparent ${m.r}%)`,
-              filter: "blur(60px)",
-              opacity: 0.55,
-            }}
-          />
-        );
-      })}
-      {/* veu claro por cima: segura o contraste do texto sem apagar o fundo */}
-      <AbsoluteFill
-        style={{
-          backgroundColor: marca.fundo,
-          opacity: interpolate(t, [0, 1], [0.24, 0.3]),
-        }}
-      />
+    <AbsoluteFill style={{ backgroundColor: c.fundo }}>
+      <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
+        <defs>
+          <linearGradient id="some" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stopColor="#fff" stopOpacity="0" />
+            <stop offset="0.35" stopColor="#fff" stopOpacity="1" />
+          </linearGradient>
+          <mask id="mascara">
+            <rect x={inicio} y={0} width={width - inicio} height={height} fill="url(#some)" />
+          </mask>
+        </defs>
+        <g stroke={c.linha} strokeWidth={1} opacity={op} mask="url(#mascara)">
+          {colunas.map((x) => (
+            <line key={`c${x}`} x1={x} y1={0} x2={x} y2={height} />
+          ))}
+          {linhas.map((y) => (
+            <line key={`l${y}`} x1={inicio} y1={y} x2={width} y2={y} />
+          ))}
+        </g>
+      </svg>
     </AbsoluteFill>
   );
 };

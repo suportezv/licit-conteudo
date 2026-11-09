@@ -1,0 +1,524 @@
+{
+ "v": 3,
+ "layout": "files",
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-09T23:23:18Z"
+ },
+ "title": "Profissio Licit",
+ "namespace": "ProfissioLicit",
+ "libraries": [],
+ "sections": {},
+ "groups": [
+  "Logos",
+  "Fundos",
+  "Icones",
+  "Favicon"
+ ],
+ "assetGroups": {
+  "Logos": {
+   "name": "Logos",
+   "tile": "l",
+   "order": [
+    "profissio-licit-branco.svg",
+    "profissio-licit-grafite.svg",
+    "profissio-licit-floresta.svg",
+    "profissio-licit-preto.svg",
+    "profissio-licit-escuro.svg",
+    "licit-estrela-branco.svg",
+    "licit-estrela-degrade.svg",
+    "licit-estrela-floresta.svg",
+    "licit-estrela-preto.svg",
+    "licit-estrela-vertical-branco.svg",
+    "licit-estrela-vertical-degrade.svg",
+    "licit-estrela-vertical-floresta.svg",
+    "licit-estrela-vertical-preto.svg",
+    "estrela-licit-branco.svg",
+    "estrela-licit-degrade.svg",
+    "estrela-licit-floresta.svg",
+    "estrela-licit-preto.svg",
+    "licit-branco.svg",
+    "licit-grafite.svg",
+    "licit-floresta.svg",
+    "licit-preto.svg",
+    "licit-escuro.svg"
+   ],
+   "files": {
+    "profissio-licit-branco.svg": {
+     "name": "profissio-licit-branco.svg",
+     "blob": "4ca55cef95da472b0787fd9ac5633a43",
+     "size": 11592,
+     "type": "image/svg+xml"
+    },
+    "profissio-licit-grafite.svg": {
+     "name": "profissio-licit-grafite.svg",
+     "blob": "8d30aeacc841c72dfa87808c945c81d7",
+     "size": 11593,
+     "type": "image/svg+xml"
+    },
+    "profissio-licit-floresta.svg": {
+     "name": "profissio-licit-floresta.svg",
+     "blob": "5e1c8270ab4e57caee1ba34a695ec6b4",
+     "size": 11594,
+     "type": "image/svg+xml"
+    },
+    "profissio-licit-preto.svg": {
+     "name": "profissio-licit-preto.svg",
+     "blob": "d08e8f8c92c10fda110603cab84a4242",
+     "size": 11591,
+     "type": "image/svg+xml"
+    },
+    "profissio-licit-escuro.svg": {
+     "name": "profissio-licit-escuro.svg",
+     "blob": "d42c6777106f6b32c8c165bc76ea9af7",
+     "size": 11593,
+     "type": "image/svg+xml"
+    },
+    "licit-estrela-branco.svg": {
+     "name": "licit-estrela-branco.svg",
+     "blob": "fff1ee8b64503addd84484d3d9af08f3",
+     "size": 3577,
+     "type": "image/svg+xml"
+    },
+    "licit-estrela-degrade.svg": {
+     "name": "licit-estrela-degrade.svg",
+     "blob": "219477d93ba3ef2a575e58a487795f91",
+     "size": 3799,
+     "type": "image/svg+xml"
+    },
+    "licit-estrela-floresta.svg": {
+     "name": "licit-estrela-floresta.svg",
+     "blob": "98b08f2b8f199947d09dce08d1c938dd",
+     "size": 3577,
+     "type": "image/svg+xml"
+    },
+    "licit-estrela-preto.svg": {
+     "name": "licit-estrela-preto.svg",
+     "blob": "1349d4de3f6e00e7c2c98f7de0d8eb23",
+     "size": 3577,
+     "type": "image/svg+xml"
+    },
+    "licit-estrela-vertical-branco.svg": {
+     "name": "licit-estrela-vertical-branco.svg",
+     "blob": "28faac6efafbfbdeab4c204ac1fbc236",
+     "size": 3454,
+     "type": "image/svg+xml"
+    },
+    "licit-estrela-vertical-degrade.svg": {
+     "name": "licit-estrela-vertical-degrade.svg",
+     "blob": "47554c2c40788a18813be4f0b8e140fb",
+     "size": 3652,
+     "type": "image/svg+xml"
+    },
+    "licit-estrela-vertical-floresta.svg": {
+     "name": "licit-estrela-vertical-floresta.svg",
+     "blob": "6bcc76d51fa57df6975da8d26f407baf",
+     "size": 3454,
+     "type": "image/svg+xml"
+    },
+    "licit-estrela-vertical-preto.svg": {
+     "name": "licit-estrela-vertical-preto.svg",
+     "blob": "8d8c36a3964882864278f5216b388d97",
+     "size": 3454,
+     "type": "image/svg+xml"
+    },
+    "estrela-licit-branco.svg": {
+     "name": "estrela-licit-branco.svg",
+     "blob": "b836dd781493ddc3ccab1f3ae5ab1f1f",
+     "size": 837,
+     "type": "image/svg+xml"
+    },
+    "estrela-licit-degrade.svg": {
+     "name": "estrela-licit-degrade.svg",
+     "blob": "3c92bd0981462c17fa7095dfa0f8c674",
+     "size": 1059,
+     "type": "image/svg+xml"
+    },
+    "estrela-licit-floresta.svg": {
+     "name": "estrela-licit-floresta.svg",
+     "blob": "27f37936186bab21c7bcbb6ac778b48d",
+     "size": 837,
+     "type": "image/svg+xml"
+    },
+    "estrela-licit-preto.svg": {
+     "name": "estrela-licit-preto.svg",
+     "blob": "7ef1841d036941275a3a3a5ddbb69624",
+     "size": 837,
+     "type": "image/svg+xml"
+    },
+    "licit-branco.svg": {
+     "name": "licit-branco.svg",
+     "blob": "ec73385f885017337ec2d4e4128f9e07",
+     "size": 2769,
+     "type": "image/svg+xml"
+    },
+    "licit-grafite.svg": {
+     "name": "licit-grafite.svg",
+     "blob": "e6b8b5a77ee9fff3af4ae0d8a4cf52fa",
+     "size": 2770,
+     "type": "image/svg+xml"
+    },
+    "licit-floresta.svg": {
+     "name": "licit-floresta.svg",
+     "blob": "83b9c5d570abe4c2c408f368ab967314",
+     "size": 2771,
+     "type": "image/svg+xml"
+    },
+    "licit-preto.svg": {
+     "name": "licit-preto.svg",
+     "blob": "d56fa7596de673281d75799e9667afea",
+     "size": 2768,
+     "type": "image/svg+xml"
+    },
+    "licit-escuro.svg": {
+     "name": "licit-escuro.svg",
+     "blob": "b6fff2cda07006fd0d7768ce348305ee",
+     "size": 2770,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Fundos": {
+   "name": "Fundos",
+   "tile": "l",
+   "order": [
+    "Profissio_Licit_Fundo_01_Planos_Floresta.svg",
+    "Profissio_Licit_Fundo_02_Luz_Direcional.svg",
+    "Profissio_Licit_Fundo_03_Grade_Tecnica.svg",
+    "Profissio_Licit_Fundo_04_Pontos_Estruturados.svg",
+    "Profissio_Licit_Fundo_05_Topografia_Clara.svg",
+    "Profissio_Licit_Fundo_06_Topografia_Escura.svg",
+    "Profissio_Licit_Fundo_07_Camadas_Angulares.svg",
+    "Profissio_Licit_Fundo_08_Malha_Perspectiva.svg",
+    "Profissio_Licit_Fundo_09_Arcos_Concentricos.svg",
+    "Profissio_Licit_Fundo_10_Campo_de_Luz.svg"
+   ],
+   "files": {
+    "Profissio_Licit_Fundo_01_Planos_Floresta.svg": {
+     "name": "Profissio_Licit_Fundo_01_Planos_Floresta.svg",
+     "blob": "0f01d1840b7092d3d4d6618e6d62d755",
+     "size": 556,
+     "type": "image/svg+xml"
+    },
+    "Profissio_Licit_Fundo_02_Luz_Direcional.svg": {
+     "name": "Profissio_Licit_Fundo_02_Luz_Direcional.svg",
+     "blob": "5b70160ca4e89463708f812f4a128165",
+     "size": 714,
+     "type": "image/svg+xml"
+    },
+    "Profissio_Licit_Fundo_03_Grade_Tecnica.svg": {
+     "name": "Profissio_Licit_Fundo_03_Grade_Tecnica.svg",
+     "blob": "483880f6739c41d2a3e8c8704232924e",
+     "size": 3749,
+     "type": "image/svg+xml"
+    },
+    "Profissio_Licit_Fundo_04_Pontos_Estruturados.svg": {
+     "name": "Profissio_Licit_Fundo_04_Pontos_Estruturados.svg",
+     "blob": "a8aabe14761d82c3cbb9dc34a950bc30",
+     "size": 62943,
+     "type": "image/svg+xml"
+    },
+    "Profissio_Licit_Fundo_05_Topografia_Clara.svg": {
+     "name": "Profissio_Licit_Fundo_05_Topografia_Clara.svg",
+     "blob": "725762e90ea81a239a98c9f7d579282c",
+     "size": 2907,
+     "type": "image/svg+xml"
+    },
+    "Profissio_Licit_Fundo_06_Topografia_Escura.svg": {
+     "name": "Profissio_Licit_Fundo_06_Topografia_Escura.svg",
+     "blob": "0d7a92e33aa3496e84526242d5900f05",
+     "size": 3026,
+     "type": "image/svg+xml"
+    },
+    "Profissio_Licit_Fundo_07_Camadas_Angulares.svg": {
+     "name": "Profissio_Licit_Fundo_07_Camadas_Angulares.svg",
+     "blob": "ce3e8d50da17c8270a480455ccb18413",
+     "size": 578,
+     "type": "image/svg+xml"
+    },
+    "Profissio_Licit_Fundo_08_Malha_Perspectiva.svg": {
+     "name": "Profissio_Licit_Fundo_08_Malha_Perspectiva.svg",
+     "blob": "ff95d26ceb49200019adbe240ab73fa3",
+     "size": 2706,
+     "type": "image/svg+xml"
+    },
+    "Profissio_Licit_Fundo_09_Arcos_Concentricos.svg": {
+     "name": "Profissio_Licit_Fundo_09_Arcos_Concentricos.svg",
+     "blob": "cb8a06cddfb0541eb1313086267d141a",
+     "size": 2000,
+     "type": "image/svg+xml"
+    },
+    "Profissio_Licit_Fundo_10_Campo_de_Luz.svg": {
+     "name": "Profissio_Licit_Fundo_10_Campo_de_Luz.svg",
+     "blob": "f4a8f79c7af85704f37996d298003489",
+     "size": 811,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Icones": {
+   "name": "Icones",
+   "tile": "xs",
+   "order": [
+    "arrow-left.svg",
+    "arrow-right.svg",
+    "building.svg",
+    "calendar.svg",
+    "chat.svg",
+    "check.svg",
+    "chevron-down.svg",
+    "clock.svg",
+    "close.svg",
+    "columns.svg",
+    "document.svg",
+    "download.svg",
+    "edit.svg",
+    "expand.svg",
+    "external.svg",
+    "filter.svg",
+    "folder.svg",
+    "home.svg",
+    "info.svg",
+    "layers.svg",
+    "link.svg",
+    "lock.svg",
+    "menu.svg",
+    "moon.svg",
+    "plus.svg",
+    "refresh.svg",
+    "search.svg",
+    "sun.svg",
+    "trash.svg",
+    "upload.svg",
+    "user.svg",
+    "warning.svg"
+   ],
+   "files": {
+    "arrow-left.svg": {
+     "name": "arrow-left.svg",
+     "blob": "e8f28f9b2422303f61ce22b6aa6a48ce",
+     "size": 223,
+     "type": "image/svg+xml"
+    },
+    "arrow-right.svg": {
+     "name": "arrow-right.svg",
+     "blob": "9471865355b667928b1b0d00d0bb1d33",
+     "size": 225,
+     "type": "image/svg+xml"
+    },
+    "building.svg": {
+     "name": "building.svg",
+     "blob": "8b35f5832f61cdea70adfd8b56cb2b2d",
+     "size": 263,
+     "type": "image/svg+xml"
+    },
+    "calendar.svg": {
+     "name": "calendar.svg",
+     "blob": "062fe9a22741e74448825446977bf3a3",
+     "size": 294,
+     "type": "image/svg+xml"
+    },
+    "chat.svg": {
+     "name": "chat.svg",
+     "blob": "be89f4049df1a61718d9c422d1bd175b",
+     "size": 215,
+     "type": "image/svg+xml"
+    },
+    "check.svg": {
+     "name": "check.svg",
+     "blob": "9663d6ee94e4a2a83a6cafcdb0202141",
+     "size": 212,
+     "type": "image/svg+xml"
+    },
+    "chevron-down.svg": {
+     "name": "chevron-down.svg",
+     "blob": "9d9da47620eb686cf41432c743575b07",
+     "size": 217,
+     "type": "image/svg+xml"
+    },
+    "clock.svg": {
+     "name": "clock.svg",
+     "blob": "10c1a3f68ce8abc6ea31156fef7d6bfd",
+     "size": 240,
+     "type": "image/svg+xml"
+    },
+    "close.svg": {
+     "name": "close.svg",
+     "blob": "e96950fa814b2817cd81a1c175ad64ba",
+     "size": 218,
+     "type": "image/svg+xml"
+    },
+    "columns.svg": {
+     "name": "columns.svg",
+     "blob": "02db1e0d25f876c6213979ac6f5440ab",
+     "size": 264,
+     "type": "image/svg+xml"
+    },
+    "document.svg": {
+     "name": "document.svg",
+     "blob": "b5daf2fc828f8b81ae098140d682a313",
+     "size": 252,
+     "type": "image/svg+xml"
+    },
+    "download.svg": {
+     "name": "download.svg",
+     "blob": "2794898c63d265b325e377ceacdd7340",
+     "size": 235,
+     "type": "image/svg+xml"
+    },
+    "edit.svg": {
+     "name": "edit.svg",
+     "blob": "cc7601abee180919d431a2b3ac8d06ac",
+     "size": 228,
+     "type": "image/svg+xml"
+    },
+    "expand.svg": {
+     "name": "expand.svg",
+     "blob": "d6d93dff6023d73445d2886165702ba1",
+     "size": 237,
+     "type": "image/svg+xml"
+    },
+    "external.svg": {
+     "name": "external.svg",
+     "blob": "f909dd918126114d5f5aa53c22557ecf",
+     "size": 236,
+     "type": "image/svg+xml"
+    },
+    "filter.svg": {
+     "name": "filter.svg",
+     "blob": "7d6043d5a8fd1b188a9c638459ae07f5",
+     "size": 221,
+     "type": "image/svg+xml"
+    },
+    "folder.svg": {
+     "name": "folder.svg",
+     "blob": "ec516194bfaf47acf05817a8e8cbebf5",
+     "size": 217,
+     "type": "image/svg+xml"
+    },
+    "home.svg": {
+     "name": "home.svg",
+     "blob": "f0e1f0312b07b24dc2237bbb5ffb82e3",
+     "size": 240,
+     "type": "image/svg+xml"
+    },
+    "info.svg": {
+     "name": "info.svg",
+     "blob": "033df22475ad51284e4ebd366a5cdfb3",
+     "size": 245,
+     "type": "image/svg+xml"
+    },
+    "layers.svg": {
+     "name": "layers.svg",
+     "blob": "98ef12f3359a01ad1ff3974d44ecdd55",
+     "size": 246,
+     "type": "image/svg+xml"
+    },
+    "link.svg": {
+     "name": "link.svg",
+     "blob": "8c6fa1e7886bd70da80444830603f778",
+     "size": 328,
+     "type": "image/svg+xml"
+    },
+    "lock.svg": {
+     "name": "lock.svg",
+     "blob": "be07ea017132df96603404400b87117d",
+     "size": 278,
+     "type": "image/svg+xml"
+    },
+    "menu.svg": {
+     "name": "menu.svg",
+     "blob": "e9764075d585f3c0dd6b1dd2f77034c1",
+     "size": 220,
+     "type": "image/svg+xml"
+    },
+    "moon.svg": {
+     "name": "moon.svg",
+     "blob": "dfea7571dcf6c1e18629a74a2cb00fc0",
+     "size": 234,
+     "type": "image/svg+xml"
+    },
+    "plus.svg": {
+     "name": "plus.svg",
+     "blob": "1784951ecbb97772f0582f92c626a1bf",
+     "size": 213,
+     "type": "image/svg+xml"
+    },
+    "refresh.svg": {
+     "name": "refresh.svg",
+     "blob": "7527ce41e0294e08ffc2215b0c93e884",
+     "size": 267,
+     "type": "image/svg+xml"
+    },
+    "search.svg": {
+     "name": "search.svg",
+     "blob": "a89bad2be1696f4e3a1c81fbf38d12b3",
+     "size": 246,
+     "type": "image/svg+xml"
+    },
+    "sun.svg": {
+     "name": "sun.svg",
+     "blob": "78e481b8acac940ef9ab33ffe6e9a331",
+     "size": 293,
+     "type": "image/svg+xml"
+    },
+    "trash.svg": {
+     "name": "trash.svg",
+     "blob": "0efed9275c1b8c1c2dcf87cdcfb99f4a",
+     "size": 248,
+     "type": "image/svg+xml"
+    },
+    "upload.svg": {
+     "name": "upload.svg",
+     "blob": "18d09bec08c4cdc15b27efd5661957c6",
+     "size": 233,
+     "type": "image/svg+xml"
+    },
+    "user.svg": {
+     "name": "user.svg",
+     "blob": "7211b28e7d945ffb8916fd38103aba61",
+     "size": 252,
+     "type": "image/svg+xml"
+    },
+    "warning.svg": {
+     "name": "warning.svg",
+     "blob": "15638fc2de6f45a330c73e19bcc30bce",
+     "size": 243,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Favicon": {
+   "name": "Favicon",
+   "tile": "s",
+   "order": [
+    "favicon.svg",
+    "favicon-512.png"
+   ],
+   "files": {
+    "favicon.svg": {
+     "name": "favicon.svg",
+     "blob": "147567d911847baa919d012fceb14b76",
+     "size": 845,
+     "type": "image/svg+xml"
+    },
+    "favicon-512.png": {
+     "name": "favicon-512.png",
+     "blob": "ec157f36de0cf46f9871704fc8a178f6",
+     "size": 20076,
+     "type": "image/png"
+    }
+   }
+  }
+ },
+ "blobs": {},
+ "docs": {
+  "sections": []
+ },
+ "lastChange": {
+  "by": "Claude",
+  "at": "2026-11-09T23:23:18Z",
+  "via": "Claude Code",
+  "note": "Sistema criado a partir do Drive da marca, edição 1.1."
+ }
+}

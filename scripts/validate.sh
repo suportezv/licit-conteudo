@@ -49,6 +49,14 @@ fi
 rm -rf "$_tmp"
 
 echo "== 3. ElevenLabs =="
+# O setup script do environment roda no boot SEM as variaveis do environment,
+# entao o .env do video-use nao nasce sozinho. Aqui, ja dentro da sessao, a
+# chave existe: propaga do mesmo jeito que o setup.sh faria.
+if [ ! -f "$VIDEO_USE/.env" ] && [ -d "$VIDEO_USE" ] && [ -n "${ELEVENLABS_API_KEY:-}" ]; then
+  printf 'ELEVENLABS_API_KEY=%s\n' "$ELEVENLABS_API_KEY" > "$VIDEO_USE/.env"
+  chmod 600 "$VIDEO_USE/.env"
+  echo "chave propagada da env var para $VIDEO_USE/.env"
+fi
 if grep -q '^ELEVENLABS_API_KEY=sk_' "$VIDEO_USE/.env" 2>/dev/null; then
   echo "OK (chave sk_ presente; transcrição real gasta créditos, rodar sob demanda)"
 else

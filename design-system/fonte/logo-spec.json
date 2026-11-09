@@ -1,0 +1,91 @@
+{
+  "name": "Profissio Licit",
+  "status": "Marca consolidada na edição 1.1 por autorização do usuário em 29/09/2026; arquitetura final substitui P + estrela na mesma assinatura.",
+  "versions": {
+    "profissio": "0.10",
+    "licit": "0.9",
+    "spacing": "0.11",
+    "star": "círculo menor 0.29, mestre vetorial 0.30"
+  },
+  "geometry": {
+    "joint_viewbox": [
+      0,
+      0,
+      362.63571428571424,
+      64.5
+    ],
+    "mother_viewbox": [
+      0,
+      0,
+      242.04,
+      64.5
+    ],
+    "P_r_gap": 5.25,
+    "word_gap": 12.5,
+    "official_P": "Preservado sem alteração"
+  },
+  "palette": {
+    "floresta": "#243D32",
+    "grafite": "#101218",
+    "acento_tech": "#A8F27A",
+    "superficie": "#F4F6F9",
+    "branco": "#FFFFFF",
+    "cinza": "#59616E"
+  },
+  "typography": "Sora para comunicação e interface; lettering das marcas em curvas",
+  "source": "Mestres v0.11; estrela vetorial v0.30; arquitetura final autorizada em 29/09/2026",
+  "semantics": "Cores funcionais propostas em licit-tokens.json; não ampliam aprovação de paleta institucional",
+  "edition": "1.1",
+  "architecture": {
+    "institutional": {
+      "signature": "Profissio Licit com P integrado, sem estrela adicional",
+      "master": "../01_Logos/profissio-licit-grafite.svg"
+    },
+    "product": {
+      "signature": "Estrela à esquerda + Licit",
+      "master": "../01_Logos/licit-estrela-degrade.svg"
+    },
+    "icon": {
+      "signature": "Estrela isolada",
+      "master": "../01_Logos/estrela-licit-degrade.svg"
+    },
+    "prohibited": [
+      "P + estrela na assinatura completa",
+      "P isolado como ícone de Licit",
+      "Reconstrução das palavras por fonte digitada"
+    ]
+  },
+  "star_gradient": {
+    "from": "#000000",
+    "to": "#243D32",
+    "direction": "inferior esquerdo para superior direito",
+    "scope": "apenas a estrela; lettering permanece em cor sólida",
+    "dark_background": "usar versão branca"
+  },
+  "application": {
+    "clearspace_units": 16.125,
+    "institutional_width_digital_px": 240,
+    "compact_UI_reviewed_px": [
+      184,
+      154
+    ],
+    "print_starting_width_mm": 45,
+    "product_clearspace": "1/4 da altura visível da composição",
+    "star_clearspace": "1/4 da altura visível da estrela",
+    "product_reference_width_px": 160,
+    "star_reference_sizes_px": [
+      32,
+      24
+    ],
+    "favicon_px": 16,
+    "scale_limit": "Referências de partida; conferir os vazados no tamanho e suporte finais. Sem prova física de impressão.",
+    "scale_QA": "Amostras locais a 240 px institucional, 160 px produto, 32 e 24 px estrela, 16 px favicon, fundos claros e escuros, inspecionadas na consolidação 1.1. Revalidar no destino."
+  },
+  "license": {
+    "communication_font": "Sora",
+    "license": "SIL Open Font License 1.1",
+    "file": "../02_Fontes/Sora-OFL.txt",
+    "wordmarks": "desenhos customizados em curvas; não alteram o arquivo de fonte"
+  },
+  "distribution": "Pastas no Drive com arquivos individuais, sem arquivos ZIP."
+}

@@ -1,25 +1,65 @@
 /**
  * Tokens de marca da Profissio Licit. Este e o UNICO arquivo com paleta e
- * fonte: todo o resto do Remotion le daqui.
+ * fonte no Remotion: todo o resto le daqui.
  *
- * PENDENTE: a identidade visual da Profissio Licit ainda nao foi definida
- * neste estudio. Os valores abaixo sao um PROVISORIO NEUTRO (grafite e
- * cinzas), escolhido de proposito para nao parecer marca de ninguem. Nao sao
- * a paleta da Profissio.ai nem a de nenhum estudio irmao. Quando a equipe
- * entregar paleta e fonte, trocar aqui e nada mais precisa mudar.
+ * Fonte: `design-system/fonte/licit-tokens.json` (edicao 1.1, 29/09/2026),
+ * espelho do Drive da marca. Os nomes seguem os do token, em camelCase.
+ * Mudou na fonte, muda aqui; nunca o contrario.
  */
 export const marca = {
-  /** Cor da palavra de destaque e dos acentos. PENDENTE. */
-  acento: "#3A4250",
-  /** Manchas do fundo, da mais forte para a mais suave. PENDENTE. */
-  mancha1: "#8E97A6",
-  mancha2: "#A9B0BC",
-  mancha3: "#BFC5CE",
-  mancha4: "#D0D4DB",
-  /** Base clara do fundo. PENDENTE. */
-  fundo: "#F3F4F6",
-  /** Cor do texto. PENDENTE. */
-  tinta: "#14171C",
-  /** Sem rede de fontes no render: fonte de marca entra como asset local. PENDENTE. */
-  fonte: 'system-ui, -apple-system, "Segoe UI", "Liberation Sans", sans-serif',
+  // Paleta aprovada (brandApproved)
+  floresta: "#243D32",
+  grafite: "#101218",
+  acento: "#A8F27A",
+  superficie: "#F4F6F9",
+  branco: "#FFFFFF",
+  apoio: "#59616E",
+  /** So existe no degrade da estrela (preto -> floresta). Nunca em texto. */
+  pretoDegrade: "#000000",
+
+  // Tema escuro, o padrao da marca (themeProposals.dark)
+  escuro: {
+    fundo: "#101218",
+    painel: "#171C20",
+    elevado: "#1E2723",
+    selecionado: "#243D32",
+    texto: "#F4F6F9",
+    textoSecundario: "#B8C5BC",
+    textoApagado: "#95A49C",
+    borda: "#35413C",
+    destaque: "#A8F27A",
+  },
+  // Tema claro (themeProposals.light). O acento NAO e texto em fundo claro
+  // (1,34:1 sobre branco): o destaque aqui e a floresta.
+  claro: {
+    fundo: "#F4F6F9",
+    painel: "#FFFFFF",
+    elevado: "#EDF2ED",
+    selecionado: "#E1F4D4",
+    texto: "#101218",
+    textoSecundario: "#59616E",
+    textoApagado: "#59616E",
+    borda: "#D8E0D9",
+    destaque: "#243D32",
+  },
+
+  fonte: 'Sora, Arial, sans-serif',
+  /** Titulos em 500, corpo em 400, 600 so em enfase pontual. */
+  peso: { corpo: 400, titulo: 500, enfase: 600 },
+  trackingTitulo: "-0.035em",
+  raio: { xs: 4, sm: 8, md: 12, lg: 16 },
+  /** cubic-bezier(0.2, 0, 0, 1), a curva de movimento do sistema. */
+  curva: [0.2, 0, 0, 1] as const,
+  /** Categoria aprovada (D15). Unico texto fixo de marca. */
+  categoria: "IA para licitação de Obras",
 } as const;
+
+export type Tema = "escuro" | "floresta" | "claro";
+
+/** Cores de uma peca por tema. "floresta" usa a tinta do escuro sobre #243D32. */
+export const tema = (t: Tema) =>
+  t === "claro"
+    ? { ...marca.claro, linha: marca.grafite }
+    : t === "floresta"
+      ? { ...marca.escuro, fundo: marca.floresta, borda: "#3A5347", linha: marca.superficie }
+      : { ...marca.escuro, linha: marca.superficie };

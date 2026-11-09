@@ -4,21 +4,53 @@ Este repositório é o **Profissio Licit Conteúdo Studio**: criação, edição
 
 **Antes de editar qualquer vídeo ou escrever qualquer caption, leia `FRAMEWORK.md`.**
 
-> **O que se sabe da Profissio Licit até aqui** (09/nov/2026): só o nome, dado pelo usuário ao pedir este estúdio, e que é uma marca do ecossistema Profissio. **Nenhuma fonte primária foi lida**: não há site, material de marca, pauta nem conta de rede social apontados ainda, e os repositórios dos estúdios irmãos não citam o produto. Tudo que não está confirmado abaixo é **PENDENTE**: perguntar ou ler na fonte, nunca inventar, e **nunca herdar posicionamento, persona, paleta, CTA ou voz da Profissio.ai, do Profecia ou de outro estúdio** sem confirmação. O nome sugere licitações, mas isso é leitura do nome e não fato: confirmar antes de usar em texto público.
+> **Nada se herda dos irmãos.** Posicionamento, persona, paleta, CTA e voz da Profissio.ai e do Profecia não valem aqui. O que não está confirmado é **PENDENTE**: perguntar ou ler na fonte, nunca inventar. E aqui há uma regra a mais, que vem do próprio material de marca: **a Licit só afirma o que tem evidência** (seção "Limites de mensagem").
 
-## PENDENTES de marca (bloqueiam produção de texto público)
+## A marca: o que é a Profissio Licit (lido do Drive da marca em 09/nov/2026, edição 1.1 de 29/09/2026)
 
-- **O que é a Profissio Licit**: produto, proposta, público, dores e soluções. Pedir à equipe o site e a base de conhecimento, e ler na fonte.
-- **Nome e gênero em texto**: o usuário escreveu "da Profissio Licit" (feminino). Confirmar a grafia oficial (Profissio Licit, Profissio.ai Licit, Licit) e a relação declarada com a Profissio.ai.
-- **Identidade visual**: paleta, fontes, logo, fundos. `remotion/src/marca.ts` está com um **provisório neutro em cinza**, de propósito sem cara de marca. Não usar a aurora rosa da Profissio.ai nem o céu dourado do Profecia.
-- **Persona e voz do perfil**: quem fala, tom, público, CTAs oficiais.
-- **Pilares de conteúdo**: derivar das fontes primárias quando existirem (método no `FRAMEWORK.md`).
-- **Pronúncia da marca em TTS**: confirmar com o usuário antes da primeira locução. Regra aprendida no grupo: a Profissio.ai se fala "profício ei ái", e isso só se descobriu perguntando. Como se diz "Licit" (lícit, licít, em inglês)?
-- **Voz ElevenLabs**: voice_id, modelo e parâmetros próprios. Não reaproveitar voz de outro estúdio sem confirmação.
-- **Redes e Metricool**: a marca **não existe** no Metricool (ver "IDs e contas"). Conectar no painel e registrar aqui o blog_id e os perfis.
-- **Ativos de marca e brutos**: pastas no Drive (logo, fontes, fundos, gravações), se existirem.
-- **Design system**: não existe. Quando houver identidade, criar e espelhar em `design-system/` (ver `design-system/README.md`).
-- **Licença do Remotion**: confirmar o enquadramento da empresa antes de usar em produção (ver gotchas).
+Fonte primária: pasta **"01_Profissio_Licit_Identidade_Atual"** no Drive, id `1FkVIaQhBfkrSXu6ImNCRZrELUCWZVuaV` (pública por link). O que importa para conteúdo está espelhado em `design-system/fonte/` e os ativos em `assets/marca/`.
+
+- **Categoria aprovada (D15)**: **"IA para licitação de Obras"**. É o único texto fixo de marca; não há slogan.
+- **Descrição institucional aprovada (D16)**, usar literal: "A Profissio Licit reúne documentos da empresa e análises de editais em um ambiente de trabalho para equipes de licitação de obras. Organiza exigências, prazos e referências aos documentos para apoiar a conferência e a preparação de cada participação."
+- **Eixo de valor (D14)**: ampliar a capacidade da equipe com informação organizada para analisar e preparar cada participação. É benefício **pretendido**, sem ganho medido.
+- **Nome**: **Profissio Licit**, sem `.ai`, sem "by", sem slogan. Depois da primeira identificação, "Licit" sozinho. Feminino ("a Profissio Licit", "a Licit").
+- **Público**: A (foco) empresa de obras que **já licita com estrutura**; B licita sem estrutura; C parou de licitar; D nunca licitou. A liderança contrata, os funcionários operam: o texto tem que fazer sentido para os dois. **A equipe nunca é apresentada como problema a eliminar.**
+- **Voz**: institucional, precisa, segura e direta. Vocabulário do trabalho: **edital, requisito, exigência, documento, acervo, revisão, fonte, prazo, participação, conferência**. A IA aparece ligada ao trabalho observado. Referência de comunicação empresarial indicada pelo usuário: **a Enter**.
+- **Evitar**: espetáculo, urgência artificial, humor de infoproduto, promessa de enriquecimento, "revolucionário", "infalível", brilho excessivo, **travessão**, argumento de substituição de profissionais.
+- **Formulações de trabalho do kit** (propostas, ainda sem aprovação final do usuário): "Documentos, exigências e referências no contexto de cada edital." · "Um ambiente de trabalho para sua equipe de licitação." · "Informação organizada para apoiar a conferência." Dos modelos sociais: "Cada exigência, com sua referência." · "A empresa no centro da análise." · "Documentos da empresa. Exigências do edital."
+
+### Limites de mensagem (REGRA DURA da marca, vale para toda peça)
+
+O material de produto disponível são **oito capturas de tela de set/2026**. Elas provam interface, não execução. **Não há clientes, pessoas testando, piloto nem resultado medido.**
+
+- **Pode dizer** (com esse limite): a interface oferece envio de arquivos para iniciar um trabalho; licitações aparecem com busca, filtros, decisão de participação e dados de análise; documentos da empresa têm categorias, descrições, processamento e validade; dados da empresa mostram fontes, divergências e edição; há análise estruturada do edital com referência a arquivo e página, pendências e sugestões; condições específicas e prazos aparecem associados ao edital.
+- **Não pode afirmar**: garantia de vitória, habilitação automática ou garantida, conformidade jurídica, eliminação de erros, precisão total, integração com todos os portais (PNCP incluído), horas economizadas, aumento percentual, retorno financeiro, número de clientes, depoimento, logotipo de cliente. **Resultado da Profissio.ai não é resultado da Licit.**
+- **Não anunciar** como disponível: captura e download automático de edital, geração de anexos, proposta, curva ABC, cronograma, protocolo em portal, verificação de concorrentes, montagem de defesa. O módulo de inteligência de mercado é de uso dos sócios e fica fora de qualquer oferta.
+- **Estados não são sinônimos**: "processado" (etapa técnica), "citação validada" (uma referência), "revisado" (ação da equipe) e "requisito atendido" são coisas diferentes.
+- Tabela pronta de **escrever/evitar** em `design-system/fonte/Comunicacao_Licit.md`. Na dúvida, ler `design-system/fonte/Preparacao_Site_e_Apresentacao.md`.
+
+### Identidade visual ("Floresta Tech")
+
+- **Paleta aprovada**: Floresta `#243D32`, Grafite `#101218`, Acento `#A8F27A`, Superfície `#F4F6F9`, Branco `#FFFFFF`, Apoio `#59616E`. Preto `#000000` só no degradê da estrela. **Tema padrão: escuro.**
+- **Contraste que decide composição**: acento sobre grafite 13,95:1 e sobre floresta 8,75:1 (texto e destaque); **acento sobre branco 1,34:1, nunca como texto em fundo claro**; floresta sobre grafite 1,59:1, só superfície. Em fundo claro o destaque é a floresta.
+- **Tipografia**: **Sora** (SIL OFL 1.1, `assets/fonts/`), títulos **500**, corpo **400**, **600** só em ênfase pontual; tracking do título `-0.035em`. Nada de display caps.
+- **Três assinaturas, cada uma com seu papel**: (1) institucional, **Profissio Licit com o P oficial**, sem estrela; (2) produto, **estrela + Licit**; (3) ícone, avatar e favicon, **estrela isolada**. Nunca P + estrela juntos, nunca o P isolado como ícone da Licit. Usar sempre os SVG de `assets/marca/logos/`; nunca redigitar o nome nem redesenhar a estrela. Área livre de 1/4 da altura. Em fundo escuro, versão branca; o degradê (preto para floresta) é só da estrela e só em fundo claro.
+- **A estrela não é selo**: não usar como estado de sucesso, certificação, vínculo com governo ou garantia.
+- **Fundos**: plano chapado onde há leitura; geometria discreta (grade técnica, planos, topografia, arcos) só em área de marca. Os dez fundos do kit estão em `assets/marca/fundos/`. **Sem brilho difuso, sem textura atrás de dado.**
+- **Motion do sistema**: 120, 180 e 240 ms, curva `cubic-bezier(0.2, 0, 0, 1)`. Ritmo sóbrio.
+- **Design System**: ver a seção "Design System" abaixo.
+
+## PENDENTES (o que ainda bloqueia ou limita)
+
+- **CTA e destino**: não definidos. O kit diz que a ação de contato depende de disponibilidade, oferta e canal, ainda em aberto. **Sem CTA oficial, a peça fecha na categoria** ("IA para licitação de Obras"), sem convite para comprar, testar ou agendar.
+- **Disponibilidade, preço, implantação e suporte**: em aberto. Nada disso entra em texto público por inferência.
+- **Site**: o kit de 29/09 registra que o site **não tinha sido construído**. O usuário citou "o que foi usado para criar o site" em 09/nov: perguntar se o site existe hoje e qual é o endereço.
+- **Demonstração atual do produto**: só há as capturas de setembro (não estão no Drive da identidade). Peça que mostre tela precisa de captura atual.
+- **Pronúncia da marca em TTS**: confirmar antes da primeira locução ("Licit" como lícit, licít ou em inglês?).
+- **Voz ElevenLabs**: voice_id, modelo e parâmetros próprios.
+- **Pilares de conteúdo e frequência**: proposta no `FRAMEWORK.md`, a validar.
+- **Referência `@licitacertabr`** (indicada pelo usuário em 09/nov como SaaS mais simples e com bom MRR): **não foi possível ler**. O Instagram não entrega perfil sem login e não há `META_ACCESS_TOKEN`. Rotas: cadastrar o token (a Graph API lê conta Business de terceiro) ou o usuário mandar prints ou gravação de tela dos reels.
+- **Licença do Remotion**: confirmar o enquadramento da empresa antes de usar em produção.
 
 ## Regras que valem em qualquer resposta pública (herdadas do grupo, confirmadas pelo usuário nos estúdios irmãos)
 
@@ -31,7 +63,7 @@ Este repositório é o **Profissio Licit Conteúdo Studio**: criação, edição
 
 - Estúdio: este repo (symlink `~/licit-conteudo` aponta para cá). Projetos em `projects/<nome>/`.
 - Ferramentas: `video-use` e `hyperframes` clonados em `/workspace/browser-use/` e `/workspace/heygen-com/` (Linux/cloud) ou `~/video-editor/` (Mac). Skills registradas em `~/.claude/skills/`.
-- **Remotion**: composições versionadas em `remotion/` (React/TS); `node_modules` fora do git, instalado pelo `setup.sh`. `npm run studio` abre o editor, `npx remotion render src/index.ts <Composicao> saida.mp4` renderiza. Prontos: `Fundo` (fundo padrão) e `CartaoTitulo`, com `marca.ts` guardando os tokens.
+- **Remotion**: composições versionadas em `remotion/` (React/TS); `node_modules` fora do git, instalado pelo `setup.sh`. `npm run studio` abre o editor, `npx remotion render src/index.ts <Composicao> saida.mp4` renderiza. Prontos: `Fundo` (grade técnica da marca) e `CartaoTitulo` (molde dos modelos sociais do kit), com `marca.ts` guardando os tokens e a Sora embutida em `public/`.
 - Ambiente novo (container limpo): `bash scripts/setup.sh` e depois `bash scripts/validate.sh`. **Em sessão nova, conferir `ls /workspace` antes de contar com video-use ou hyperframes**; se estiver vazio, rodar o `setup.sh` à mão.
 - **Campo de setup script do environment: nunca caminho relativo.** O comando de boot roda com o diretório de trabalho no **pai** do repo, então `bash scripts/setup.sh` falha com `No such file or directory` (exit 127) e a sessão nasce sem `/workspace` e sem skills. Versão à prova de diretório, a mesma dos estúdios irmãos (aqui terminando em `exit 0`, para um repo sem `setup.sh` não impedir a sessão de nascer):
   ```bash
@@ -51,7 +83,7 @@ Ferramenta é genérica, marca não é. Os scripts vieram do `profecia-conteudo`
 | `scripts/gera_imagem.py` | Gera imagem pela OpenAI ou pelo Gemini, mesma interface; aceita anexos de referência (`--ref`, só OpenAI). Chaves **só** por variável de ambiente (recusa chave por argumento) |
 | `scripts/sobe_para_drive.py` | Sobe arquivos para uma pasta do Drive com token de acesso |
 | `scripts/instagram_analisa.py` | Lê conta Business/Criador ou hashtag do Instagram pela Graph API da Meta (`business_discovery`). Token **só** por `META_ACCESS_TOKEN` |
-| `remotion/` | Composições React (`CartaoTituloVertical`, `CartaoTituloQuadrado`). Tokens em `src/marca.ts`, fundo em `src/Fundo.tsx`, texto de exemplo em `src/Root.tsx` |
+| `remotion/` | Composições React (`CartaoTituloVertical` 9:16, `CartaoTituloRetrato` 4:5, `CartaoTituloQuadrado`), com props `tema` (`escuro`, `floresta`, `claro`) e `assinatura` (`institucional`, `produto`). Tokens em `src/marca.ts` (espelho do `licit-tokens.json`), fundo de grade técnica em `src/Fundo.tsx`, Sora embutida por `src/fontes.ts`, logos em `public/` |
 | `.claude/skills/watch/` | Skill `/watch`: o agente assiste um vídeo inteiro, com som (ver seção abaixo) |
 | `assets/sfx/` | Biblioteca de sons de UI do grupo (15 arquivos, brand-neutral, custo zero). Trilha musical é própria por peça |
 
@@ -64,25 +96,24 @@ Ferramenta é genérica, marca não é. Os scripts vieram do `profecia-conteudo`
 Vive em `.claude/skills/watch/`, copiado sem edição do `bradautomates/claude-video` v0.3.2 (MIT), pela cópia já revisada do `profecia-conteudo`. Procedência, revisão de segurança e como atualizar: `.claude/skills/watch/PROCEDENCIA.md` (os testes de ambiente citados lá foram feitos no environment do Profecia).
 
 - **Para que serve**: conferir peça renderizada antes de agendar. Um frame extraído com ffmpeg não pega erro de digitação no meio do card, corte torto nem áudio ausente; o `/watch` assiste o vídeo inteiro com som.
-- **Motor padrão: gemini**, fixado em `~/.config/watch/.env` pelo `setup.sh`. Precisa da `GEMINI_API_KEY` no environment (**PENDENTE**).
+- **Motor padrão: gemini**, fixado em `~/.config/watch/.env` pelo `setup.sh`. Usa a `GEMINI_API_KEY` do environment.
 - **O motor gemini manda o vídeo para o Google.** Bruto de cliente e peça não publicada só sobem com o usuário autorizando na hora. Material sensível: `--engine local`.
 - **Decupagem continua no `decupar.py`** com o Scribe da ElevenLabs, que dá timestamp por palavra.
 - `.claude/settings.json` libera `setup.py` e `watch.py` de prompt de permissão.
 
 ## IDs e contas (verificado em 09/nov/2026)
 
-- **Metricool**: conta `suporte@profissio.ai`. O `getBrandSettings` devolve **só duas marcas**: "Profissio.ai" (blog_id 6736175) e "Profec.ia" (blog_id 7027080). **Não há marca da Profissio Licit: PENDENTE criar/conectar no painel** e registrar aqui o blog_id, o timezone e os perfis. **Nunca agendar peça do Licit nos blog_ids acima.**
-- **Chaves de API: nenhuma cadastrada.** O environment `licit-conteudo` nasceu sem variáveis (`printenv | grep -c API_KEY` devolve 0). Cadastrar **nas variáveis do environment**, nunca em arquivo do repo e nunca no chat:
-  - `ELEVENLABS_API_KEY` (`sk_...`, 51 caracteres): TTS, STT (Scribe), `sound-generation` e Eleven Music (`POST /v1/music`, até 600s, para trilhas; `sound-generation` fica para SFX).
-  - `OPENAI_API_KEY` e `GEMINI_API_KEY`: geração de imagem (`scripts/gera_imagem.py`); a do Gemini também move o `/watch`.
-  - `META_ACCESS_TOKEN` (opcional): Graph API da Meta para o `instagram_analisa.py`. Expira; `code 190` quer dizer renovar.
-  - Variável nova só aparece em **sessão nova**. Chave válida não significa quota: no Gemini, `429` com `quotaId: ...-FreeTier` quer dizer que o projeto da chave não está no faturamento (ler o campo `details` do erro).
+- **Metricool**: marca **"Profissio Licit", blog_id `7994045`**, timezone `America/Sao_Paulo`, conta `suporte@profissio.ai` (a mesma das marcas Profissio.ai, 6736175, e Profec.ia, 7027080: **conferir o blog_id em toda chamada**). Criada pelo usuário em 09/nov/2026. Redes conectadas: Instagram **`@profissio.licit`**, LinkedIn `urn:li:organization:146949785`, TikTok **`@profissio.licit`**. Sem Facebook e sem YouTube. Sem histórico: medir horário com `getBestTimeToPostByNetwork` quando houver.
+- **Chaves de API** (cadastradas pelo usuário em 09/nov/2026, visíveis na sessão seguinte): `ELEVENLABS_API_KEY`, `OPENAI_API_KEY` e `GEMINI_API_KEY` presentes. **`META_ACCESS_TOKEN` ausente** (Graph API da Meta, para o `instagram_analisa.py`). Chaves só nas variáveis do environment, nunca em arquivo do repo nem no chat. Variável nova só aparece em sessão nova. Chave válida não significa quota: no Gemini, `429` com `quotaId: ...-FreeTier` quer dizer que o projeto da chave não está no faturamento.
+  - ElevenLabs: chave `sk_` de 51 caracteres, conferida em 09/nov/2026: `/v1/voices` responde 200; `/v1/user` responde 401, ou seja **sem `user_read`** (não dá para checar saldo antes de um lote, igual aos irmãos). TTS, STT (Scribe), `sound-generation` e Eleven Music ainda não exercitados com esta chave.
+  - **O setup script do boot roda sem as variáveis do environment**, então o `.env` do video-use não nasce sozinho. O `validate.sh` propaga a chave quando roda dentro da sessão: **rodar `bash scripts/validate.sh` no começo de sessão que vá transcrever.**
+  - OpenAI e Gemini: `python3 scripts/gera_imagem.py --listar` lista os modelos de imagem das duas (conferido em 09/nov/2026). Geração de fato ainda não testada aqui.
 - **Kairogen** (B-roll por IA): nos irmãos a conta `suporte@profissio.ai` está no plano FREE com 0 créditos. Conferir com `get_me_context` antes de planejar B-roll.
-- **Google Drive**: pasta de brutos e pasta de marca da Profissio Licit **PENDENTES**.
+- **Google Drive**: pasta de marca `1FkVIaQhBfkrSXu6ImNCRZrELUCWZVuaV` ("01_Profissio_Licit_Identidade_Atual", 13 subpastas; a `99_Historico` não foi lida). O link do usuário traz `/u/2/`, que é a conta dele; por `curl` a pasta abre sem login. Pasta de brutos: **PENDENTE**.
 
 ## Rede do environment (verificado em 09/nov/2026)
 
-Environment **`licit-conteudo`**, network **sem restrição** (diferente dos irmãos, que usam Custom com allowlist). Sem variáveis. O setup script (versão à prova de diretório, ver "Working dirs") foi gravado no environment em 09/nov/2026 e ainda não foi provado em boot de container novo. Consequências:
+Environment **`licit-conteudo`**, network **sem restrição** (diferente dos irmãos, que usam Custom com allowlist). O setup script (versão à prova de diretório, ver "Working dirs") foi gravado no environment em 09/nov/2026 e **provado no mesmo dia**: a sessão seguinte nasceu com `/workspace` e as skills. Consequências:
 
 - O `apt` pode funcionar aqui; o `setup.sh` tenta o apt e cai para o ffmpeg estático do GitHub Releases se precisar.
 - Os gotchas de allowlist abaixo **só passam a valer se a rede for trocada para Custom**. Ficam registrados porque é o padrão do grupo. Hosts que o cinto exige nesse caso (a allowlist é literal por subdomínio; `*.dominio.com` para site inteiro): `api.elevenlabs.io`, `api.openai.com`, `generativelanguage.googleapis.com`, `www.googleapis.com`, `drive.google.com`, `drive.usercontent.google.com`, `graph.facebook.com`, `pypi.org`, `files.pythonhosted.org`, `registry.npmjs.org`, `api.github.com` + GitHub Releases.
@@ -125,6 +156,15 @@ Referência técnica completa do grupo: `CLAUDE.md` do `suportezv/profissioai-co
 - **TikTok exige `tiktokData.title`.** Um post pode ir para Instagram, Facebook e TikTok de uma vez com `providers` + `instagramData {type: REEL, showReelOnFeed: true}` + `facebookData {type: REEL}` + `tiktokData {title}`.
 - **Instagram pela web não dá nada sem login**, mesmo com a rede liberada. Análise de feed: Graph API (`instagram_analisa.py`), exportação oficial da conta ou prints do usuário. Nunca pedir senha nem cookie de sessão.
 
+## Design System
+
+- **Fonte viva**: artifact **`https://claude.ai/artifact/1Cew4xmRADNpZi6aRve4MU`** (tipo Design System, "Profissio Licit"), criado em 09/nov/2026 a partir do Drive da marca, edição 1.1. **Não existia antes**: o que havia era o material do Drive (manual, tokens, CSS de componentes). O usuário perguntou se já havia um "usado para criar o site"; no Drive não há artefato de site, só a preparação dele.
+- **O que tem**: 33 cores em dois temas (escuro primeiro), 7 estilos de texto em Sora, espaçamento, raios, medidas, durações e camadas; brand book (`README.md`) e a seção `voz-e-limites.md`; 7 componentes com preview (`Botao`, `Selo`, `Requisito`, `Abas`, `Aviso`, `Assinaturas`, `ModeloSocial`) sobre o `licit-components.css` do kit; capa; 66 ativos em quatro grupos (Logos, Fundos, Icones, Favicon).
+- **Espelho**: `design-system/project/` é a cópia exata dos arquivos publicados. Para mudar: editar ali e republicar no mesmo artifact com `root` = `design-system/`. `design-system/fonte/` guarda os documentos do Drive de onde tudo saiu.
+- **Como usar**: paleta e tipografia **não se decidem por peça**, vêm dos tokens `licit-*`. `remotion/src/marca.ts` espelha os mesmos valores. Mudou a marca, muda no Design System primeiro, depois no Remotion.
+- **Não conferido**: a página publicada não foi aberta num navegador; os previews foram renderizados localmente nos dois temas, menos os dois que carregam logo do artefato (`Assinaturas`, `ModeloSocial`).
+
 ## Histórico de decisões
 
 - **09/nov/2026**: estúdio criado a pedido do usuário, "com as mesmas especificações" do `profissioai-conteudo` e do `profecia-conteudo`. Infra, cinto de ferramentas, biblioteca de SFX, skill `/watch` e gotchas herdados; **marca 100% PENDENTE**, sem herdar nada dos irmãos, como manda o `PORTAR.md`. Base do porte: a branch de trabalho do Profecia (a mais nova do grupo), não a `main` dele, que está parada em 18/set. Remotion entra com tokens neutros provisórios e nomes de token sem cor de marca (`acento`, `mancha1..4`, `fundo`, `tinta`). Caminho do `headless_shell` passou a ser resolvido em tempo de execução. `setup.sh` rodou os 6 passos com código 0 e o `validate.sh` ficou verde em tudo, menos na chave da ElevenLabs, que ainda não existe. Conferido no mesmo dia: Metricool sem marca do Licit, environment sem chaves e sem setup script.
+- **09/nov/2026 (segunda sessão)**: o usuário cadastrou as chaves, criou a marca no Metricool (blog_id 7994045) e apontou a pasta de identidade no Drive. **Marca lida na fonte e registrada**: categoria, descrição institucional, público, voz, limites de mensagem, paleta Floresta Tech, Sora e as três assinaturas. Logos, fundos, favicon e a Sora entraram em `assets/`; tokens e diretrizes espelhados em `design-system/fonte/`. O Remotion trocou o provisório cinza pela identidade real (três temas, duas assinaturas, três formatos). Correção do `headless_shell` levada aos irmãos por PR: `suportezv/profissioai-conteudo#3` e `suportezv/profecia-conteudo#4`. A referência `@licitacertabr` não pôde ser lida (login do Instagram, sem token da Meta).

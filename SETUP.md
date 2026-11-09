@@ -19,8 +19,8 @@ Configura-se no seletor de nuvem acima da caixa de mensagem em claude.ai/code. E
 | Item | Estado em 09/nov/2026 | O que fazer |
 |---|---|---|
 | Rede | Sem restrição | Nada. Se trocar para Custom, liberar os hosts listados no `CLAUDE.md` |
-| Setup script | Gravado em 09/nov/2026 (versão à prova de diretório abaixo) | Conferir `ls /workspace` na primeira sessão nova: ainda não foi provado em boot real |
-| Variáveis | Nenhuma | Cadastrar as chaves abaixo |
+| Setup script | Gravado em 09/nov/2026 (versão à prova de diretório abaixo) | Provado: a sessão seguinte nasceu com `/workspace` e as skills |
+| Variáveis | `ELEVENLABS_API_KEY`, `OPENAI_API_KEY` e `GEMINI_API_KEY` cadastradas | Falta só `META_ACCESS_TOKEN`, se for analisar Instagram |
 
 Setup script (nunca `bash scripts/setup.sh`, que é caminho relativo e falha no boot):
 
@@ -39,13 +39,13 @@ Variáveis de ambiente (cadastrar no environment; nunca no repo, nunca no chat; 
 
 ## Conectores (cada um exige ação do usuário)
 
-- **Metricool**: conectado pela conta `suporte@profissio.ai`, mas **sem marca da Profissio Licit**. Criar a marca no painel, conectar as redes e registrar o blog_id no `CLAUDE.md`.
-- **Google Drive**: conector oficial + pastas de brutos e de marca com "qualquer pessoa com o link: leitor". Pastas **PENDENTES**.
+- **Metricool**: marca **"Profissio Licit", blog_id 7994045**, na conta `suporte@profissio.ai`. Instagram, LinkedIn e TikTok conectados.
+- **Google Drive**: conector oficial + pastas de brutos e de marca com "qualquer pessoa com o link: leitor". Pasta de marca apontada (`1FkVIaQhBfkrSXu6ImNCRZrELUCWZVuaV`); pasta de brutos **PENDENTE**.
 - **Kairogen** (B-roll por IA): conferir plano e créditos com `get_me_context`.
 
 ## Validação final
 
-1. `bash scripts/validate.sh` verde nos itens 1, 2, 4, 5 e 6. O item 3 fica PENDENTE até a `ELEVENLABS_API_KEY` existir.
+1. `bash scripts/validate.sh` verde nos itens 1, 2, 4, 5 e 6. O item 3 fica verde depois que o `setup.sh` propaga a chave para o `.env` do video-use.
 2. `python3 scripts/gera_imagem.py --listar` responde nas duas chaves.
 3. Metricool: `getBrandSettings` lista a marca da Profissio Licit.
 4. Memória persistente: `CLAUDE.md` deste repo.
