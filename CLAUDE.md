@@ -6,6 +6,21 @@ Este repositório é o **Profissio Licit Conteúdo Studio**: criação, edição
 
 > **Nada se herda dos irmãos.** Posicionamento, persona, paleta, CTA e voz da Profissio.ai e do Profecia não valem aqui. O que não está confirmado é **PENDENTE**: perguntar ou ler na fonte, nunca inventar. E aqui há uma regra a mais, que vem do próprio material de marca: **a Licit só afirma o que tem evidência** (seção "Limites de mensagem").
 
+## O site prevalece no posicionamento (lido em 09/nov/2026, `profissiolicit.ai`)
+
+O site está no ar e é **mais novo e mais amplo** que o kit de identidade de 29/09 registrado na seção seguinte. **Onde os dois divergem, vale o site para posicionamento, público e CTA; o kit continua valendo para identidade visual, assinaturas e voz.** O usuário ainda não confirmou essa leitura por escrito: confirmar antes da primeira peça pública.
+
+- **Título e promessa**: "Licit | Toda a sua operação de licitações". "Venda para o governo. Saiba o que fazer em cada etapa." "A próxima licitação não precisa começar do zero." Um produto Profissio.
+- **Escopo**: "Produtos, serviços e obras. Todos os setores." **Não é mais só obras**: a categoria "IA para licitação de Obras" do kit é o texto dos modelos sociais de setembro e do rodapé padrão do `CartaoTitulo`; **confirmar se ainda vale** antes de publicar com ela.
+- **Cinco etapas**: Encontre (oportunidades do PNCP cruzadas com o CNPJ), Analise (requisitos, documentos, prazos, pergunta ao edital com referência de página), Prepare (certidões com validade e aviso, proposta, "você preenche os preços"), Acompanhe (tarefas com responsável e prazo, sessão), Confira (resultado do PNCP junto do histórico).
+- **Dois públicos, declarados**: "Vai disputar sua primeira licitação?" (começa pelo CNPJ, sem dominar o processo) e "Já tem equipe ou assessoria?" (operação no mesmo ambiente). O kit priorizava só quem já licita.
+- **CTAs do site** (usar estes): "Descobrir oportunidades grátis", "Consulta grátis pelo CNPJ. Sem criar uma conta.", "Já tem um edital? Comece por ele.", "Fale com a Licit", "Começar", "Conheça a operação na Licit".
+- **Exemplo oficial**: fornecimento de equipamentos de informática, São José dos Campos, R$ 480.000, entrega em 30 dias (edital, p. 25), garantia de 12 meses (p. 26), certidão FGTS vence em 15 nov, 2º lugar, homologado R$ 426.000, proposta R$ 438.000.
+- **Blog**: "Licitações na prática", com um artigo: "Como o governo compra: do planejamento ao pagamento" (12 min, `/blog/como-o-governo-compra`).
+- **É protótipo público**: "Consulta de empresa, oportunidades, autenticação e análise usam cenários de demonstração." Nenhum cadastro, envio comercial ou pagamento é realizado. Os números do topo (2.847 licitações abertas, R$ 12,8 bi) são do cenário de demonstração: **não citar como dado real**. Continua valendo do kit: **sem clientes, sem depoimento, sem resultado medido, sem promessa de vitória.**
+- O bloco de Instagram do site mostra `@profissio.licit` com 0 publicações.
+- **Documentos de transferência do formato**, enviados pelo usuário em 09/nov: `referencias/PORTAR-LICIT.md` (editoria "Por Dentro da Licitação", portada da produção da Porcin.IA) e `referencias/PADRAO-DESMONTANDO.md` (estudo do @desmontandoomundo; **nome interno, não usar em público**).
+
 ## A marca: o que é a Profissio Licit (lido do Drive da marca em 09/nov/2026, edição 1.1 de 29/09/2026)
 
 Fonte primária: pasta **"01_Profissio_Licit_Identidade_Atual"** no Drive, id `1FkVIaQhBfkrSXu6ImNCRZrELUCWZVuaV` (pública por link). O que importa para conteúdo está espelhado em `design-system/fonte/` e os ativos em `assets/marca/`.
@@ -42,9 +57,9 @@ O material de produto disponível são **oito capturas de tela de set/2026**. El
 
 ## PENDENTES (o que ainda bloqueia ou limita)
 
-- **CTA e destino**: não definidos. O kit diz que a ação de contato depende de disponibilidade, oferta e canal, ainda em aberto. **Sem CTA oficial, a peça fecha na categoria** ("IA para licitação de Obras"), sem convite para comprar, testar ou agendar.
+- **CTA e destino**: o site traz os CTAs (seção "O site prevalece"). Em aberto: qual vira o padrão das redes e para onde aponta o link da bio, já que o site ainda é protótipo.
 - **Disponibilidade, preço, implantação e suporte**: em aberto. Nada disso entra em texto público por inferência.
-- **Site**: o kit de 29/09 registra que o site **não tinha sido construído**. O usuário citou "o que foi usado para criar o site" em 09/nov: perguntar se o site existe hoje e qual é o endereço.
+- **Editorias**: proposta feita em 09/nov, aguardando decisão do usuário. Registrar aqui e no `FRAMEWORK.md` quando fechar.
 - **Demonstração atual do produto**: só há as capturas de setembro (não estão no Drive da identidade). Peça que mostre tela precisa de captura atual.
 - **Pronúncia da marca em TTS**: confirmar antes da primeira locução ("Licit" como lícit, licít ou em inglês?).
 - **Voz ElevenLabs**: voice_id, modelo e parâmetros próprios.
