@@ -82,7 +82,7 @@ Vive em `.claude/skills/watch/`, copiado sem edição do `bradautomates/claude-v
 
 ## Rede do environment (verificado em 09/nov/2026)
 
-Environment **`licit-conteudo`**, network **sem restrição** (diferente dos irmãos, que usam Custom com allowlist). Sem variáveis e, na criação do estúdio, sem setup script. Consequências:
+Environment **`licit-conteudo`**, network **sem restrição** (diferente dos irmãos, que usam Custom com allowlist). Sem variáveis. O setup script (versão à prova de diretório, ver "Working dirs") foi gravado no environment em 09/nov/2026 e ainda não foi provado em boot de container novo. Consequências:
 
 - O `apt` pode funcionar aqui; o `setup.sh` tenta o apt e cai para o ffmpeg estático do GitHub Releases se precisar.
 - Os gotchas de allowlist abaixo **só passam a valer se a rede for trocada para Custom**. Ficam registrados porque é o padrão do grupo. Hosts que o cinto exige nesse caso (a allowlist é literal por subdomínio; `*.dominio.com` para site inteiro): `api.elevenlabs.io`, `api.openai.com`, `generativelanguage.googleapis.com`, `www.googleapis.com`, `drive.google.com`, `drive.usercontent.google.com`, `graph.facebook.com`, `pypi.org`, `files.pythonhosted.org`, `registry.npmjs.org`, `api.github.com` + GitHub Releases.

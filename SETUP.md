@@ -19,7 +19,7 @@ Configura-se no seletor de nuvem acima da caixa de mensagem em claude.ai/code. E
 | Item | Estado em 09/nov/2026 | O que fazer |
 |---|---|---|
 | Rede | Sem restrição | Nada. Se trocar para Custom, liberar os hosts listados no `CLAUDE.md` |
-| Setup script | Proposto na criação do estúdio | Conferir que o campo traz a versão à prova de diretório abaixo |
+| Setup script | Gravado em 09/nov/2026 (versão à prova de diretório abaixo) | Conferir `ls /workspace` na primeira sessão nova: ainda não foi provado em boot real |
 | Variáveis | Nenhuma | Cadastrar as chaves abaixo |
 
 Setup script (nunca `bash scripts/setup.sh`, que é caminho relativo e falha no boot):
