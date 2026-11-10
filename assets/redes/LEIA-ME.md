@@ -9,8 +9,12 @@ Gerado por `projects/02-perfis-redes/gera.py` (HTML + Chromium). A estrela é o 
 | `linkedin-logo.png` (e `@2x`) | Logo da página de empresa | 400x400 PNG (recomendado; mínimo 268x268) |
 | `linkedin-capa@2x.png` | Capa da página de empresa | 2256x382 (proporção do 1128x191 recomendado, em 2x para ficar nítida) |
 | `linkedin-capa-lancamento@2x.png` | Capa durante a oferta, até 19/dez | idem; trocar pela `linkedin-capa` em 20/dez |
+| `facebook-avatar.png` | Foto da página do Facebook | 1080x1080 PNG, recorte em círculo (mínimo 170x170) |
+| `facebook-capa.png` | Capa da página do Facebook | 1640x924 PNG: o computador mostra 820x312 (faixa central, corta 150 px em cima e embaixo) e o celular mostra 640x360 (a largura toda). Texto e estrela ficam na faixa central |
+| `facebook-capa-lancamento.png` | Capa durante a oferta, até 19/dez | idem; trocar pela `facebook-capa` em 20/dez |
 | `destaque-*.png` | Capas dos destaques do Instagram | 1080x1920; o perfil mostra o círculo central |
 
 - Instagram e TikTok não têm capa de perfil; no Instagram o que faz esse papel são os destaques.
 - Na capa do LinkedIn o texto começa em 252 px (escala 1x) para não ficar sob o logo, que cobre o canto inferior esquerdo no desktop.
-- Cada rede tem cor própria: Instagram em verde-limão com estrela grafite, TikTok em grafite com estrela limão girada, LinkedIn em floresta com estrela branca.
+- No Facebook o texto fica no alto da faixa central, porque a foto da página cobre o canto inferior esquerdo da capa no computador e no celular.
+- Cada rede tem cor própria: Instagram em verde-limão com estrela grafite, TikTok em grafite com estrela limão girada, LinkedIn em floresta com estrela branca, Facebook em superfície clara com a estrela no degradê oficial (o único fundo claro do pack).

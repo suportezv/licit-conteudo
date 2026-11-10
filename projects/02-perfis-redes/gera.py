@@ -121,4 +121,33 @@ balao = (f'<path d="M{CX-240} {CY-190} h480 a50 50 0 0 1 50 50 v260 a50 50 0 0 1
          + TXT("?", ACE, 260, dy=-12))
 destaque("perguntas", GRA, f'<g transform="translate({CX} {CY-20}) scale(1.25) translate({-CX} {-CY})">{balao}</g>', SUP)
 
+
+# ---------- Facebook (pagina) ----------
+# Capa: 820x312 no computador e 640x360 no celular. Arte em 1640x924: o computador
+# mostra a faixa central de 1640x624 (corta 150 px em cima e embaixo) e o celular
+# mostra a largura toda. Texto e estrela ficam dentro da faixa central.
+FW, FH = 1640, 924
+CSS_FB = """
+.txt{position:absolute;left:150px;top:222px;display:flex;flex-direction:column;gap:26px}
+h1{font-weight:500;font-size:86px;line-height:1.06;letter-spacing:-0.035em}
+p{font-weight:400;font-size:30px;line-height:1.3}
+.pil{display:inline-block;padding:0 26px 8px;border-radius:999px;margin-left:4px}
+"""
+def painel_fb(cor, cor_arco, op):
+    pts = f"1040,{FH} 1230,0 {FW},0 {FW},{FH}"
+    return (f'<clipPath id="pf"><polygon points="{pts}"/></clipPath><polygon points="{pts}" fill="{cor}"/>'
+            f'<g clip-path="url(#pf)">{arcos(1420, 462, 150, 70, 12, cor_arco, op, 2)}</g>')
+peca("facebook-capa", FW, FH, pagina(FW, FH, GRA,
+     grade(FW, FH, 48, SUP, .045, 1.5) + painel_fb(FLO, ACE, .14) + estrela(1420, 462, 760, ACE, rot=-8),
+     f"""<div class="txt"><h1 style="color:{SUP}">Toda a sua operação<br>de <span class="pil" style="background:{ACE};color:{GRA}">licitações</span></h1>
+<p style="color:#B8C5BC">Venda para o governo. Saiba o que fazer em cada etapa.</p></div>""", CSS_FB))
+peca("facebook-capa-lancamento", FW, FH, pagina(FW, FH, ACE,
+     painel_fb(GRA, ACE, .16) + estrela(1420, 462, 760, ACE, rot=-8),
+     f"""<div class="txt"><h1 style="color:{GRA}">30 dias para usar<br>a Licit. Sem cartão.</h1>
+<p style="color:#1F3A2C">Para quem começa até 19 de dezembro. <b style="font-weight:600">profissiolicit.ai</b></p></div>""", CSS_FB))
+# Avatar do Facebook: o unico em fundo claro, com a estrela no degrade oficial (preto para floresta).
+GRAD = '<defs><linearGradient id="dg" gradientUnits="userSpaceOnUse" x1="188" y1="812" x2="812" y2="188"><stop offset="0" stop-color="#000000"/><stop offset="1" stop-color="#243D32"/></linearGradient></defs>'
+peca("facebook-avatar", A, A, pagina(A, A, SUP,
+     GRAD + arcos(0, 0, 240, 70, 12, FLO, .10) + estrela(540, 540, 600, "url(#dg)")))
+
 json.dump(PECAS, open(HTML / "pecas.json", "w"), indent=1)
