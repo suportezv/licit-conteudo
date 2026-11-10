@@ -6,10 +6,11 @@ import { marca, ui } from "./marca";
  * da licitacao de informatica). `p` de 0 a 1 revela as linhas em sequencia:
  * 1 nas pecas estaticas, animado no video.
  */
-const aparece = (p: number, i: number, n: number) => {
-  const ini = (i / n) * 0.85;
-  const v = Math.max(0, Math.min(1, (p - ini) / 0.22));
-  return { opacity: v, transform: `translateY(${(1 - v) * 22}px)` };
+// `p` conta quantas linhas ja entraram: 0 nada, 1 a primeira, 2.5 a terceira pela metade.
+// No video cada linha soma a sua propria entrada, no tempo exato do efeito sonoro.
+const aparece = (p: number, i: number, _n?: number) => {
+  const v = Math.max(0, Math.min(1, p - i));
+  return { opacity: v, transform: `translateY(${(1 - v) * 26}px) scale(${0.96 + 0.04 * v})` };
 };
 
 export const Cartao: React.FC<{ children: React.ReactNode; largura?: number; giro?: number; estilo?: React.CSSProperties }> = ({
@@ -71,7 +72,7 @@ const Rotulo: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   </div>
 );
 
-export const MockBusca: React.FC<{ p?: number }> = ({ p = 1 }) => (
+export const MockBusca: React.FC<{ p?: number }> = ({ p = 99 }) => (
   <>
     <div style={{ display: "flex", gap: 16, ...aparece(p, 0, 3) }}>
       <div
@@ -101,7 +102,7 @@ export const MockBusca: React.FC<{ p?: number }> = ({ p = 1 }) => (
   </>
 );
 
-export const MockChat: React.FC<{ p?: number }> = ({ p = 1 }) => (
+export const MockChat: React.FC<{ p?: number }> = ({ p = 99 }) => (
   <>
     <Rotulo>Pergunte ao edital</Rotulo>
     <div style={{ display: "flex", justifyContent: "flex-end", ...aparece(p, 0, 3) }}>
@@ -146,7 +147,7 @@ const Marca: React.FC<{ ok: boolean }> = ({ ok }) => (
   </div>
 );
 
-export const MockChecklist: React.FC<{ p?: number }> = ({ p = 1 }) => {
+export const MockChecklist: React.FC<{ p?: number }> = ({ p = 99 }) => {
   const itens: [string, string, "sucesso" | "aviso" | "neutro", boolean][] = [
     ["Cartão CNPJ", "Já salvo", "sucesso", true],
     ["Certidão FGTS", "Vence em 15 nov", "aviso", false],
@@ -176,7 +177,7 @@ export const MockChecklist: React.FC<{ p?: number }> = ({ p = 1 }) => {
   );
 };
 
-export const MockTarefas: React.FC<{ p?: number }> = ({ p = 1 }) => {
+export const MockTarefas: React.FC<{ p?: number }> = ({ p = 99 }) => {
   const itens: [string, string, string, string, string][] = [
     ["15", "NOV", "Renovar a certidão FGTS", "Ana", "#243D32"],
     ["19", "NOV", "Entregar a proposta até 10:00", "Carlos", "#274F83"],
@@ -209,7 +210,7 @@ export const MockTarefas: React.FC<{ p?: number }> = ({ p = 1 }) => {
   );
 };
 
-export const MockResultado: React.FC<{ p?: number }> = ({ p = 1 }) => (
+export const MockResultado: React.FC<{ p?: number }> = ({ p = 99 }) => (
   <>
     <Rotulo>Resultado publicado no PNCP</Rotulo>
     <div style={{ display: "flex", alignItems: "center", gap: 36 }}>
@@ -230,7 +231,7 @@ export const MockResultado: React.FC<{ p?: number }> = ({ p = 1 }) => (
               <span style={{ fontWeight: 600 }}>{v}</span>
             </div>
             <div style={{ height: 20, borderRadius: 10, background: ui.elevado }}>
-              <div style={{ height: 20, borderRadius: 10, width: `${w * 100 * Math.min(1, p * 1.2)}%`, background: cor }} />
+              <div style={{ height: 20, borderRadius: 10, width: `${w * 100 * Math.max(0, Math.min(1, p - 1 - i * 0.5))}%`, background: cor }} />
             </div>
           </div>
         ))}

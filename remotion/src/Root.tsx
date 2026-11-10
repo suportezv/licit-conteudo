@@ -57,7 +57,7 @@ export const RemotionRoot: React.FC = () => (
     ))}
     {/* Tela de carrossel 4:5: os dados de cada peca vem por --props. */}
     <Still id="Slide" component={Slide} width={1080} height={1350} defaultProps={SLIDE} />
-    {/* Filme de anuncio 9:16, 20 s. */}
-    <Composition id="Anuncio" component={Anuncio} durationInFrames={606} fps={30} width={1080} height={1920} defaultProps={ANUNCIO} />
+    {/* Filme de anuncio 9:16, 30 s (TL.total em Anuncio.tsx). */}
+    <Composition id="Anuncio" component={Anuncio} durationInFrames={900} fps={30} width={1080} height={1920} defaultProps={ANUNCIO} />
   </>
 );

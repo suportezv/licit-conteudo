@@ -190,7 +190,7 @@ export const Slide: React.FC<PropsSlide> = (p) => {
           {Mock ? (
             <div style={{ marginTop: 40, transform: "scale(0.9)", transformOrigin: "top left", width: 1013, height: 0 }}>
               <Cartao largura={1013} giro={p.giro ?? 0}>
-                <Mock p={1} />
+                <Mock />
               </Cartao>
             </div>
           ) : null}

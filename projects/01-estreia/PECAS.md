@@ -2,13 +2,13 @@
 
 Framework: **Remotion** (ver `FRAMEWORK.md`). Textos em `pecas.json`, render por `python3 projects/01-estreia/gera.py`, saída em `out/` (fora do git).
 
-**Situação: versão 2, aguardando aprovação do usuário. Nada agendado.**
+**Situação: carrosséis aprovados pelo usuário em 10/nov. Vídeo na versão 3, aguardando aprovação. Nada agendado.**
 
 Confirmado pelo usuário em 10/nov: a condição vale até **19 de dezembro**; o trial é **sem cartão** e, depois dos 30 dias, a contratação é pedida quando o usuário voltar a usar; o cadastro está funcionando.
 
 | # | Peça | Arquivos | Formato | Canais |
 |---|---|---|---|---|
-| 1 | Chegou a Licit | `anuncio-chegou-a-licit.mp4` | Vídeo 9:16, 20 s, trilha e efeitos, sem narração | Instagram (Reel), TikTok, LinkedIn |
+| 1 | Chegou a Licit | `anuncio-chegou-a-licit.mp4` | Vídeo 9:16, 30 s, trilha e efeitos, sem narração | Instagram (Reel), TikTok, LinkedIn |
 | 2 | Seu próximo contrato pode estar numa licitação que você não viu (as cinco etapas) | `etapas-01.png` a `etapas-07.png` | Carrossel 4:5, 7 telas | Instagram, LinkedIn |
 | 3 | 30 dias para usar a Licit (fixar) | `oferta-01.png` a `oferta-04.png` | Carrossel 4:5, 4 telas | Instagram, LinkedIn; TikTok como carrossel de fotos |
 
@@ -24,6 +24,16 @@ A versão 1 foi recusada pelo usuário: "muito clean, isso em rede social vai vi
 - **Vídeo com cenas que se sobrepõem**, a estrela girando na abertura, as telas se montando, o 30 contando e efeitos sonoros a cada entrada.
 
 O exemplo das telas (equipamentos de informática, São José dos Campos, R$ 480.000, 2º lugar) é o cenário ilustrativo do próprio site.
+
+## Vídeo, versão 3 (ajustes pedidos em 10/nov)
+
+O usuário pediu: tirar a travada por volta de 2 s, chegar a 30 s para dar tempo de ler, dar mais profundidade à virada dos cartões e sincronizar o surgimento dos elementos com os efeitos sonoros.
+
+- **Travada**: a abertura terminava de animar em 1,3 s e ficava parada até 2,4 s. Agora tudo tem movimento contínuo (a estrela segue girando, o título e as telas flutuam). Conferido quadro a quadro: nenhum trecho parado acima de 0,5 s.
+- **Tempo de leitura**: abertura 3,2 s, gancho 5,3 s (3 s parado depois da última linha), cada etapa 3,3 s, oferta 5 s.
+- **Profundidade**: as cenas viram como faces de um cubo, em 3D, com escurecimento e recuo de câmera no meio da virada. A tela do produto chega de longe, inclinada em três eixos.
+- **Sincronia**: uma linha do tempo única (`TL` em `remotion/src/Anuncio.tsx`) dispara o elemento e o som. Os efeitos foram aparados para soar no instante 0. Medido sem trilha: todo efeito começa a menos de um quadro (33 ms) do elemento, do início ao fim.
+- **Tique das linhas**: o da biblioteca sumia por baixo da trilha (25 dB abaixo); trocado por um tique de 1,85 kHz gerado para o filme (`remotion/public/sfx/tique.mp3`).
 
 ## Legendas
 
@@ -81,5 +91,5 @@ Vale para quem começa até 19 de dezembro. Link na bio.
 - Nenhuma promessa de vitória, número de clientes ou dado do cenário de demonstração do topo do site.
 - "A certidão vence antes da proposta? Você fica sabendo." descreve o aviso de validade que o site declara; não afirma efeito jurídico da certidão vencida.
 - Assinatura: institucional (Profissio Licit) nas capas e nos blocos de oferta, estrela + Licit nas telas internas.
-- Vídeo: 1080x1920, 30 fps, 20 s, master em torno de -14 LUFS.
+- Vídeo: 1080x1920, 30 fps, 30 s, master entre -14 e -16 LUFS.
 - O bloco verde cheio e as pílulas vão além do manual de marca, que pede o acento "contido". Decisão do usuário, registrada no `CLAUDE.md`.
