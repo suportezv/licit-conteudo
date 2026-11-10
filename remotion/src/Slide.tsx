@@ -126,7 +126,7 @@ export const Slide: React.FC<PropsSlide> = (p) => {
             right: -420,
             bottom: p.tipo === "numero" ? -330 : -480,
             opacity: t === "acento" ? 0.1 : 0.07,
-            transform: "rotate(12deg)",
+            
           }}
         />
       ) : null}

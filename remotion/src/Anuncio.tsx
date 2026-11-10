@@ -99,7 +99,7 @@ const Abertura: React.FC<{ texto: string }> = ({ texto }) => {
           width: 1500,
           left: width / 2 - 750,
           top: 260,
-          transform: `scale(${interpolate(s, [0, 1], [0.05, 1]) * interpolate(recua, [0, 1], [0.62, 1.3])}) rotate(${interpolate(s, [0, 1], [-140, 0]) + seg * 9}deg)`,
+          transform: `translateY(${interpolate(s, [0, 1], [220, 0])}px) scale(${interpolate(s, [0, 1], [0.05, 1]) * interpolate(recua, [0, 1], [0.62, 1.3])})`, // a estrela nunca gira: chega de longe
           opacity: interpolate(recua, [0, 1], [1, 0.1]),
         }}
       />
@@ -126,7 +126,7 @@ const Gancho: React.FC<{ texto: string }> = ({ texto }) => {
     <Cena t="floresta">
       <Img
         src={staticFile("estrela-licit-branco.svg")}
-        style={{ position: "absolute", width: 1500, right: -620, bottom: -260, opacity: 0.07, transform: `rotate(${12 + seg * 3}deg)` }}
+        style={{ position: "absolute", width: 1500, right: -620, bottom: -260, opacity: 0.07, transform: `translateY(${-seg * 6}px)` }}
       />
       <AbsoluteFill style={{ padding: `${TOPO}px ${M}px ${BASE}px`, justifyContent: "center" }}>
         <div style={{ transform: `scale(${1 + seg * 0.006})`, transformOrigin: "left center" }}>
@@ -222,7 +222,7 @@ const Oferta: React.FC<{ numero: number; texto: string; chips: string[]; acao: s
     <Cena t="acento">
       <Img
         src={staticFile("estrela-licit-preto.svg")}
-        style={{ position: "absolute", width: 1500, right: -560, bottom: -120, opacity: 0.1, transform: `rotate(${12 + seg * 3}deg)` }}
+        style={{ position: "absolute", width: 1500, right: -560, bottom: -120, opacity: 0.1, transform: `translateY(${-seg * 6}px)` }}
       />
       <Img src={staticFile("profissio-licit-preto.svg")} style={{ position: "absolute", left: M, top: TOPO, width: 420, opacity: T(O.conta, 0.4) }} />
       <AbsoluteFill style={{ padding: `${TOPO}px ${M}px ${BASE}px`, justifyContent: "center", color: c.texto }}>
