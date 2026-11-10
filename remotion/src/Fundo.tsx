@@ -8,7 +8,7 @@ import { Tema, tema } from "./marca";
  * sem ruido e sem movimento atras do texto: o manual pede superficie plana
  * onde ha leitura. A grade so respira de leve na opacidade.
  */
-export const Fundo: React.FC<{ variante?: Tema }> = ({ variante = "escuro" }) => {
+export const Fundo: React.FC<{ variante?: Tema; grade?: boolean }> = ({ variante = "escuro", grade = true }) => {
   const frame = useCurrentFrame();
   const { durationInFrames, width, height } = useVideoConfig();
   const c = tema(variante);
@@ -20,6 +20,7 @@ export const Fundo: React.FC<{ variante?: Tema }> = ({ variante = "escuro" }) =>
 
   return (
     <AbsoluteFill style={{ backgroundColor: c.fundo }}>
+      {grade ? (
       <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
         <defs>
           <linearGradient id="some" x1="0" x2="1" y1="0" y2="0">
@@ -39,6 +40,7 @@ export const Fundo: React.FC<{ variante?: Tema }> = ({ variante = "escuro" }) =>
           ))}
         </g>
       </svg>
+      ) : null}
     </AbsoluteFill>
   );
 };
