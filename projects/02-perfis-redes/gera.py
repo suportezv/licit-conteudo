@@ -19,10 +19,11 @@ ESTRELA_D = ("M 500 95 C 522 95 539 111 544 135 C 575 344 696 426 900 459 C 954 
              "M 646.736 473.126 A 149 149 0 0 1 376.456 582.319 C 457 523 552 489 646.736 473.126 Z")
 # Caixa da forma: x 59.5..940.5, y 95..904 -> centro (500, 499.5), 881 x 809.
 
-def estrela(cx, cy, larg, cor, rot=0, op=1):
-    """Estrela centrada em (cx, cy) com largura 'larg'."""
+def estrela(cx, cy, larg, cor, op=1):
+    """Estrela centrada em (cx, cy) com largura 'larg'. Sempre na posicao do SVG oficial:
+    a marca nao se gira (correcao do usuario, 10/nov/2026)."""
     s = larg / 881
-    return (f'<g transform="translate({cx} {cy}) rotate({rot}) scale({s}) translate(-500 -499.5)" opacity="{op}">'
+    return (f'<g transform="translate({cx} {cy}) scale({s}) translate(-500 -499.5)" opacity="{op}">'
             f'<path d="{ESTRELA_D}" fill="{cor}" fill-rule="evenodd"/></g>')
 
 def arcos(cx, cy, r0, passo, n, cor, op, larg=2):
@@ -63,7 +64,7 @@ peca("instagram-avatar", A, A, pagina(A, A, ACE,
      arcos(A, A, 260, 70, 12, FLO, .16) + estrela(540, 540, 600, GRA)))
 # TikTok: grafite, estrela verde-limao levemente girada, topografia em limao.
 peca("tiktok-avatar", A, A, pagina(A, A, GRA,
-     topografia(A, A, ACE, .10, n=12, passo=52, x0=.05) + estrela(540, 540, 600, ACE, rot=-8)))
+     topografia(A, A, ACE, .10, n=12, passo=52, x0=.05) + estrela(540, 540, 600, ACE)))
 # LinkedIn: floresta, estrela branca, grade tecnica. Logo da pagina: 400x400.
 L = 400
 peca("linkedin-logo", L, L, pagina(L, L, FLO,
@@ -85,13 +86,13 @@ p{font-weight:400;font-size:15px;line-height:1.3}
 peca("linkedin-capa", W, H, pagina(W, H, GRA,
      grade(W, H, 24, SUP, .045, 1)
      + painel(FLO, ACE, .14)
-     + estrela(1010, 96, 250, ACE, rot=-8),
+     + estrela(1010, 96, 250, ACE),
      f"""<div class="txt"><h1 style="color:{SUP}">Toda a sua operação<br>de <span class="pil" style="background:{ACE};color:{GRA}">licitações</span></h1>
 <p style="color:#B8C5BC">Venda para o governo. Saiba o que fazer em cada etapa.</p></div>""", CSS_CAPA), escalas=(1, 2))
 # Variante de lancamento, para trocar ate 19/dez.
 peca("linkedin-capa-lancamento", W, H, pagina(W, H, ACE,
      painel(GRA, ACE, .16)
-     + estrela(1010, 96, 250, ACE, rot=-8),
+     + estrela(1010, 96, 250, ACE),
      f"""<div class="txt"><h1 style="color:{GRA}">30 dias para usar a Licit.<br>Sem cartão.</h1>
 <p style="color:#1F3A2C">Para quem começa até 19 de dezembro. <b style="font-weight:600">profissiolicit.ai</b></p></div>""", CSS_CAPA), escalas=(1, 2))
 
@@ -105,7 +106,7 @@ def destaque(nome, fundo, desenho, borda):
 TXT = lambda t, cor, tam, peso=500, dy=0: (f'<text x="{CX}" y="{CY+dy}" text-anchor="middle" dominant-baseline="central" '
       f'font-family="Sora" font-weight="{peso}" font-size="{tam}" letter-spacing="-0.035em" fill="{cor}">{t}</text>')
 
-destaque("licit", GRA, estrela(CX, CY, 660, ACE, rot=-8), ACE)
+destaque("licit", GRA, estrela(CX, CY, 660, ACE), ACE)
 destaque("oferta", ACE, TXT("30", GRA, 470, dy=-70) + TXT("dias", GRA, 150, dy=200)
          + estrela(CX + 300, CY - 280, 120, FLO), GRA)
 passos = "".join(
@@ -138,11 +139,11 @@ def painel_fb(cor, cor_arco, op):
     return (f'<clipPath id="pf"><polygon points="{pts}"/></clipPath><polygon points="{pts}" fill="{cor}"/>'
             f'<g clip-path="url(#pf)">{arcos(1420, 462, 150, 70, 12, cor_arco, op, 2)}</g>')
 peca("facebook-capa", FW, FH, pagina(FW, FH, GRA,
-     grade(FW, FH, 48, SUP, .045, 1.5) + painel_fb(FLO, ACE, .14) + estrela(1420, 462, 760, ACE, rot=-8),
+     grade(FW, FH, 48, SUP, .045, 1.5) + painel_fb(FLO, ACE, .14) + estrela(1420, 462, 760, ACE),
      f"""<div class="txt"><h1 style="color:{SUP}">Toda a sua operação<br>de <span class="pil" style="background:{ACE};color:{GRA}">licitações</span></h1>
 <p style="color:#B8C5BC">Venda para o governo. Saiba o que fazer em cada etapa.</p></div>""", CSS_FB))
 peca("facebook-capa-lancamento", FW, FH, pagina(FW, FH, ACE,
-     painel_fb(GRA, ACE, .16) + estrela(1420, 462, 760, ACE, rot=-8),
+     painel_fb(GRA, ACE, .16) + estrela(1420, 462, 760, ACE),
      f"""<div class="txt"><h1 style="color:{GRA}">30 dias para usar<br>a Licit. Sem cartão.</h1>
 <p style="color:#1F3A2C">Para quem começa até 19 de dezembro. <b style="font-weight:600">profissiolicit.ai</b></p></div>""", CSS_FB))
 # Avatar do Facebook: o unico em fundo claro, com a estrela no degrade oficial (preto para floresta).

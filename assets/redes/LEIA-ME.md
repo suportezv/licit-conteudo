@@ -1,6 +1,6 @@
 # Pack de perfil das redes (10/nov/2026)
 
-Gerado por `projects/02-perfis-redes/gera.py` (HTML + Chromium). A estrela é o caminho oficial de `assets/marca/logos/`, só recolorida. Cores só da paleta Floresta Tech.
+Gerado por `projects/02-perfis-redes/gera.py` (HTML + Chromium). A estrela é o caminho oficial de `assets/marca/logos/`, só recolorida, sempre na posição original (a estrela nunca se gira). Cores só da paleta Floresta Tech.
 
 | Arquivo | Onde vai | Formato |
 |---|---|---|
@@ -17,4 +17,4 @@ Gerado por `projects/02-perfis-redes/gera.py` (HTML + Chromium). A estrela é o 
 - Instagram e TikTok não têm capa de perfil; no Instagram o que faz esse papel são os destaques.
 - Na capa do LinkedIn o texto começa em 252 px (escala 1x) para não ficar sob o logo, que cobre o canto inferior esquerdo no desktop.
 - No Facebook o texto fica no alto da faixa central, porque a foto da página cobre o canto inferior esquerdo da capa no computador e no celular.
-- Cada rede tem cor própria: Instagram em verde-limão com estrela grafite, TikTok em grafite com estrela limão girada, LinkedIn em floresta com estrela branca, Facebook em superfície clara com a estrela no degradê oficial (o único fundo claro do pack).
+- Cada rede tem cor própria: Instagram em verde-limão com estrela grafite, TikTok em grafite com estrela limão, LinkedIn em floresta com estrela branca, Facebook em superfície clara com a estrela no degradê oficial (o único fundo claro do pack).
