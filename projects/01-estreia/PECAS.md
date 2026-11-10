@@ -93,3 +93,21 @@ Vale para quem começa até 19 de dezembro. Link na bio.
 - Assinatura: institucional (Profissio Licit) nas capas e nos blocos de oferta, estrela + Licit nas telas internas.
 - Vídeo: 1080x1920, 30 fps, 30 s, master entre -14 e -16 LUFS.
 - O bloco verde cheio e as pílulas vão além do manual de marca, que pede o acento "contido". Decisão do usuário, registrada no `CLAUDE.md`.
+
+## Agendamento (10/nov/2026)
+
+Aprovado pelo usuário e agendado no Metricool (marca Profissio Licit, blog_id 7994045). Os seis posts foram conferidos com `getScheduledPosts`: nenhum em rascunho, todos `PENDING`, mídia re-hospedada no CDN do Metricool.
+
+| Horário | Peça | Redes | id |
+|---|---|---|---|
+| 10:00 | Anúncio (vídeo 30 s, capa `capa-anuncio.jpg`) | Instagram Reel + TikTok | 422890876 |
+| 10:00 | Anúncio | LinkedIn | 422890954 |
+| 10:15 | Carrossel das cinco etapas (7 imagens) | Instagram | 422891065 |
+| 10:15 | Carrossel das cinco etapas | LinkedIn | 422891171 |
+| 10:30 | Carrossel da oferta (4 imagens) | Instagram + TikTok (fotos, música automática) | 422891258 |
+| 10:30 | Carrossel da oferta | LinkedIn | 422891315 |
+
+- No LinkedIn "Link na bio" virou "em profissiolicit.ai".
+- Mídia: pasta do Drive `1lC4CMr_ALTyfx88vECA632KcBnxH9fLG` (subpasta `estreia-licit-10nov-v4`), pública por link, servida por URL direta `drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t`. A URL de visualização deu "Failed to normalize media" no Metricool.
+- O vídeo (9 MB) não subiu pelo conector do Drive, que tem limite perto de 3,1 MB por chamada; o usuário subiu à mão. Conferido por sha256 que o arquivo público é o render aprovado.
+- Depois das 10:30: fixar o post da oferta no Instagram (o Metricool não fixa).
