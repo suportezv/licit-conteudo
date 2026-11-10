@@ -31,7 +31,7 @@ O usuário pediu: tirar a travada por volta de 2 s, chegar a 30 s para dar tempo
 
 - **Travada**: a abertura terminava de animar em 1,3 s e ficava parada até 2,4 s. Agora tudo tem movimento contínuo (a estrela segue girando, o título e as telas flutuam). Conferido quadro a quadro: nenhum trecho parado acima de 0,5 s.
 - **Tempo de leitura**: abertura 3,2 s, gancho 5,3 s (3 s parado depois da última linha), cada etapa 3,3 s, oferta 5 s.
-- **Profundidade**: as cenas viram como faces de um cubo, em 3D, com escurecimento e recuo de câmera no meio da virada. A tela do produto chega de longe, inclinada em três eixos.
+- **Profundidade**: a cena nova sobe por cima da anterior, como na versão 2, agora em camadas: a que sai recua (diminui, escurece e desfoca), a que entra sobe com sombra e cantos que se abrem, e o conteúdo chega um pouco depois do fundo. A tela do produto chega de longe, inclinada. Uma tentativa intermediária com cenas girando como faces de um cubo foi recusada pelo usuário: "não queria uma forma geométrica 3D girando".
 - **Sincronia**: uma linha do tempo única (`TL` em `remotion/src/Anuncio.tsx`) dispara o elemento e o som. Os efeitos foram aparados para soar no instante 0. Medido sem trilha: todo efeito começa a menos de um quadro (33 ms) do elemento, do início ao fim.
 - **Tique das linhas**: o da biblioteca sumia por baixo da trilha (25 dB abaixo); trocado por um tique de 1,85 kHz gerado para o filme (`remotion/public/sfx/tique.mp3`).
 

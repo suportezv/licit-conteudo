@@ -32,7 +32,7 @@ export type PropsAnuncio = {
  * Tempos das cenas sao locais (a partir do inicio da cena).
  */
 export const TL = {
-  virada: 0.7, // giro 3D entre uma cena e a seguinte
+  virada: 0.7, // a cena nova sobe por cima da anterior, que recua
   abertura: { fim: 3.2, estrela: 0, linhas: [1.0, 1.28] },
   gancho: { fim: 8.5, primeira: 0.55, passo: 0.42 },
   etapa: { dur: 3.3, numero: 0.42, nome: 0.55, cartao: 0.85, linhas: [1.35, 1.72, 2.09] },
@@ -294,9 +294,11 @@ const Oferta: React.FC<{ numero: number; texto: string; chips: string[]; acao: s
 };
 
 /**
- * Face de um cubo: a cena entra girando 90 graus sobre a aresta compartilhada
- * com a anterior, que sai girando para o outro lado. Escurece ao virar e a
- * camera recua no meio da virada, o que da a profundidade.
+ * Uma cena do filme. Entra subindo por cima da anterior (o movimento da versao
+ * aprovada), com profundidade em camadas: quem sai recua para o fundo
+ * (diminui, escurece, desfoca de leve); quem entra sobe com sombra e cantos
+ * arredondados que se abrem ate a tela cheia; o conteudo da cena chega um
+ * pouco depois do proprio fundo, como uma camada mais perto da camera.
  */
 const Face: React.FC<{ ini: number; fim: number | null; children: React.ReactNode }> = ({ ini, fim, children }) => {
   const frame = useCurrentFrame();
@@ -305,26 +307,28 @@ const Face: React.FC<{ ini: number; fim: number | null; children: React.ReactNod
   const t = frame / fps;
   const ease = (x: number) => curva(Math.max(0, Math.min(1, x)));
   const entra = ini === 0 ? 1 : ease((t - ini) / V);
+  // o conteudo atrasa um pouco em relacao ao fundo da cena: paralaxe
+  const conteudo = ini === 0 ? 1 : ease((t - ini - 0.08) / V);
   const sai = fim === null ? 0 : ease((t - fim) / V);
   if (t < ini || (fim !== null && t > fim + V)) return null;
-  let transform = "";
-  let origem = "50% 50%";
-  let sombra = 0;
-  if (entra < 1) {
-    origem = "0% 50%";
-    transform = `translateX(${(1 - entra) * 100}%) rotateY(${(1 - entra) * 90}deg)`;
-    sombra = (1 - entra) * 0.7;
-  } else if (sai > 0) {
-    origem = "100% 50%";
-    transform = `translateX(${-sai * 100}%) rotateY(${-sai * 90}deg)`;
-    sombra = sai * 0.7;
-  }
+  const subindo = entra < 1;
   return (
-    <AbsoluteFill style={{ transform, transformOrigin: origem, backfaceVisibility: "hidden" }}>
+    <AbsoluteFill
+      style={{
+        transform: subindo
+          ? `translateY(${(1 - entra) * 100}%) scale(${1.06 - 0.06 * entra})`
+          : `translateY(${-sai * 7}%) scale(${1 - 0.12 * sai})`,
+        transformOrigin: "50% 0%",
+        borderRadius: subindo ? (1 - entra) * 90 : sai * 60,
+        overflow: "hidden",
+        boxShadow: subindo ? `0 -50px 120px rgba(0,0,0,${0.75 * (1 - entra)})` : "none",
+        filter: sai > 0 ? `blur(${sai * 6}px)` : "none",
+      }}
+    >
       <Sequence from={Math.round(ini * fps)} layout="none">
-        <AbsoluteFill>{children}</AbsoluteFill>
+        <AbsoluteFill style={{ transform: `translateY(${(1 - conteudo) * 14}%)` }}>{children}</AbsoluteFill>
       </Sequence>
-      <AbsoluteFill style={{ backgroundColor: "#000", opacity: sombra, pointerEvents: "none" }} />
+      <AbsoluteFill style={{ backgroundColor: "#000", opacity: sai * 0.6, pointerEvents: "none" }} />
     </AbsoluteFill>
   );
 };
@@ -343,8 +347,6 @@ export const Anuncio: React.FC<PropsAnuncio> = ({ abertura, gancho, etapas, nume
   const iniOferta = iniEtapa(etapas.length);
   const fimDe = (i: number) => (i + 1 < inicios.length ? inicios[i + 1] : null);
 
-  // a camera recua no meio de cada virada
-  const virando = inicios.slice(1).reduce((m, s) => Math.max(m, t >= s && t <= s + V ? Math.sin(((t - s) / V) * Math.PI) : 0), 0);
   const vol = (fr: number) =>
     interpolate(fr, [0, fps * 0.6, durationInFrames - fps * 1.6, durationInFrames], [0, 0.3, 0.3, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
@@ -384,7 +386,7 @@ export const Anuncio: React.FC<PropsAnuncio> = ({ abertura, gancho, etapas, nume
       ))}
       <Som em={iniOferta + O.rodape} arquivo="shimmer" volume={0.4} />
 
-      <AbsoluteFill style={{ perspective: 2000, transform: `scale(${1 - virando * 0.14})` }}>
+      <AbsoluteFill>
         <Face ini={0} fim={fimDe(0)}>
           <Abertura texto={abertura} />
         </Face>

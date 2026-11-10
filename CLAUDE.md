@@ -208,6 +208,7 @@ Interpretação minha, aplicada na versão 2 (`projects/01-estreia/`) e válida 
 - **Nada parado por mais de 0,5 s**: conferir com `signalstats` (YDIF) no MP4 final.
 - **Medir sincronia sem a trilha** (render `--codec=wav` com `trilha: ""`): com a trilha, o detector de ataque erra e inventa um atraso crescente que não existe.
 - Tempo de leitura: 3 s parado depois da última linha de texto; vídeo de anúncio com 30 s.
+- **"Profundidade" no movimento não é girar a cena em 3D.** Uma versão com as cenas virando como faces de um cubo foi recusada: "queria que tivesse mais profundidade naqueles movimentos, não que fosse uma forma geométrica 3D girando". O que vale: a transição de subir por cima, em camadas (quem sai recua, escurece e desfoca; quem entra sobe com sombra; o conteúdo atrasa em relação ao fundo, em paralaxe) e elementos que chegam de longe.
 
 Componentes prontos no Remotion: `Slide` (carrossel 4:5, tipos `capa`, `etapa`, `numero`, `tempo`, `passos`, `fecho`; `*asteriscos*` no título viram pílula), `Anuncio` (filme 9:16) e os cinco mocks de produto. **Armadilha**: o `--props` do Remotion é fundido com o `defaultProps` da composição, então um campo opcional deixado no padrão (um rótulo "Exemplo") aparece em toda peça que não o sobrescreve; o padrão do `Slide` fica sem rótulo e sem página.
 
