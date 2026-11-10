@@ -59,7 +59,8 @@ O material de produto disponível são **oito capturas de tela de set/2026**. El
 
 - **CTA e destino**: o site traz os CTAs (seção "O site prevalece"). Em aberto: qual vira o padrão das redes e para onde aponta o link da bio, já que o site ainda é protótipo.
 - **Disponibilidade, preço, implantação e suporte**: em aberto. Nada disso entra em texto público por inferência.
-- **Editorias**: proposta feita em 09/nov, aguardando decisão do usuário. Registrar aqui e no `FRAMEWORK.md` quando fechar.
+- **Trial de lançamento**: condições reais não informadas (pede cartão? o que acontece no dia 31? limite de usuários?) e, em 09/nov, o site era protótipo sem cadastro. **Nenhuma peça da oferta vai ao ar sem isso confirmado.**
+- **Validador dos roteiros** das animações e dos artigos (assessoria ou advogado): não definido.
 - **Demonstração atual do produto**: só há as capturas de setembro (não estão no Drive da identidade). Peça que mostre tela precisa de captura atual.
 - **Pronúncia da marca em TTS**: confirmar antes da primeira locução ("Licit" como lícit, licít ou em inglês?).
 - **Voz ElevenLabs**: voice_id, modelo e parâmetros próprios.
@@ -171,6 +172,23 @@ Referência técnica completa do grupo: `CLAUDE.md` do `suportezv/profissioai-co
 - **TikTok exige `tiktokData.title`.** Um post pode ir para Instagram, Facebook e TikTok de uma vez com `providers` + `instagramData {type: REEL, showReelOnFeed: true}` + `facebookData {type: REEL}` + `tiktokData {title}`.
 - **Instagram pela web não dá nada sem login**, mesmo com a rede liberada. Análise de feed: Graph API (`instagram_analisa.py`), exportação oficial da conta ou prints do usuário. Nunca pedir senha nem cookie de sessão.
 
+## Editorias e planejamento do mês 1 (aprovadas pelo usuário em 09/nov/2026)
+
+Seis editorias, mais as peças de lançamento:
+
+| Editoria (nome público) | Promessa | Público | Formato |
+|---|---|---|---|
+| **Por Dentro da Licitação** (internamente "padrão desmontando", nome que não vai a público) | "Como funciona" por dentro | Geral, puxa novata | Animação 3D, 130 a 160 s |
+| **Primeira Licitação** | Do CNPJ à proposta enviada, em partes | Novata | Série de animações |
+| **Operação** | O dia a dia de quem já licita | Equipe e assessoria | Carrossel, LinkedIn primeiro |
+| **Licitações na prática** | O blog: **lançamento** do artigo no dia em que sai e **desdobramento** depois | Os dois | Carrossel + post de texto |
+| **Na Licit** | O produto resolvendo uma etapa, com a tela real | Os dois | Tela do produto, 30 a 45 s |
+| **Quem licita pergunta** | Respostas a dúvidas reais (prova social só quando houver usuário com autorização) | Os dois | Carrossel ou vídeo curto |
+
+- **Planejamento do mês 1**: doc **`https://claude.ai/artifact/Nv8Q2j7tBjGmrgW4UuFSSK`** ("Profissio Licit: planejamento de conteúdo do mês 1"). **Estreia em 10/nov/2026** (decisão do usuário; a primeira versão do plano assumia 23/nov). 23 peças até 9/dez; semana 1 só com carrossel, cartão e tela do produto; animações a partir de 19/nov.
+- **Oferta de lançamento**: 30 dias de trial só no primeiro mês de operação, a divulgar em toda peça (tema em 6, fecho nas outras 17), bio, post fixado, destaque e stories com contagem regressiva. **A janela "comece até 9/dez" é suposição minha** (30 dias a partir da estreia), a confirmar.
+- **Assinatura das peças no plano**: "Toda a sua operação de licitações" (a do site), no lugar de "IA para licitação de Obras". A confirmar; o rodapé padrão do `CartaoTitulo` ainda traz a antiga.
+
 ## Design System
 
 - **Fonte viva**: artifact **`https://claude.ai/artifact/1Cew4xmRADNpZi6aRve4MU`** (tipo Design System, "Profissio Licit"), criado em 09/nov/2026 a partir do Drive da marca, edição 1.1. **Não existia antes**: o que havia era o material do Drive (manual, tokens, CSS de componentes). O usuário perguntou se já havia um "usado para criar o site"; no Drive não há artefato de site, só a preparação dele.
@@ -183,3 +201,4 @@ Referência técnica completa do grupo: `CLAUDE.md` do `suportezv/profissioai-co
 
 - **09/nov/2026**: estúdio criado a pedido do usuário, "com as mesmas especificações" do `profissioai-conteudo` e do `profecia-conteudo`. Infra, cinto de ferramentas, biblioteca de SFX, skill `/watch` e gotchas herdados; **marca 100% PENDENTE**, sem herdar nada dos irmãos, como manda o `PORTAR.md`. Base do porte: a branch de trabalho do Profecia (a mais nova do grupo), não a `main` dele, que está parada em 18/set. Remotion entra com tokens neutros provisórios e nomes de token sem cor de marca (`acento`, `mancha1..4`, `fundo`, `tinta`). Caminho do `headless_shell` passou a ser resolvido em tempo de execução. `setup.sh` rodou os 6 passos com código 0 e o `validate.sh` ficou verde em tudo, menos na chave da ElevenLabs, que ainda não existe. Conferido no mesmo dia: Metricool sem marca do Licit, environment sem chaves e sem setup script.
 - **09/nov/2026 (segunda sessão)**: o usuário cadastrou as chaves, criou a marca no Metricool (blog_id 7994045) e apontou a pasta de identidade no Drive. **Marca lida na fonte e registrada**: categoria, descrição institucional, público, voz, limites de mensagem, paleta Floresta Tech, Sora e as três assinaturas. Logos, fundos, favicon e a Sora entraram em `assets/`; tokens e diretrizes espelhados em `design-system/fonte/`. O Remotion trocou o provisório cinza pela identidade real (três temas, duas assinaturas, três formatos). Correção do `headless_shell` levada aos irmãos por PR: `suportezv/profissioai-conteudo#3` e `suportezv/profecia-conteudo#4`. A referência `@licitacertabr` não pôde ser lida (login do Instagram, sem token da Meta).
+- **09 e 10/nov/2026**: site `profissiolicit.ai` lido (posicionamento mais amplo que o kit: todos os setores, novata e experiente, CTAs definidos). Editorias aprovadas pelo usuário, com o blog ganhando lançamento de artigo a pedido dele. Planejamento do mês 1 escrito como doc e **refeito para estreia em 10/nov** quando o usuário corrigiu a data. O Chrome do usuário não é alcançável de sessão na nuvem: a referência `@licitacertabr` foi deixada de lado por decisão dele.
