@@ -59,7 +59,6 @@ O material de produto disponível são **oito capturas de tela de set/2026**. El
 
 - **CTA e destino**: o site traz os CTAs (seção "O site prevalece"). Em aberto: qual vira o padrão das redes e para onde aponta o link da bio, já que o site ainda é protótipo.
 - **Disponibilidade, preço, implantação e suporte**: em aberto. Nada disso entra em texto público por inferência.
-- **Trial de lançamento**: condições reais não informadas (pede cartão? o que acontece no dia 31? limite de usuários?) e, em 09/nov, o site era protótipo sem cadastro. **Nenhuma peça da oferta vai ao ar sem isso confirmado.**
 - **Validador dos roteiros** das animações e dos artigos (assessoria ou advogado): não definido.
 - **Demonstração atual do produto**: só há as capturas de setembro (não estão no Drive da identidade). Peça que mostre tela precisa de captura atual.
 - **Pronúncia da marca em TTS**: confirmar antes da primeira locução ("Licit" como lícit, licít ou em inglês?).
@@ -186,8 +185,30 @@ Seis editorias, mais as peças de lançamento:
 | **Quem licita pergunta** | Respostas a dúvidas reais (prova social só quando houver usuário com autorização) | Os dois | Carrossel ou vídeo curto |
 
 - **Planejamento do mês 1**: doc **`https://claude.ai/artifact/Nv8Q2j7tBjGmrgW4UuFSSK`** ("Profissio Licit: planejamento de conteúdo do mês 1"). **Estreia em 10/nov/2026** (decisão do usuário; a primeira versão do plano assumia 23/nov). 23 peças até 9/dez; semana 1 só com carrossel, cartão e tela do produto; animações a partir de 19/nov.
-- **Oferta de lançamento**: 30 dias de trial só no primeiro mês de operação, a divulgar em toda peça (tema em 6, fecho nas outras 17), bio, post fixado, destaque e stories com contagem regressiva. **A janela "comece até 9/dez" é suposição minha** (30 dias a partir da estreia), a confirmar.
+- **Oferta de lançamento**: 30 dias de trial só no primeiro mês de operação, a divulgar em toda peça (tema em 6, fecho nas outras 17), bio, post fixado, destaque e stories com contagem regressiva. A janela é **até 19/dez** (confirmada em 10/nov; a primeira versão do plano supunha 9/dez).
 - **Assinatura das peças no plano**: "Toda a sua operação de licitações" (a do site), no lugar de "IA para licitação de Obras". A confirmar; o rodapé padrão do `CartaoTitulo` ainda traz a antiga.
+
+## REGRA DO USUÁRIO: peça de rede social não pode ser "clean" (10/nov/2026)
+
+O usuário recusou a primeira versão das peças de estreia, feita ao pé da letra do manual de marca (título descritivo, rótulo, texto alinhado, muito espaço vazio): **"achei muito clean, isso em rede social vai virar paisagem, ou panfleto. Vejo que não teve cuidado nenhum em tentar elaborar mais elementos, deixar o post mais interessante. Ficou institucional e formal demais."**
+
+Interpretação minha, aplicada na versão 2 (`projects/01-estreia/`) e válida para toda peça de feed daqui em diante, até ele dizer o contrário:
+
+- **Capa abre com gancho**, não com título descritivo nem rótulo institucional. Pergunta, tensão ou frase do site com apelo ("Seu próximo contrato pode estar numa licitação que você ainda não viu").
+- **Toda tela tem um elemento visual além do texto**: tela do produto em cartão branco inclinado (`remotion/src/Mock.tsx`), numeral gigante, pílula de cor na palavra-chave, a estrela grande sangrando pelo canto, barra de progresso.
+- **Cor em bloco**: fundos alternam grafite e floresta, e a oferta vai em verde-limão cheio (tema `acento`). O manual pede o acento "contido"; **a decisão do usuário vale mais que o manual para rede social**.
+- **Tom de conversa** nos títulos: frase curta, pergunta, sem cara de comunicado.
+- **Vídeo com movimento de verdade**: cenas que se sobrepõem, elementos se montando, contador, efeito sonoro a cada entrada.
+- O que **não** muda: os limites de mensagem (nada de promessa de vitória, número de cliente, urgência falsa), sem travessão, assinaturas oficiais e Sora.
+
+Componentes prontos no Remotion: `Slide` (carrossel 4:5, tipos `capa`, `etapa`, `numero`, `tempo`, `passos`, `fecho`; `*asteriscos*` no título viram pílula), `Anuncio` (filme 9:16) e os cinco mocks de produto. **Armadilha**: o `--props` do Remotion é fundido com o `defaultProps` da composição, então um campo opcional deixado no padrão (um rótulo "Exemplo") aparece em toda peça que não o sobrescreve; o padrão do `Slide` fica sem rótulo e sem página.
+
+## Oferta de lançamento (confirmada pelo usuário em 10/nov/2026)
+
+- **30 dias de uso, sem cartão.** Depois dos 30 dias, a contratação é pedida quando o usuário voltar a usar.
+- **Vale para quem começa até 19 de dezembro de 2026.**
+- **O cadastro está funcionando** (em 09/nov o site se declarava protótipo; o usuário confirmou em 10/nov que está no ar).
+- Textos aprovados em uso: "30 dias para usar a Licit", "Sem cartão", "Comece até 19/dez", "Depois dos 30 dias, a contratação só aparece se você voltar a usar".
 
 ## Design System
 
@@ -202,3 +223,4 @@ Seis editorias, mais as peças de lançamento:
 - **09/nov/2026**: estúdio criado a pedido do usuário, "com as mesmas especificações" do `profissioai-conteudo` e do `profecia-conteudo`. Infra, cinto de ferramentas, biblioteca de SFX, skill `/watch` e gotchas herdados; **marca 100% PENDENTE**, sem herdar nada dos irmãos, como manda o `PORTAR.md`. Base do porte: a branch de trabalho do Profecia (a mais nova do grupo), não a `main` dele, que está parada em 18/set. Remotion entra com tokens neutros provisórios e nomes de token sem cor de marca (`acento`, `mancha1..4`, `fundo`, `tinta`). Caminho do `headless_shell` passou a ser resolvido em tempo de execução. `setup.sh` rodou os 6 passos com código 0 e o `validate.sh` ficou verde em tudo, menos na chave da ElevenLabs, que ainda não existe. Conferido no mesmo dia: Metricool sem marca do Licit, environment sem chaves e sem setup script.
 - **09/nov/2026 (segunda sessão)**: o usuário cadastrou as chaves, criou a marca no Metricool (blog_id 7994045) e apontou a pasta de identidade no Drive. **Marca lida na fonte e registrada**: categoria, descrição institucional, público, voz, limites de mensagem, paleta Floresta Tech, Sora e as três assinaturas. Logos, fundos, favicon e a Sora entraram em `assets/`; tokens e diretrizes espelhados em `design-system/fonte/`. O Remotion trocou o provisório cinza pela identidade real (três temas, duas assinaturas, três formatos). Correção do `headless_shell` levada aos irmãos por PR: `suportezv/profissioai-conteudo#3` e `suportezv/profecia-conteudo#4`. A referência `@licitacertabr` não pôde ser lida (login do Instagram, sem token da Meta).
 - **09 e 10/nov/2026**: site `profissiolicit.ai` lido (posicionamento mais amplo que o kit: todos os setores, novata e experiente, CTAs definidos). Editorias aprovadas pelo usuário, com o blog ganhando lançamento de artigo a pedido dele. Planejamento do mês 1 escrito como doc e **refeito para estreia em 10/nov** quando o usuário corrigiu a data. O Chrome do usuário não é alcançável de sessão na nuvem: a referência `@licitacertabr` foi deixada de lado por decisão dele.
+- **10/nov/2026**: peças de estreia feitas duas vezes. A versão 1 foi recusada por ser "clean" e "institucional demais" (regra nova acima); a versão 2 tem gancho, telas do produto, numerais gigantes, bloco verde e vídeo com movimento e efeitos. Oferta confirmada: 30 dias, sem cartão, até 19/dez. Peças em `projects/01-estreia/`, aguardando aprovação; nada agendado.

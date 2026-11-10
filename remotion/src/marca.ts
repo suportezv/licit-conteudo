@@ -54,12 +54,42 @@ export const marca = {
   categoria: "IA para licitação de Obras",
 } as const;
 
-export type Tema = "escuro" | "floresta" | "claro";
+export type Tema = "escuro" | "floresta" | "claro" | "acento";
 
-/** Cores de uma peca por tema. "floresta" usa a tinta do escuro sobre #243D32. */
+/** Cores de uma peca por tema. "floresta" usa a tinta do escuro sobre #243D32;
+ *  "acento" e o bloco de cor cheio (tinta grafite sobre #A8F27A, 13,95:1). */
 export const tema = (t: Tema) =>
   t === "claro"
     ? { ...marca.claro, linha: marca.grafite }
     : t === "floresta"
       ? { ...marca.escuro, fundo: marca.floresta, borda: "#3A5347", linha: marca.superficie }
-      : { ...marca.escuro, linha: marca.superficie };
+      : t === "acento"
+        ? {
+            ...marca.claro,
+            fundo: marca.acento,
+            painel: marca.grafite,
+            texto: marca.grafite,
+            textoSecundario: "#1F3A2C",
+            textoApagado: "#2C4A3A",
+            borda: "rgba(16,18,24,0.22)",
+            destaque: marca.floresta,
+            linha: marca.grafite,
+          }
+        : { ...marca.escuro, linha: marca.superficie };
+
+/** Cartao de interface: sempre claro, para saltar de qualquer fundo. Valores do tema claro do sistema. */
+export const ui = {
+  fundo: "#FFFFFF",
+  elevado: "#EDF2ED",
+  texto: "#101218",
+  secundario: "#59616E",
+  borda: "#D8E0D9",
+  acao: "#243D32",
+  acaoTexto: "#FFFFFF",
+  sucessoFundo: "#E3F3E8",
+  sucessoTexto: "#205B37",
+  avisoFundo: "#FFF2CC",
+  avisoTexto: "#76500B",
+  infoFundo: "#E7EFFB",
+  infoTexto: "#274F83",
+} as const;

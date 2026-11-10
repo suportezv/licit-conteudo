@@ -1,77 +1,85 @@
 # Estreia do perfil, 10/nov/2026
 
-Framework: **Remotion** (cartões e carrosséis no molde da marca; ver `FRAMEWORK.md`).
+Framework: **Remotion** (ver `FRAMEWORK.md`). Textos em `pecas.json`, render por `python3 projects/01-estreia/gera.py`, saída em `out/` (fora do git).
 
-Três peças, publicadas em sequência, com a da oferta fixada. Textos em `pecas.json`, render por `python3 projects/01-estreia/gera.py`, saída em `out/` (fora do git).
+**Situação: versão 2, aguardando aprovação do usuário. Nada agendado.**
 
-**Situação: aguardando aprovação do usuário. Nada agendado.** Antes de publicar, confirmar: cadastro funcionando, condições reais do trial (o que acontece depois dos 30 dias) e a data limite de 9/dez, que é suposição.
+Confirmado pelo usuário em 10/nov: a condição vale até **19 de dezembro**; o trial é **sem cartão** e, depois dos 30 dias, a contratação é pedida quando o usuário voltar a usar; o cadastro está funcionando.
 
 | # | Peça | Arquivos | Formato | Canais |
 |---|---|---|---|---|
-| 1 | Chegou a Licit | `anuncio-chegou-a-licit.mp4` | Vídeo 9:16, 18 s, com trilha, sem narração | Instagram (Reel), TikTok, LinkedIn |
-| 2 | Da oportunidade ao resultado, em cinco etapas | `etapas-01.png` a `etapas-07.png` | Carrossel 4:5, 7 telas | Instagram, LinkedIn |
+| 1 | Chegou a Licit | `anuncio-chegou-a-licit.mp4` | Vídeo 9:16, 20 s, trilha e efeitos, sem narração | Instagram (Reel), TikTok, LinkedIn |
+| 2 | Seu próximo contrato pode estar numa licitação que você não viu (as cinco etapas) | `etapas-01.png` a `etapas-07.png` | Carrossel 4:5, 7 telas | Instagram, LinkedIn |
 | 3 | 30 dias para usar a Licit (fixar) | `oferta-01.png` a `oferta-04.png` | Carrossel 4:5, 4 telas | Instagram, LinkedIn; TikTok como carrossel de fotos |
 
-De onde vem cada texto: promessa, cinco etapas, exemplo da licitação de informática e passos de início são do site `profissiolicit.ai` (lido em 09/nov). A frase da oferta e a data limite são proposta do estúdio.
+## O que mudou da versão 1 para a 2
+
+A versão 1 foi recusada pelo usuário: "muito clean, isso em rede social vai virar paisagem, ou panfleto", "institucional e formal demais". A versão 2 troca o molde:
+
+- **Gancho na capa**, não título descritivo: "Seu próximo contrato pode estar numa licitação que você não viu" (frase do site).
+- **Tela do produto como elemento visual** em toda etapa: cartão branco inclinado com busca por CNPJ, pergunta ao edital, checklist de certidões, tarefas e resultado.
+- **Numeral gigante** (01 a 05, e o 30 da oferta) e **palavra-chave em pílula** de cor.
+- **Bloco de cor cheio**: a oferta vai em verde-limão de ponta a ponta. Fundos alternam grafite e floresta.
+- **Títulos em tom de conversa**: pergunta, frase curta, sem rótulo institucional.
+- **Vídeo com cenas que se sobrepõem**, a estrela girando na abertura, as telas se montando, o 30 contando e efeitos sonoros a cada entrada.
+
+O exemplo das telas (equipamentos de informática, São José dos Campos, R$ 480.000, 2º lugar) é o cenário ilustrativo do próprio site.
 
 ## Legendas
 
 ### 1. Chegou a Licit
 
 ```
-Chegou a Licit.
+Seu próximo contrato pode estar numa licitação que você ainda não viu.
 
-Vender para o governo tem etapas, prazos e documentos. A Licit reúne tudo isso no mesmo lugar: você encontra oportunidades para a sua empresa, entende o edital, prepara a proposta, acompanha as tarefas e confere o resultado.
+Chegou a Licit: você encontra oportunidades pelo CNPJ, pergunta ao edital, organiza certidões e proposta, distribui as tarefas e confere o resultado. Tudo na mesma licitação.
 
-Para quem vai disputar a primeira licitação e para quem já tem equipe ou assessoria.
+Serve para quem vai disputar a primeira e para quem já tem equipe ou assessoria.
 
-No mês de lançamento, quem começa até 9 de dezembro usa a Licit por 30 dias sem pagar. Link na bio.
+No lançamento: 30 dias para usar, sem cartão. Vale para quem começa até 19 de dezembro. Link na bio.
 
 A sua empresa já vendeu para o governo?
 
 #licitacoes #licitacao #pregaoeletronico #PNCP #vendaparaogoverno #comprasgovernamentais #Licit
 ```
 
-Título no TikTok: `Chegou a Licit`
+Título no TikTok: `Seu próximo contrato pode estar numa licitação que você não viu`
 
-### 2. Da oportunidade ao resultado, em cinco etapas
+### 2. As cinco etapas
 
 ```
-Uma licitação não é um documento só. É uma sequência.
+Licitação não é um documento. É uma sequência, e cada etapa tem a sua armadilha.
 
-Encontrar a oportunidade certa. Entender o que o edital pede. Reunir certidões e montar a proposta. Distribuir as tarefas antes da sessão. Conferir o resultado e guardar o histórico.
+Achar o edital que vale o seu tempo. Descobrir o que ele pede sem ler tudo três vezes. Não ser pego por certidão vencida. Saber quem cuida do quê. E guardar o que aconteceu para a próxima.
 
-Na Licit, cada etapa fica ligada à mesma licitação. A próxima não precisa começar do zero.
+Arrasta para ver as cinco etapas na Licit.
 
-No mês de lançamento, quem começa até 9 de dezembro usa a Licit por 30 dias sem pagar. Link na bio.
+No lançamento: 30 dias para usar, sem cartão. Vale para quem começa até 19 de dezembro. Link na bio.
 
-Em qual dessas etapas a sua empresa mais perde tempo?
+Em qual etapa a sua empresa mais perde tempo?
 
 #licitacoes #licitacao #edital #certidoes #PNCP #vendaparaogoverno #Licit
 ```
 
-O exemplo das telas (equipamentos de informática, São José dos Campos) é o cenário ilustrativo do próprio site.
-
 ### 3. 30 dias para usar a Licit
 
 ```
-Condição de lançamento: 30 dias para usar a Licit.
+30 dias para usar a Licit. Sem cartão.
 
-Vale para quem começa até 9 de dezembro. Você consulta o CNPJ, escolhe uma licitação e segue com a análise do edital, os documentos e a proposta.
+Você começa pelo CNPJ, escolhe uma licitação e segue com a análise do edital, os documentos e a proposta.
 
-Use na sua próxima licitação e veja o caminho inteiro, da oportunidade ao resultado.
+Depois dos 30 dias, a contratação só aparece se você voltar a usar.
 
-Link na bio.
+Vale para quem começa até 19 de dezembro. Link na bio.
 
 #licitacoes #licitacao #pregaoeletronico #vendaparaogoverno #comprasgovernamentais #Licit
 ```
-
-Falta nesta legenda, por não estar definido: o que acontece depois dos 30 dias.
 
 ## Conferência
 
 - Sem travessão em nenhum texto público.
 - Nenhuma promessa de vitória, número de clientes ou dado do cenário de demonstração do topo do site.
-- Assinatura: institucional (Profissio Licit) nas capas e fechos, estrela + Licit nas telas internas.
-- Rodapé "Toda a sua operação de licitações" (a do site), a confirmar no lugar de "IA para licitação de Obras".
-- Vídeo: 1080x1920, 30 fps, 18 s, master em -14 LUFS.
+- "A certidão vence antes da proposta? Você fica sabendo." descreve o aviso de validade que o site declara; não afirma efeito jurídico da certidão vencida.
+- Assinatura: institucional (Profissio Licit) nas capas e nos blocos de oferta, estrela + Licit nas telas internas.
+- Vídeo: 1080x1920, 30 fps, 20 s, master em torno de -14 LUFS.
+- O bloco verde cheio e as pílulas vão além do manual de marca, que pede o acento "contido". Decisão do usuário, registrada no `CLAUDE.md`.

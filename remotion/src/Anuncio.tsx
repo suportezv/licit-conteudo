@@ -1,177 +1,284 @@
 import React from "react";
-import { AbsoluteFill, Audio, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Easing, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { carregaFontes } from "./fontes";
 import { Fundo } from "./Fundo";
-import { marca, tema } from "./marca";
+import { Cartao, MOCKS, NomeMock } from "./Mock";
+import { Titulo, cores } from "./Slide";
+import { Tema, marca } from "./marca";
 
 carregaFontes();
 
 export type PropsAnuncio = {
   abertura: string;
-  promessa: string;
-  etapas: string[];
+  gancho: string;
+  /** [nome da etapa, tela do produto] */
+  etapas: [string, NomeMock][];
+  numero: number;
   oferta: string;
-  prazo: string;
+  chips: string[];
+  acao: string;
   rodape: string;
-  /** Arquivo de trilha em public/, ou vazio para sair mudo. */
+  /** Arquivo de trilha em public/, ou vazio para sair sem trilha. */
   trilha?: string;
 };
 
 const curva = Easing.bezier(...marca.curva);
+const M = 92; // margem lateral
+const TOPO = 220; // area segura do 9:16
+const BASE = 420;
 
-/** Entra em `ini` e sai em `fim` (segundos do bloco), com a curva do sistema. */
-const useEntra = (fps: number) => {
+/** 0 a 1 a partir de `ini` segundos da cena, com a curva do sistema. */
+const useT = () => {
   const frame = useCurrentFrame();
-  return (ini: number, fim?: number, dur = 0.45) => {
-    const a = interpolate(frame, [ini * fps, (ini + dur) * fps], [0, 1], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-      easing: curva,
-    });
-    if (fim === undefined) return a;
-    const b = interpolate(frame, [(fim - 0.3) * fps, fim * fps], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-    return Math.min(a, b);
-  };
-};
-
-const Linhas: React.FC<{ texto: string; ini: number; fim?: number; tamanho: number; destaque?: string }> = ({
-  texto,
-  ini,
-  fim,
-  tamanho,
-  destaque,
-}) => {
   const { fps } = useVideoConfig();
-  const entra = useEntra(fps);
-  const c = tema("escuro");
-  return (
-    <div style={{ fontSize: tamanho, fontWeight: marca.peso.titulo, letterSpacing: marca.trackingTitulo, lineHeight: 1.14 }}>
-      {texto.split("\n").map((l, i) => {
-        const e = entra(ini + i * 0.16, fim);
-        return (
-          <div key={i} style={{ opacity: e, transform: `translateY(${interpolate(e, [0, 1], [18, 0])}px)` }}>
-            {l.split(" ").map((p, j) => (
-              <span key={j} style={{ color: destaque && p.replace(/[.,]/g, "") === destaque ? c.destaque : c.texto }}>
-                {p}{" "}
-              </span>
-            ))}
-          </div>
-        );
-      })}
-    </div>
-  );
+  return (ini: number, dur = 0.4) =>
+    interpolate(frame, [ini * fps, (ini + dur) * fps], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: curva });
 };
 
-/**
- * Filme de anuncio, 9:16, 18 s, sem narracao. Quatro estados que se sucedem
- * sem corte seco: abertura, promessa, as cinco etapas e a oferta.
- */
-export const Anuncio: React.FC<PropsAnuncio> = ({ abertura, promessa, etapas, oferta, prazo, rodape, trilha }) => {
-  const frame = useCurrentFrame();
-  const { fps, width, durationInFrames } = useVideoConfig();
-  const entra = useEntra(fps);
-  const c = tema("escuro");
-  const m = Math.round(width * 0.085);
-  const T = { a: 0, b: 3.6, c: 8.2, d: 13.2 };
-  // o fundo passa de grafite a floresta no estado final
-  const paraFloresta = interpolate(frame, [(T.d - 0.4) * fps, (T.d + 0.5) * fps], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const vol = (f: number) =>
-    interpolate(f, [0, fps * 0.8, durationInFrames - fps * 1.5, durationInFrames], [0, 0.5, 0.5, 0], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    });
-
+/** A cena entra subindo por cima da anterior. */
+const Cena: React.FC<{ t: Tema; children: React.ReactNode; entra?: boolean; grade?: boolean }> = ({ t, children, entra = true, grade = false }) => {
+  const T = useT();
+  const e = entra ? T(0, 0.38) : 1;
   return (
-    <AbsoluteFill>
-      <Fundo variante="escuro" />
-      <AbsoluteFill style={{ opacity: paraFloresta }}>
-        <Fundo variante="floresta" />
-      </AbsoluteFill>
-      {trilha ? <Audio src={staticFile(trilha)} volume={vol} /> : null}
-
-      <AbsoluteFill style={{ padding: `220px ${m}px 420px`, fontFamily: marca.fonte, color: c.texto }}>
-        {/* assinatura: estrela + Licit ate a oferta; institucional no fecho */}
-        <div style={{ height: 90, position: "relative" }}>
-          <Img
-            src={staticFile("licit-estrela-branco.svg")}
-            style={{ width: width * 0.24, position: "absolute", opacity: Math.min(entra(0.2), 1 - paraFloresta) }}
-          />
-          <Img
-            src={staticFile("profissio-licit-branco.svg")}
-            style={{ width: width * 0.4, position: "absolute", opacity: Math.min(entra(T.d + 0.3), paraFloresta) }}
-          />
-        </div>
-
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", position: "relative" }}>
-          <Sequence from={0} durationInFrames={Math.round(T.b * fps)} layout="none">
-            <div style={{ position: "absolute", left: 0, right: 0 }}>
-              <Linhas texto={abertura} ini={0.7} fim={T.b} tamanho={Math.round(width * 0.105)} destaque="Licit" />
-            </div>
-          </Sequence>
-          <Sequence from={Math.round(T.b * fps)} durationInFrames={Math.round((T.c - T.b) * fps)} layout="none">
-            <div style={{ position: "absolute", left: 0, right: 0 }}>
-              <Linhas texto={promessa} ini={0.15} fim={T.c - T.b} tamanho={Math.round(width * 0.078)} />
-            </div>
-          </Sequence>
-          <Sequence from={Math.round(T.c * fps)} durationInFrames={Math.round((T.d - T.c) * fps)} layout="none">
-            <Etapas etapas={etapas} dur={T.d - T.c} />
-          </Sequence>
-          <Sequence from={Math.round(T.d * fps)} layout="none">
-            <div style={{ position: "absolute", left: 0, right: 0 }}>
-              <Linhas texto={oferta} ini={0.4} tamanho={Math.round(width * 0.098)} destaque="30" />
-              <Prazo texto={prazo} ini={1.3} />
-            </div>
-          </Sequence>
-        </div>
-
-        <div style={{ opacity: entra(1.2) }}>
-          <div style={{ height: 1, backgroundColor: c.borda, marginBottom: 28 }} />
-          <div style={{ fontSize: 28, color: c.textoSecundario }}>{rodape}</div>
-        </div>
-      </AbsoluteFill>
+    <AbsoluteFill style={{ transform: `translateY(${(1 - e) * 100}%)`, overflow: "hidden", fontFamily: marca.fonte }}>
+      <Fundo variante={t} grade={grade} />
+      {children}
     </AbsoluteFill>
   );
 };
 
-const Prazo: React.FC<{ texto: string; ini: number }> = ({ texto, ini }) => {
+const Sobe: React.FC<{ v: number; children: React.ReactNode; d?: number; estilo?: React.CSSProperties }> = ({ v, children, d = 40, estilo }) => (
+  <div style={{ opacity: Math.min(1, v * 1.4), transform: `translateY(${(1 - v) * d}px)`, ...estilo }}>{children}</div>
+);
+
+const Som: React.FC<{ em: number; arquivo: string; volume?: number }> = ({ em, arquivo, volume = 0.55 }) => {
   const { fps } = useVideoConfig();
-  const entra = useEntra(fps);
-  const c = tema("escuro");
-  const e = entra(ini);
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 22, marginTop: 44, opacity: e }}>
-      <div style={{ width: interpolate(e, [0, 1], [0, 64]), height: 2, backgroundColor: c.destaque }} />
-      <div style={{ fontSize: 38, color: c.texto }}>{texto}</div>
-    </div>
+    <Sequence from={Math.round(em * fps)} layout="none">
+      <Audio src={staticFile(`sfx/${arquivo}.mp3`)} volume={volume} />
+    </Sequence>
   );
 };
 
-const Etapas: React.FC<{ etapas: string[]; dur: number }> = ({ etapas, dur }) => {
-  const { fps } = useVideoConfig();
-  const entra = useEntra(fps);
-  const c = tema("escuro");
+/** 1. A estrela chega girando e a frase de abertura entra. */
+const Abertura: React.FC<{ texto: string }> = ({ texto }) => {
+  const frame = useCurrentFrame();
+  const { fps, width } = useVideoConfig();
+  const T = useT();
+  const s = spring({ frame, fps, config: { damping: 13, mass: 0.9 } });
+  const recua = T(0.75, 0.5);
   return (
-    <div style={{ position: "absolute", left: 0, right: 0 }}>
-      {etapas.map((et, i) => {
-        const e = entra(0.15 + i * 0.5, dur);
-        return (
-          <div
-            key={et}
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              gap: 34,
-              padding: "26px 0",
-              borderTop: `1px solid ${c.borda}`,
-              opacity: e,
-              transform: `translateY(${interpolate(e, [0, 1], [14, 0])}px)`,
-            }}
-          >
-            <div style={{ fontSize: 30, fontWeight: 500, color: c.destaque, width: 60 }}>{String(i + 1).padStart(2, "0")}</div>
-            <div style={{ fontSize: 76, fontWeight: 500, letterSpacing: marca.trackingTitulo }}>{et}</div>
+    <Cena t="escuro" entra={false} grade>
+      <Img
+        src={staticFile("estrela-licit-branco.svg")}
+        style={{
+          position: "absolute",
+          width: 1500,
+          left: width / 2 - 750,
+          top: 260,
+          transform: `scale(${interpolate(s, [0, 1], [0.05, 1]) * interpolate(recua, [0, 1], [0.62, 1.25])}) rotate(${interpolate(s, [0, 1], [-140, 0]) + recua * 14}deg)`,
+          opacity: interpolate(recua, [0, 1], [1, 0.1]),
+        }}
+      />
+      <AbsoluteFill style={{ padding: `${TOPO}px ${M}px ${BASE}px`, justifyContent: "center" }}>
+        <Sobe v={T(0.85, 0.45)} d={70}>
+          <Titulo texto={texto} t="escuro" tamanho={186} />
+        </Sobe>
+      </AbsoluteFill>
+    </Cena>
+  );
+};
+
+/** 2. O gancho, linha a linha. */
+const Gancho: React.FC<{ texto: string }> = ({ texto }) => {
+  const T = useT();
+  const linhas = texto.split("\n");
+  return (
+    <Cena t="floresta">
+      <Img src={staticFile("estrela-licit-branco.svg")} style={{ position: "absolute", width: 1500, right: -620, bottom: -260, opacity: 0.07, transform: `rotate(${12 + T(0, 3.6) * 10}deg)` }} />
+      <AbsoluteFill style={{ padding: `${TOPO}px ${M}px ${BASE}px`, justifyContent: "center" }}>
+        {linhas.map((l, i) => (
+          <Sobe key={i} v={T(0.3 + i * 0.26, 0.4)} d={60}>
+            <Titulo texto={l} t="floresta" tamanho={122} />
+          </Sobe>
+        ))}
+      </AbsoluteFill>
+    </Cena>
+  );
+};
+
+/** 3. Uma etapa: numeral gigante, o verbo e a tela do produto montando. */
+const Etapa: React.FC<{ n: number; nome: string; mock: NomeMock; t: Tema; dur: number }> = ({ n, nome, mock, t, dur }) => {
+  const T = useT();
+  const c = cores(t);
+  const Mock = MOCKS[mock];
+  const num = T(0.08, 0.4);
+  const card = T(0.22, 0.45);
+  return (
+    <Cena t={t}>
+      <div
+        style={{
+          position: "absolute",
+          right: M - 20,
+          top: TOPO - 60,
+          fontSize: 420,
+          fontWeight: 600,
+          letterSpacing: "-0.06em",
+          lineHeight: 1,
+          color: c.destaque,
+          opacity: num,
+          transform: `translateX(${(1 - num) * 120}px)`,
+        }}
+      >
+        {String(n).padStart(2, "0")}
+      </div>
+      <Img src={staticFile("licit-estrela-branco.svg")} style={{ position: "absolute", left: M, top: TOPO, width: 230 }} />
+      <AbsoluteFill style={{ padding: `${TOPO + 380}px ${M}px ${BASE}px` }}>
+        <Sobe v={T(0.14, 0.4)} d={50}>
+          <div style={{ fontSize: 150, fontWeight: 500, letterSpacing: "-0.045em", lineHeight: 1, color: c.texto }}>{nome}</div>
+        </Sobe>
+        <div style={{ marginTop: 56, opacity: Math.min(1, card * 1.5), transform: `translateY(${(1 - card) * 160}px) rotate(${(n % 2 ? -1.5 : 1.5) * card}deg)` }}>
+          <Cartao largura={896}>
+            <Mock p={T(0.35, dur - 0.75)} />
+          </Cartao>
+        </div>
+        {/* progresso das cinco etapas */}
+        <div style={{ position: "absolute", left: M, right: M, bottom: BASE - 10, display: "flex", gap: 12 }}>
+          {[1, 2, 3, 4, 5].map((k) => (
+            <div key={k} style={{ flex: 1, height: 10, borderRadius: 5, background: c.borda, overflow: "hidden" }}>
+              <div style={{ height: 10, width: k < n ? "100%" : k === n ? `${T(0, dur) * 100}%` : "0%", background: c.destaque }} />
+            </div>
+          ))}
+        </div>
+      </AbsoluteFill>
+    </Cena>
+  );
+};
+
+/** 4. A oferta: o bloco verde, o 30 contando e as condicoes. */
+const Oferta: React.FC<{ numero: number; texto: string; chips: string[]; acao: string; rodape: string }> = ({ numero, texto, chips, acao, rodape }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const T = useT();
+  const c = cores("acento");
+  const conta = Math.round(T(0.3, 0.9) * numero);
+  const pulso = spring({ frame: frame - Math.round(1.2 * fps), fps, config: { damping: 9 } });
+  return (
+    <Cena t="acento">
+      <Img
+        src={staticFile("estrela-licit-preto.svg")}
+        style={{ position: "absolute", width: 1500, right: -560, bottom: -120, opacity: 0.1, transform: `rotate(${12 + T(0, 6) * 16}deg)` }}
+      />
+      <Img src={staticFile("profissio-licit-preto.svg")} style={{ position: "absolute", left: M, top: TOPO, width: 420, opacity: T(0.5, 0.4) }} />
+      <AbsoluteFill style={{ padding: `${TOPO}px ${M}px ${BASE}px`, justifyContent: "center", color: c.texto }}>
+        <div
+          style={{
+            fontSize: 640,
+            fontWeight: 600,
+            letterSpacing: "-0.07em",
+            lineHeight: 0.84,
+            marginLeft: -26,
+            transform: `scale(${interpolate(pulso, [0, 1], [0.94, 1])})`,
+            transformOrigin: "left bottom",
+            fontVariantNumeric: "tabular-nums",
+          }}
+        >
+          {conta}
+        </div>
+        <Sobe v={T(1.25, 0.4)} d={50}>
+          <div style={{ fontSize: 112, fontWeight: 500, letterSpacing: "-0.04em", lineHeight: 1.06, marginTop: 24 }}>
+            {texto.split("\n").map((l, i) => (
+              <div key={i}>{l}</div>
+            ))}
           </div>
-        );
-      })}
-    </div>
+        </Sobe>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 18, marginTop: 50 }}>
+          {chips.map((ch, i) => {
+            const e = spring({ frame: frame - Math.round((2.0 + i * 0.35) * fps), fps, config: { damping: 11 } });
+            return (
+              <span
+                key={ch}
+                style={{
+                  display: "inline-block",
+                  transform: `scale(${e})`,
+                  background: i === 0 ? marca.grafite : "transparent",
+                  color: i === 0 ? marca.acento : marca.grafite,
+                  border: i === 0 ? "none" : `3px solid ${marca.grafite}`,
+                  fontSize: 44,
+                  fontWeight: 600,
+                  padding: "18px 38px",
+                  borderRadius: 60,
+                }}
+              >
+                {ch}
+              </span>
+            );
+          })}
+        </div>
+      </AbsoluteFill>
+      <div
+        style={{
+          position: "absolute",
+          left: M,
+          right: M,
+          bottom: BASE - 40,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          opacity: T(3.0, 0.4),
+          fontFamily: marca.fonte,
+        }}
+      >
+        <div style={{ fontSize: 30, color: c.textoSecundario }}>{rodape}</div>
+        <span style={{ background: marca.grafite, color: marca.acento, fontSize: 34, fontWeight: 600, padding: "14px 32px", borderRadius: 50 }}>{acao}</span>
+      </div>
+    </Cena>
+  );
+};
+
+/** Filme de anuncio, 9:16, 20 s, sem narracao: abertura, gancho, cinco etapas e a oferta. */
+export const Anuncio: React.FC<PropsAnuncio> = ({ abertura, gancho, etapas, numero, oferta, chips, acao, rodape, trilha }) => {
+  const { fps, durationInFrames } = useVideoConfig();
+  const f = (s: number) => Math.round(s * fps);
+  const A = 2.4; // fim da abertura
+  const B = 6.2; // fim do gancho
+  const DUR = 1.6; // cada etapa
+  const C = B + etapas.length * DUR;
+  const vol = (fr: number) =>
+    interpolate(fr, [0, fps * 0.6, durationInFrames - fps * 1.4, durationInFrames], [0, 0.42, 0.42, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
+  return (
+    <AbsoluteFill style={{ backgroundColor: marca.grafite }}>
+      {trilha ? <Audio src={staticFile(trilha)} volume={vol} /> : null}
+      <Som em={0.05} arquivo="sweep" />
+      <Som em={0.85} arquivo="pop" />
+      <Som em={A} arquivo="move" volume={0.45} />
+      {etapas.map((_, i) => (
+        <React.Fragment key={i}>
+          <Som em={B + i * DUR} arquivo="move" volume={0.4} />
+          <Som em={B + i * DUR + 0.3} arquivo="click" volume={0.5} />
+        </React.Fragment>
+      ))}
+      <Som em={C} arquivo="swell" volume={0.5} />
+      <Som em={C + 0.3} arquivo="counter" volume={0.5} />
+      <Som em={C + 2.0} arquivo="pop" />
+      <Som em={C + 2.35} arquivo="pop" />
+      <Som em={C + 3.0} arquivo="shimmer" volume={0.45} />
+
+      <Sequence durationInFrames={f(A) + f(0.4)}>
+        <Abertura texto={abertura} />
+      </Sequence>
+      <Sequence from={f(A)} durationInFrames={f(B - A) + f(0.4)}>
+        <Gancho texto={gancho} />
+      </Sequence>
+      {etapas.map(([nome, mock], i) => (
+        <Sequence key={nome} from={f(B + i * DUR)} durationInFrames={f(DUR) + f(0.4)}>
+          <Etapa n={i + 1} nome={nome} mock={mock} t={i % 2 ? "floresta" : "escuro"} dur={DUR} />
+        </Sequence>
+      ))}
+      <Sequence from={f(C)}>
+        <Oferta numero={numero} texto={oferta} chips={chips} acao={acao} rodape={rodape} />
+      </Sequence>
+    </AbsoluteFill>
   );
 };

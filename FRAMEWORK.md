@@ -36,6 +36,10 @@ Fonte de verdade: o Design System (`https://claude.ai/artifact/1Cew4xmRADNpZi6aR
 - **Fundos**: plano chapado onde há leitura; geometria discreta (grade técnica, planos, topografia) em área de marca. Sem brilho difuso.
 - **Molde das peças sociais** (dos modelos do kit): assinatura no topo, fio + rótulo em caixa alta, título em três ou quatro linhas curtas, linha de apoio, categoria no rodapé. É a composição `CartaoTitulo` do Remotion.
 
+## Peça de feed não é panfleto (regra do usuário, 10/nov/2026)
+
+O manual de marca descreve a identidade; **a rede social precisa parar o dedo**. Toda peça de feed abre com gancho, traz um elemento visual além do texto (tela do produto, numeral gigante, pílula de cor, a estrela em grande), usa cor em bloco e fala em tom de conversa. Detalhes e componentes no `CLAUDE.md`, seção "REGRA DO USUÁRIO". Os limites de mensagem continuam valendo.
+
 ## Pilares de conteúdo (PROPOSTA, a validar com o usuário)
 
 Derivados do que as evidências permitem dizer. Cada pilar parte de um mecanismo observado nas telas, não de promessa.

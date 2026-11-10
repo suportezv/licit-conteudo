@@ -30,7 +30,7 @@ for nome in ("etapas", "oferta"):
 if "anuncio" in quais:
     pf = os.path.join(OUT, "_props.json"); json.dump(P["anuncio"], open(pf, "w"), ensure_ascii=False)
     bruto = os.path.join(OUT, "_anuncio-bruto.mp4"); final = os.path.join(OUT, "anuncio-chegou-a-licit.mp4")
-    remotion("render", "src/index.ts", "Anuncio", bruto, f"--props={pf}", "--codec=h264", "--crf=16")
+    remotion("render", "src/index.ts", "Anuncio", bruto, f"--props={pf}", "--codec=h264", "--crf=16", "--concurrency=4")
     # master em -14 LUFS, pico -1 dBTP
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", bruto, "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11,volume=-0.6dB",
                     "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", final], check=True)

@@ -1,27 +1,165 @@
 {
   "rodape": "Toda a sua operação de licitações",
   "anuncio": {
-    "abertura": "Chegou\na Licit.",
-    "promessa": "Venda para o governo.\nSaiba o que fazer\nem cada etapa.",
-    "etapas": ["Encontre", "Analise", "Prepare", "Acompanhe", "Confira"],
-    "oferta": "30 dias\npara usar\na Licit.",
-    "prazo": "Comece até 9 de dezembro.",
+    "gancho": "Seu próximo\ncontrato pode\nestar numa\n*licitação* que\nvocê não viu.",
+    "abertura": "Chegou\na *Licit*.",
+    "etapas": [
+      [
+        "Encontre",
+        "busca"
+      ],
+      [
+        "Analise",
+        "chat"
+      ],
+      [
+        "Prepare",
+        "checklist"
+      ],
+      [
+        "Acompanhe",
+        "tarefas"
+      ],
+      [
+        "Confira",
+        "resultado"
+      ]
+    ],
+    "numero": 30,
+    "oferta": "dias para usar\na Licit.",
+    "chips": [
+      "Sem cartão",
+      "Comece até 19/dez"
+    ],
+    "acao": "Link na bio",
     "rodape": "Toda a sua operação de licitações",
     "trilha": "trilha-tech-warm-33s.mp3"
   },
   "etapas": [
-    {"tipo": "capa", "tema": "escuro", "assinatura": "institucional", "rotulo": "Como funciona", "titulo": "Da oportunidade\nao resultado,\nem cinco etapas.", "destaque": "cinco", "apoio": "Cada passo da sua licitação, no mesmo lugar.", "acao": "Arraste"},
-    {"tipo": "etapa", "numero": "01", "rotulo": "Encontre", "titulo": "Encontre licitações\nque sua empresa\npode atender.", "apoio": "Consulte seu CNPJ grátis. Veja licitações de órgãos públicos no seu ramo e compare local, valor e prazo.", "cartaoRotulo": "Exemplo de oportunidade", "linhas": [["Fornecimento de equipamentos de informática", ""], ["São José dos Campos, SP", "Produtos"], ["Valor estimado", "R$ 480.000"]]},
-    {"tipo": "etapa", "numero": "02", "rotulo": "Analise", "titulo": "Entenda o que fazer\nantes de entrar\nna disputa.", "apoio": "Veja requisitos, documentos e prazos. Pergunte ao edital em linguagem simples e confira as referências.", "cartaoRotulo": "Pergunta ao edital", "linhas": [["Quando preciso entregar os equipamentos?", ""], ["Em até 30 dias após a ordem de fornecimento.", ""], ["Referência", "Edital, página 25"]]},
-    {"tipo": "etapa", "numero": "03", "rotulo": "Prepare", "titulo": "Prepare a proposta\ncom os documentos\nà mão.", "apoio": "Reutilize as certidões da empresa, confira a validade e veja o que falta. Os preços, você define.", "cartaoRotulo": "Documentos e proposta", "linhas": [["Cartão CNPJ", "Já salvo na empresa"], ["Certidão FGTS", "Vence em 15 nov"], ["Proposta comercial", "Preencher os preços"]]},
-    {"tipo": "etapa", "numero": "04", "rotulo": "Acompanhe", "titulo": "Cada tarefa\ncom responsável\ne prazo.", "apoio": "Distribua a preparação dos documentos e da proposta. Acompanhe as entregas, a sessão e os avisos de renovação.", "cartaoRotulo": "Tarefas da licitação", "linhas": [["Renovar a certidão FGTS", "Ana, 15 nov"], ["Entregar a proposta", "Carlos, 19 nov, até 10:00"], ["Acompanhar a sessão", "Ana, 19 nov, 10:15"]]},
-    {"tipo": "etapa", "numero": "05", "rotulo": "Confira", "titulo": "Confira o resultado\nsem perder\no histórico.", "apoio": "Veja vencedor, classificação e valores publicados no PNCP junto da proposta, dos documentos e das decisões da sua empresa.", "cartaoRotulo": "Resultado da participação", "linhas": [["Classificação da empresa", "2º lugar"], ["Valor homologado", "R$ 426.000"], ["Proposta da empresa", "R$ 438.000"]]},
-    {"tipo": "fecho", "tema": "floresta", "assinatura": "institucional", "rotulo": "Condição de lançamento", "titulo": "A próxima licitação\nnão precisa\ncomeçar do zero.", "apoio": "No mês de lançamento, quem começa até 9 de dezembro usa a Licit por 30 dias sem pagar.", "acao": "Link na bio"}
+    {
+      "tipo": "capa",
+      "tema": "escuro",
+      "assinatura": "institucional",
+      "titulo": "Seu próximo\ncontrato pode\nestar numa\n*licitação* que\nvocê não viu.",
+      "apoio": "Do edital ao resultado, em 5 etapas.",
+      "acao": "Arraste →"
+    },
+    {
+      "tipo": "etapa",
+      "tema": "floresta",
+      "etapa": 1,
+      "numero": "01",
+      "rotulo": "Encontre",
+      "titulo": "Qual licitação\nvale o seu *tempo*?",
+      "mock": "busca",
+      "giro": -1.5
+    },
+    {
+      "tipo": "etapa",
+      "tema": "escuro",
+      "etapa": 2,
+      "numero": "02",
+      "rotulo": "Analise",
+      "titulo": "Pergunte ao edital.\nEle responde\n*com a página*.",
+      "mock": "chat",
+      "giro": 1.5
+    },
+    {
+      "tipo": "etapa",
+      "tema": "floresta",
+      "etapa": 3,
+      "numero": "03",
+      "rotulo": "Prepare",
+      "titulo": "A certidão vence\nantes da proposta?\n*Você fica sabendo*.",
+      "mock": "checklist",
+      "giro": -1.5
+    },
+    {
+      "tipo": "etapa",
+      "tema": "escuro",
+      "etapa": 4,
+      "numero": "04",
+      "rotulo": "Acompanhe",
+      "titulo": "Quem faz o quê.\n*Até quando*.",
+      "apoio": "Cada tarefa da licitação com responsável e prazo.",
+      "mock": "tarefas",
+      "giro": 1.5
+    },
+    {
+      "tipo": "etapa",
+      "tema": "floresta",
+      "etapa": 5,
+      "numero": "05",
+      "rotulo": "Confira",
+      "titulo": "O resultado sai.\n*O histórico fica*.",
+      "apoio": "A próxima licitação não começa do zero.",
+      "mock": "resultado",
+      "giro": -1.5
+    },
+    {
+      "tipo": "numero",
+      "tema": "acento",
+      "assinatura": "institucional",
+      "numero": "30",
+      "titulo": "dias para usar\na Licit.",
+      "chips": [
+        "Sem cartão",
+        "Comece até 19/dez"
+      ],
+      "acao": "Link na bio"
+    }
   ],
   "oferta": [
-    {"tipo": "capa", "tema": "floresta", "assinatura": "institucional", "rotulo": "Condição de lançamento", "titulo": "30 dias\npara usar\na Licit.", "destaque": "30", "apoio": "Para quem começa até 9 de dezembro.", "acao": "Arraste"},
-    {"tipo": "passos", "rotulo": "O que você usa", "titulo": "As cinco etapas,\nna sua próxima licitação.", "passos": ["Encontre oportunidades para a sua empresa", "Analise o edital com as referências", "Prepare documentos e proposta", "Acompanhe tarefas e prazos", "Confira o resultado e o histórico"]},
-    {"tipo": "passos", "rotulo": "Como começar", "titulo": "Três passos.\nO primeiro é o CNPJ.", "passos": ["Consulte seu CNPJ e veja as oportunidades", "Escolha uma licitação", "Crie seu acesso e siga com a análise do edital"]},
-    {"tipo": "fecho", "tema": "floresta", "assinatura": "institucional", "rotulo": "Até quando", "titulo": "A condição\nde lançamento\ntermina em 9/dez.", "destaque": "9/dez", "apoio": "Comece pelo CNPJ e veja o que sua empresa pode disputar.", "acao": "Link na bio"}
+    {
+      "tipo": "numero",
+      "tema": "acento",
+      "assinatura": "institucional",
+      "rotulo": "Lançamento",
+      "numero": "30",
+      "titulo": "dias para usar\na Licit.",
+      "chips": [
+        "Sem cartão",
+        "Comece até 19/dez"
+      ],
+      "acao": "Arraste →"
+    },
+    {
+      "tipo": "tempo",
+      "tema": "escuro",
+      "titulo": "Sem cartão.\n*Sem pegadinha*.",
+      "marcos": [
+        [
+          "Dia 1",
+          "Você começa pelo CNPJ. Não pedimos cartão."
+        ],
+        [
+          "Dias 1 a 30",
+          "Usa a Licit nas suas licitações."
+        ],
+        [
+          "Depois",
+          "A contratação só aparece se você voltar a usar."
+        ]
+      ]
+    },
+    {
+      "tipo": "passos",
+      "tema": "floresta",
+      "titulo": "Começa em\n*três passos*.",
+      "passos": [
+        "Consulte seu CNPJ",
+        "Escolha uma licitação",
+        "Crie seu acesso e analise o edital"
+      ]
+    },
+    {
+      "tipo": "fecho",
+      "tema": "acento",
+      "assinatura": "institucional",
+      "rotulo": "Só no mês de lançamento",
+      "titulo": "Vale para quem\ncomeça até\n*19 de dezembro*.",
+      "apoio": "Veja o que sua empresa pode disputar.",
+      "acao": "Link na bio"
+    }
   ]
 }
