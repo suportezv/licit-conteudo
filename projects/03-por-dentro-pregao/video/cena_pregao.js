@@ -36,14 +36,14 @@ window.__CENAS.pregao = function (ctx) {
   function gente(o = {}) {
     const o2 = Object.assign({ camisa: P.bra, calca: P.gra2, pele: P.pele[0], cabelo: P.cabelo[0], gravata: null, longo: false, oculos: false, sem_rosto: false, cor_rosto: null }, o);
     const g = grp(); const pernas = [], bracos = [];
-    for (const dx of [-0.12, 0.12]) { const p = grp(dx, 0.88, 0); p.add(box(0.18, 0.88, 0.2, o2.calca, 0, -0.44, 0)); p.add(box(0.2, 0.1, 0.3, 0x2A2420, 0, -0.88, 0.04)); g.add(p); pernas.push(p); }
+    for (const dx of [-0.12, 0.12]) { const p = grp(dx, 0.88, 0); p.add(box(0.18, 0.88, 0.2, o2.calca, 0, -0.44, 0)); p.add(box(0.2, 0.1, 0.3, 0x2A2420, 0, -0.83, 0.04)); g.add(p); pernas.push(p); }
     g.add(box(0.5, 0.66, 0.28, o2.camisa, 0, 1.22, 0));
     if (o2.gravata) { g.add(box(0.08, 0.42, 0.02, o2.gravata, 0, 1.28, 0.15)); }
     for (const dx of [-1, 1]) { const b = grp(dx * 0.33, 1.5, 0); b.add(box(0.14, 0.62, 0.14, o2.camisa, 0, -0.31, 0)); b.add(box(0.13, 0.14, 0.13, o2.pele, 0, -0.66, 0)); g.add(b); bracos.push(b); }
     const cab = grp(0, 1.82, 0); g.add(cab);
     const rosto = box(0.4, 0.42, 0.36, o2.cor_rosto ?? o2.pele, 0, 0, 0); cab.add(rosto);
-    cab.add(box(0.42, 0.12, 0.38, o2.cabelo, 0, 0.22, -0.01)); cab.add(box(0.42, 0.24, 0.08, o2.cabelo, 0, 0.1, -0.16));
-    if (o2.longo) { cab.add(box(0.44, 0.42, 0.1, o2.cabelo, 0, -0.08, -0.17)); for (const dx of [-0.21, 0.21]) cab.add(box(0.05, 0.36, 0.3, o2.cabelo, dx, -0.04, -0.03)); }
+    cab.add(box(0.43, 0.12, 0.405, o2.cabelo, 0, 0.225, -0.0075)); cab.add(box(0.415, 0.24, 0.085, o2.cabelo, 0, 0.1, -0.1625));
+    if (o2.longo) { cab.add(box(0.445, 0.42, 0.1, o2.cabelo, 0, -0.08, -0.185)); for (const dx of [-0.21, 0.21]) cab.add(box(0.05, 0.36, 0.3, o2.cabelo, dx, -0.04, -0.03)); }
     const olhos = [], sobr = []; let boca = null;
     if (!o2.sem_rosto) {
       for (const dx of [-0.09, 0.09]) { const e = grp(dx, 0.03, 0.181); e.add(box(0.075, 0.075, 0.01, 0xFFFFFF, 0, 0, 0)); const pu = box(0.042, 0.05, 0.012, 0x1A1410, 0, 0, 0.004); e.add(pu); e.userData.pu = pu; cab.add(e); olhos.push(e);
@@ -71,7 +71,7 @@ window.__CENAS.pregao = function (ctx) {
     else if (modo === "apontando") { u.bracos[1].rotation.x = -1.4; u.bracos[1].rotation.z = -0.35; u.cab.rotation.y = -0.2; }
     else if (modo === "comemora") { u.bracos.forEach((b, i) => { b.rotation.z = (i ? -1 : 1) * (2.5 + Math.sin(t * 8) * 0.15); }); p.userData.salto = Math.abs(Math.sin(t * 6)) * 0.06; }
     else if (modo === "maos_cabeca") { u.bracos.forEach((b, i) => { b.rotation.x = -2.6; b.rotation.z = (i ? -1 : 1) * 0.55; }); }
-    else if (modo === "fala") { u.bracos[1].rotation.x = -0.9 + Math.sin(t * 3) * 0.15; u.bracos[1].rotation.z = -0.25; u.cab.rotation.y = Math.sin(t * 1.4) * 0.12; }
+    else if (modo === "fala") { u.bracos[1].rotation.x = -1.5 + Math.sin(t * 3) * 0.12; u.bracos[1].rotation.z = -0.25; u.cab.rotation.y = Math.sin(t * 1.4) * 0.12; }
     else { u.bracos.forEach((b, i) => b.rotation.x = Math.sin(t * 1.5 + ph + i) * 0.05); u.cab.rotation.y = Math.sin(t * 0.6 + ph) * 0.12; }
   }
   const rnd = mulberry32(31);
@@ -79,7 +79,7 @@ window.__CENAS.pregao = function (ctx) {
 
   // ---------- objetos de cena
   function mesa(w = 2.2, d = 1.0, cor = P.madeira) { const g = grp(); g.add(box(w, 0.08, d, cor, 0, 0.76, 0)); for (const [x, z] of [[-w / 2 + 0.08, -d / 2 + 0.08], [w / 2 - 0.08, -d / 2 + 0.08], [-w / 2 + 0.08, d / 2 - 0.08], [w / 2 - 0.08, d / 2 - 0.08]]) g.add(box(0.06, 0.76, 0.06, P.madeiraEsc, x, 0.38, z)); g.add(box(w - 0.2, 0.6, 0.04, cor, 0, 0.42, -d / 2 + 0.06)); return g; }
-  function monitor(t) { const g = grp(); g.add(box(0.08, 0.32, 0.08, P.gra2, 0, 0.98, 0)); g.add(box(0.36, 0.03, 0.22, P.gra2, 0, 0.815, 0)); g.add(box(0.98, 0.6, 0.05, P.gra, 0, 1.38, 0)); const s = placa(0.92, 0.54, t); s.position.set(0, 1.38, 0.028); g.add(s); g.userData.tela = s; return g; }
+  function monitor(t) { const g = grp(); g.add(box(0.08, 0.32, 0.08, P.gra2, 0, 0.98, 0)); g.add(box(0.36, 0.03, 0.22, P.gra2, 0, 0.815, 0)); g.add(box(0.98, 0.6, 0.05, P.gra, 0, 1.38, 0)); const s = placa(0.92, 0.54, t); s.position.set(0, 1.38, 0.04); g.add(s); g.userData.tela = s; return g; }
   function cadeira(cor = P.gra2) { const g = grp(); g.add(box(0.5, 0.08, 0.5, cor, 0, 0.48, 0)); g.add(box(0.5, 0.55, 0.07, cor, 0, 0.8, -0.24)); g.add(cyl(0.04, 0.04, 0.45, 0x444444, 0, 0.24, 0, 6)); return g; }
   function planta(s = 1) { const g = grp(); g.add(cyl(0.16 * s, 0.12 * s, 0.3 * s, 0xC9734A, 0, 0.15 * s, 0, 10)); for (let i = 0; i < 5; i++) { const f = mesh(new THREE.IcosahedronGeometry(0.17 * s, 0), [0x5FAE66, 0x7DC47A, 0x4C9A57][i % 3], Math.cos(i * 1.3) * 0.12 * s, 0.42 * s + i * 0.06 * s, Math.sin(i * 1.3) * 0.12 * s); g.add(f); } return g; }
   function caixaPC(t) { const g = grp(); g.add(box(0.9, 0.6, 0.7, 0xC9A27A, 0, 0.3, 0)); const lado = placa(0.62, 0.42, t); lado.position.set(0, 0.32, 0.352); g.add(lado); g.add(box(0.92, 0.04, 0.12, 0xD8B48A, 0, 0.6, 0)); return g; }
@@ -124,12 +124,12 @@ window.__CENAS.pregao = function (ctx) {
     const W_ = 3.4, H_ = 3.0, D_ = 3.2; const pos = [[-1.5, 0], [-0.5, 0], [0.5, 0], [1.5, 0], [-1, 1], [0, 1], [1, 1]];
     const fr = grp(0, 0, 0); B.add(fr);
     fr.add(box(4 * W_ + 0.6, 0.3, D_ + 0.4, P.sup, 0, 0, 0)); fr.add(box(4 * W_ + 0.6, 0.3, D_ + 0.4, P.sup, 0, H_ + 0.15, 0)); fr.add(box(3 * W_ + 0.6, 0.3, D_ + 0.4, P.sup, 0, 2 * H_ + 0.3, 0));
-    for (const x of [-2, -1, 0, 1, 2]) fr.add(box(0.22, H_, D_ + 0.4, P.sup, x * W_, 0.15, 0)); for (const x of [-1.5, -0.5, 0.5, 1.5]) fr.add(box(0.22, H_, D_ + 0.4, P.sup, x * W_, H_ + 0.3, 0));
-    fr.add(box(4 * W_ + 0.6, 2 * H_ + 0.6, 0.2, P.parede2, 0, 0, -D_ / 2 - 0.1)); // fundo
+    for (const x of [-2, -1, 0, 1, 2]) fr.add(box(0.22, H_, D_ + 0.4, P.sup, x * W_, 0.15 + H_ / 2, 0)); for (const x of [-1.5, -0.5, 0.5, 1.5]) fr.add(box(0.22, H_, D_ + 0.4, P.sup, x * W_, H_ + 0.3 + H_ / 2, 0));
+    fr.add(box(4 * W_ + 0.6, 2 * H_ + 0.6, 0.2, P.parede2, 0, H_ + 0.3, -D_ / 2 - 0.1)); // fundo
     // borda de corte em verde-limao (o raio-x)
     for (const [x, y, w, h] of [[0, 0.3, 4 * W_ + 0.7, 0.06], [0, H_ + 0.45, 4 * W_ + 0.7, 0.06], [0, 2 * H_ + 0.6, 3 * W_ + 0.7, 0.06]]) fr.add(box(w, h, 0.06, P.lim, x, y, D_ / 2 + 0.22, { emissive: P.lim, emissiveIntensity: 0.6 }));
     pos.forEach(([cx, fl], i) => { const s = grp(cx * W_, fl * (H_ + 0.15) + 0.15, 0); fr.add(s);
-      s.add(box(W_ - 0.24, 0.05, D_, i === 6 ? 0xCFE3D2 : 0xE8DCCB, 0, 0.0, 0)); s.add(box(W_ - 0.24, H_ - 0.2, 0.06, [0xF2E6D8, 0xE3EEF2, 0xF0E9DA, 0xE7F0E3, 0xF3E3E3, 0xE6E9F5, 0xE4F2DA][i], 0, 0.05, -D_ / 2 + 0.05));
+      s.add(box(W_ - 0.24, 0.05, D_, i === 6 ? 0xCFE3D2 : 0xE8DCCB, 0, 0.0, 0)); s.add(box(W_ - 0.24, H_ - 0.2, 0.06, [0xF2E6D8, 0xE3EEF2, 0xF0E9DA, 0xE7F0E3, 0xF3E3E3, 0xE6E9F5, 0xE4F2DA][i], 0, (H_ - 0.2) / 2 + 0.03, -D_ / 2 + 0.06));
       const m = mesa(1.6, 0.7); m.position.set(0, 0, 0.1); s.add(m);
       const tt = tex(512, 300, (g, w, h) => { g.fillStyle = "#0E1A14"; g.fillRect(0, 0, w, h); }); const mo = monitor(tt); mo.position.set(0, 0, -0.05); mo.scale.set(0.9, 0.9, 0.9); s.add(mo);
       const p = i === 6 ? gente({ camisa: P.flo, calca: P.gra2, pele: P.pele[1], cabelo: P.cabelo[0], oculos: true }) : figurante(i); p.position.set(0, 0, -0.75); p.rotation.y = 0; p.userData.ph = i * 0.9; s.add(p);
@@ -144,7 +144,7 @@ window.__CENAS.pregao = function (ctx) {
   // ===== C: escritorio do protagonista =====
   const prot = gente({ camisa: P.flo, calca: P.gra2, pele: P.pele[1], cabelo: P.cabelo[0], oculos: true }); prot.userData.ph = 0.4;
   const docs = []; let envelope, calTex, telaEsc;
-  { const C = R.escritorio; C.add(box(14, 0.2, 12, 0xC9A57E, 0, -0.1, 0)); for (let x = -7; x < 7; x += 0.7) C.add(box(0.02, 0.21, 12, 0xB58F67, x, -0.1, 0));
+  { const C = R.escritorio; C.add(box(14, 0.2, 12, 0xC9A57E, 0, -0.1, 0)); for (let x = -7; x < 7; x += 0.7) C.add(box(0.02, 0.2, 12, 0xB58F67, x, -0.09, 0));
     C.add(box(14, 6, 0.3, P.parede, 0, 3, -4)); C.add(box(0.3, 6, 12, 0xE6DCCD, -7, 3, 2));
     // janela com a cidade
     C.add(box(3.6, 2.4, 0.32, P.sup, 3.6, 3.0, -4)); const vt = tex(512, 340, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, "#9FD6F0"); gr.addColorStop(1, "#E9F6FB"); g.fillStyle = gr; g.fillRect(0, 0, w, h); g.fillStyle = "#C9D6DC"; for (let i = 0; i < 8; i++) { const bw = 40 + (i * 37) % 50, bh = 80 + (i * 53) % 140; g.fillRect(i * 66, h - bh, bw, bh); } g.fillStyle = "#7DC47A"; g.fillRect(0, h - 26, w, 26); });
@@ -159,12 +159,12 @@ window.__CENAS.pregao = function (ctx) {
     telaEsc = tex(1024, 600, (g, w, h) => {}); const mo = monitor(telaEsc); mo.position.set(0.2, 0, -1.55); mo.scale.set(1.25, 1.25, 1.25); C.add(mo);
     C.add(box(0.7, 0.03, 0.24, 0x2A2F35, 0.2, 0.81, -0.95)); C.add(box(0.12, 0.03, 0.18, 0x2A2F35, 0.85, 0.81, -0.95));
     const xc = cyl(0.07, 0.06, 0.14, P.sup, -0.9, 0.87, -1.0, 10); C.add(xc);
-    const ch = cadeira(); ch.position.set(0.2, 0, -0.1); ch.rotation.y = Math.PI; C.add(ch);
+    const ch = cadeira(); ch.position.set(0.2, 0, 0.35); ch.rotation.y = Math.PI; C.add(ch);
     prot.position.set(0.2, 0, -0.35); prot.rotation.y = Math.PI; C.add(prot);
     // o edital: pilha que se abre em secoes (raio-x)
     const nomes = ["OBJETO", "ESPECIFICAÇÃO", "HABILITAÇÃO", "PRAZOS"];
     nomes.forEach((n, i) => { const t = tex(640, 400, (g, w, h) => { g.fillStyle = "#FFFFFF"; g.fillRect(0, 0, w, h); g.fillStyle = "#243D32"; g.fillRect(0, 0, w, 86); txt(g, n, w / 2, 46, 52, "#FFFFFF", 700); g.fillStyle = "#C9D1CC"; for (let k = 0; k < 7; k++) g.fillRect(48, 120 + k * 36, (k % 3 === 2 ? 360 : 540), 14); g.fillStyle = "#A8F27A"; g.fillRect(48, 120 + (i + 1) * 36, 300, 14); });
-      const d = grp(); const fl = box(1.6, 0.03, 1.0, 0xFFFFFF, 0, 0, 0); d.add(fl); const top_ = placa(1.6, 1.0, t); top_.rotation.x = -Math.PI / 2; top_.position.y = 0.02; d.add(top_); d.position.set(-0.9, 0.82 + i * 0.035, -1.05); C.add(d); docs.push(d); });
+      const d = grp(); const fl = box(1.6, 0.03, 1.0, 0xFFFFFF, 0, 0, 0); d.add(fl); const top_ = placa(1.6, 1.0, t); top_.rotation.x = -Math.PI / 2; top_.position.y = 0.03; d.add(top_); d.position.set(-0.9, 0.82 + i * 0.035, -1.05); C.add(d); docs.push(d); });
     // envelope da proposta
     envelope = grp(); { const ev = box(0.9, 0.04, 0.6, P.sup, 0, 0, 0); envelope.add(ev); const ab = box(0.9, 0.02, 0.34, 0xE4DED2, 0, 0.03, -0.13); ab.rotation.x = 0.3; envelope.add(ab); const sl = cyl(0.08, 0.08, 0.02, P.lim, 0, 0.05, 0.05, 12, { emissive: P.lim, emissiveIntensity: 0.6 }); envelope.add(sl); }
     envelope.visible = false; C.add(envelope);
@@ -188,7 +188,7 @@ window.__CENAS.pregao = function (ctx) {
     // pregoeiro na mesa central, de frente para os pulpitos
     const mp = grp(0, 0, -6.2); D.add(mp); mp.add(box(3.2, 1.05, 1.0, P.flo, 0, 0.52, 0)); mp.add(box(3.3, 0.06, 1.1, P.lim, 0, 1.06, 0, { emissive: P.lim, emissiveIntensity: 0.5 }));
     const tp = tex(512, 128, (g, w, h) => { txt(g, "PREGOEIRO", w / 2, h / 2, 64, "#A8F27A", 700); }); const pt = placa(2.4, 0.6, tp); pt.position.set(0, 0.55, 0.51); mp.add(pt);
-    pregoeiro = gente({ camisa: 0x2D3640, calca: P.gra2, pele: P.pele[2], cabelo: P.cabelo[2], gravata: P.lim, oculos: false }); pregoeiro.position.set(0, 0, -0.9); pregoeiro.userData.ph = 2; mp.add(pregoeiro);
+    pregoeiro = gente({ camisa: 0x2D3640, calca: P.gra2, pele: P.pele[2], cabelo: P.cabelo[2], gravata: P.lim, oculos: false }); pregoeiro.position.set(0, 0, -1.2); pregoeiro.userData.ph = 2; mp.add(pregoeiro);
     // sete pulpitos em arco
     for (let i = 0; i < 7; i++) { const a = (-60 + i * 20) * Math.PI / 180; const g = grp(Math.sin(a) * 9.5, 0, Math.cos(a) * 9.5 - 3.2); g.rotation.y = a + Math.PI; D.add(g);
       g.add(box(1.5, 1.15, 0.8, P.gra2, 0, 0.58, 0)); const borda = box(1.56, 0.06, 0.86, P.flo2, 0, 1.17, 0); g.add(borda);
@@ -235,7 +235,7 @@ window.__CENAS.pregao = function (ctx) {
   const podio = {}; { const E = R.podio; const piso = new THREE.Mesh(new THREE.CylinderGeometry(14, 14, 0.3, 48), mat(0x16201B)); piso.position.y = -0.15; E.add(piso);
     for (const r of [5, 9]) { const an = new THREE.Mesh(new THREE.RingGeometry(r - 0.04, r + 0.04, 96), basic(P.lim, { transparent: true, opacity: 0.3, side: THREE.DoubleSide })); an.rotation.x = -Math.PI / 2; an.position.y = 0.02; E.add(an); }
     const defs = [{ k: 1, x: 0, h: 2.6, v: "R$ 399 mil", c: P.flo }, { k: 2, x: -2.7, h: 1.8, v: "R$ 426 mil", c: P.flo2 }, { k: 3, x: 2.7, h: 1.5, v: "R$ 438 mil", c: 0x3B4A42 }];
-    for (const d of defs) { const g = grp(d.x, 0, 0); E.add(g); g.add(box(2.4, d.h, 2.0, d.c, 0, d.h / 2, 0)); g.add(box(2.46, 0.07, 2.06, P.lim, 0, d.h, 0, { emissive: P.lim, emissiveIntensity: 0.5 }));
+    for (const d of defs) { const g = grp(d.x, 0.012, 0); E.add(g); g.add(box(2.4, d.h, 2.0, d.c, 0, d.h / 2, 0)); g.add(box(2.46, 0.07, 2.06, P.lim, 0, d.h, 0, { emissive: P.lim, emissiveIntensity: 0.5 }));
       const pinta = (k, v) => (gg, w, h) => { txt(gg, k + "º", w / 2, 120, 150, "#A8F27A", 700); txt(gg, v, w / 2, 300, 84, "#F4F6F9", 700); };
       const t = tex(512, 400, pinta(d.k, d.v)); t.userData.pinta = pinta; const pw = Math.min(2.2, (d.h - 0.12) * 1.28); const f = placa(pw, pw / 1.28, t); f.position.set(0, d.h / 2 - 0.02, 1.01); g.add(f); podio[d.k] = { g, h: d.h, x: d.x, t, v: d.v }; }
     // figuras: 01 e 02 sem rosto, voce com rosto
@@ -281,7 +281,7 @@ window.__CENAS.pregao = function (ctx) {
     const ttl = tex(512, 160, (g, w, h) => { txt(g, "HABILITAÇÃO", w / 2, h / 2, 70, "#A8F27A", 700); }); const tp = placa(1.4, 0.44, ttl); tp.rotation.x = -Math.PI / 2; tp.position.set(-0.8, 0.03, -0.75); pasta.add(tp);
     hb.docs = []; const nomes = [["CONTRATO", "SOCIAL"], ["CERTIDÕES", "FISCAIS"], ["ATESTADO", "DE FORNECIMENTO"]];
     nomes.forEach((n, i) => { const t = tex(512, 660, (g, w, h) => { g.fillStyle = "#FFFFFF"; g.fillRect(0, 0, w, h); g.fillStyle = "#243D32"; g.fillRect(0, 0, w, 150); txt(g, n[0], w / 2, 58, 56, "#FFFFFF", 700); txt(g, n[1], w / 2, 116, 40, "#A8F27A", 600); g.fillStyle = "#C9D1CC"; for (let k = 0; k < 9; k++) g.fillRect(50, 210 + k * 44, k % 3 === 2 ? 260 : 412, 16); });
-      const d = grp(); d.add(box(1.25, 0.02, 1.6, 0xFFFFFF, 0, 0, 0)); const tp2 = placa(1.25, 1.6, t); tp2.rotation.x = -Math.PI / 2; tp2.position.y = 0.012; d.add(tp2); d.visible = false; H.add(d); hb.docs.push(d); });
+      const d = grp(); d.add(box(1.25, 0.02, 1.6, 0xFFFFFF, 0, 0, 0)); const tp2 = placa(1.25, 1.6, t); tp2.rotation.x = -Math.PI / 2; tp2.position.y = 0.025; d.add(tp2); d.visible = false; H.add(d); hb.docs.push(d); });
     // carimbo
     hb.car = grp(); hb.car.add(cyl(0.45, 0.5, 0.25, P.flo, 0, 0.12, 0, 18)); hb.car.add(cyl(0.12, 0.14, 0.7, P.madeiraEsc, 0, 0.6, 0, 10)); hb.car.add(sph(0.22, P.madeiraEsc, 0, 1.0, 0, 10)); H.add(hb.car); hb.car.visible = false;
     hb.tinta = placa(1.3, 0.5, tex(520, 200, (g, w, h) => { g.strokeStyle = "#2F7A3F"; g.lineWidth = 12; rr(g, 12, 12, w - 24, h - 24, 30); g.stroke(); txt(g, "HABILITADA", w / 2, h / 2 + 4, 84, "#2F7A3F", 700); })); hb.tinta.rotation.x = -Math.PI / 2; hb.tinta.rotation.z = 0.12; H.add(hb.tinta); hb.tinta.visible = false;
@@ -302,7 +302,7 @@ window.__CENAS.pregao = function (ctx) {
   const dummy = new THREE.Object3D(); const hidden = new THREE.Matrix4().makeScale(0, 0, 0); const CR = []; { const rc = mulberry32(9); for (let k = 0; k < 160; k++) CR.push([rc(), rc(), rc()]); }
 
   // ---------- camera (mesmo formato do cena_parte3: [t, set, px,py,pz, lx,ly,lz, fov, cut, mvx,mvy,mvz, dur])
-  const cam = new THREE.PerspectiveCamera(42, 1080 / 1920, 0.1, 500);
+  const cam = new THREE.PerspectiveCamera(42, 1080 / 1920, 0.3, 400);
   const CAMK = (G.cam3 || [[0, "cidade", 0, 5, 30, 0, 4, 0, 45, 1]]).map(k => ({ t: k[0], set: k[1], p: new THREE.Vector3(k[2], k[3], k[4]), l: new THREE.Vector3(k[5], k[6], k[7]), fov: k[8], cut: !!k[9], mv: new THREE.Vector3(k[10] || 0, k[11] || 0, k[12] || 0), dur: k[13] || 1.6 }));
   const off = (s) => new THREE.Vector3(...SETS[s]);
   function camAt3(t) { let st = CAMK[0], pos = st.p.clone().add(off(st.set)), look = st.l.clone().add(off(st.set)), fov = st.fov, tk = st.t, mv = st.mv, setA = st.set;
@@ -326,7 +326,7 @@ window.__CENAS.pregao = function (ctx) {
       A.userData.pedestres.forEach((p, i) => { p.visible = t < 30; const u = ((t * 0.04 + i * 0.21) % 1); const dir = i % 2 ? 1 : -1; p.position.set(-24 + u * 48 * (dir > 0 ? 1 : -1) + (dir < 0 ? 48 : 0), 0, 10.2 + (i % 3) * 0.5); p.rotation.y = dir > 0 ? Math.PI / 2 : -Math.PI / 2; anima(p, t + i, "andando"); });
       A.userData.caixas.forEach((c, i) => { const k = pop(t, ev("caixas") + i * 0.07, 0.4); c.scale.setScalar(Math.max(0.001, k)); c.visible = k > 0.01; });
       const h0 = ev("homolog"); hm.doc.visible = t >= h0 - 0.6; hm.doc.position.y = 0.2 + (1 - smooth(lin(t, h0 - 0.6, h0 - 0.1))) * 3;
-      hm.car.visible = t >= h0 - 0.5 && t < h0 + 2.2; { const d = t - h0; const y = d < 0 ? lerp(8, 0.4, smooth(lin(t, h0 - 0.5, h0))) : (d < 0.25 ? 0.4 : lerp(0.4, 8, smooth(lin(t, h0 + 0.6, h0 + 1.6)))); hm.car.position.set(0, y + 0.2, 6.2); }
+      hm.car.visible = t >= h0 - 0.5 && t < h0 + 2.2; { const d = t - h0; const y = d < 0 ? lerp(8, 0.1, smooth(lin(t, h0 - 0.5, h0))) : (d < 0.25 ? 0.1 : lerp(0.1, 8, smooth(lin(t, h0 + 0.6, h0 + 1.6)))); hm.car.position.set(0, y + 0.2, 6.2); }
       hm.tinta.visible = t >= h0; }
 
     // --- predio: telas com numero, interrogacoes, figurantes
@@ -355,7 +355,7 @@ window.__CENAS.pregao = function (ctx) {
 
     // --- podio
     { anima(podio.f1, t, "parado"); anima(podio.f2, t + 1, smooth(lin(t, ev("troca"), ev("troca") + 1.4)) > 0.99 ? "comemora" : "parado"); anima(podio.fv, t + 2, kf(G.fv_modo, t, 0, 0.01) > 1.5 ? "comemora" : (kf(G.fv_modo, t, 0, 0.01) > 0.5 ? "maos_cabeca" : "parado"));
-      const sobe = smooth(lin(t, ev("podio"), ev("podio") + 1.2)); for (const k of [1, 2, 3]) { const p = podio[k]; const atraso = (3 - k) * 0.25; const s = smooth(lin(t, ev("podio") + atraso, ev("podio") + atraso + 0.9)); p.g.scale.set(1, Math.max(0.001, s), 1); }
+      const sobe = smooth(lin(t, ev("podio"), ev("podio") + 1.2)); for (const k of [1, 2, 3]) { const p = podio[k]; const atraso = (3 - k) * 0.25; const s = smooth(lin(t, ev("podio") + atraso, ev("podio") + atraso + 0.9)); p.g.scale.set(1, Math.max(0.001, s), 1); p.g.visible = s > 0.03; }
       const cai = smooth(lin(t, ev("cai"), ev("cai") + 1.0)); podio[1].g.position.y = -cai * 3.0; podio[1].g.rotation.z = cai * 0.18;
       const troca = smooth(lin(t, ev("troca"), ev("troca") + 1.4));
       const top = (k) => podio[k].h * smooth(lin(t, ev("podio") + (3 - k) * 0.25, ev("podio") + (3 - k) * 0.25 + 0.9));
