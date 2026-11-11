@@ -1,0 +1,205 @@
+{
+ "rodape": "Toda a sua operação de licitações",
+ "governo": [
+  {
+   "tipo": "capa",
+   "tema": "escuro",
+   "assinatura": "institucional",
+   "rotulo": "Licitações na prática",
+   "titulo": "Quando o edital\nsai, a compra\njá começou faz\n*meses*.",
+   "apoio": "O caminho inteiro de uma compra pública, do planejamento ao pagamento.",
+   "acao": "Arraste →"
+  },
+  {
+   "tipo": "tempo",
+   "tema": "floresta",
+   "rotulo": "Antes do edital",
+   "titulo": "Primeiro,\n*o órgão planeja*.",
+   "marcos": [
+    [
+     "Estudo técnico",
+     "O órgão descreve a necessidade."
+    ],
+    [
+     "Termo de referência",
+     "Define o objeto e as condições."
+    ],
+    [
+     "Orçamento",
+     "Estima o valor. Depois, análise jurídica."
+    ]
+   ]
+  },
+  {
+   "tipo": "numero",
+   "tema": "escuro",
+   "rotulo": "Edital no PNCP",
+   "numero": "8",
+   "titulo": "dias úteis, no\nmínimo, até as\npropostas.",
+   "apoio": "Para bens com menor preço. Dúvida ou impugnação: até 3 dias úteis antes da abertura.",
+   "chips": [
+    "Art. 55",
+    "Art. 164"
+   ]
+  },
+  {
+   "tipo": "passos",
+   "tema": "floresta",
+   "rotulo": "A disputa",
+   "titulo": "Na disputa,\n*a ordem importa*.",
+   "passos": [
+    "Propostas e lances",
+    "Julgamento da proposta",
+    "Habilitação",
+    "Recurso",
+    "Homologação"
+   ]
+  },
+  {
+   "tipo": "etapa",
+   "tema": "escuro",
+   "numero": "05",
+   "rotulo": "Habilitação",
+   "titulo": "Os documentos\nsão pedidos\n*só do vencedor*.",
+   "apoio": "Regra geral do art. 63. Depois de enviados, só mudam em diligência.",
+   "mock": "checklist",
+   "giro": 1.5
+  },
+  {
+   "tipo": "tempo",
+   "tema": "floresta",
+   "rotulo": "Depois do resultado",
+   "titulo": "Venceu.\n*E agora?*",
+   "marcos": [
+    [
+     "Contrato",
+     "Assinado no prazo do edital."
+    ],
+    [
+     "Entrega",
+     "Recebida e conferida pelo fiscal."
+    ],
+    [
+     "Pagamento",
+     "Em ordem cronológica, depois da conferência."
+    ]
+   ]
+  },
+  {
+   "tipo": "numero",
+   "tema": "acento",
+   "rotulo": "Lei 4.320",
+   "numero": "3",
+   "titulo": "atos até o\ndinheiro cair.",
+   "apoio": "Empenho, liquidação e pagamento. Nota fiscal emitida não é pagamento liberado.",
+   "chips": [
+    "Empenho",
+    "Liquidação",
+    "Pagamento"
+   ]
+  },
+  {
+   "tipo": "fecho",
+   "tema": "escuro",
+   "assinatura": "institucional",
+   "rotulo": "Blog da Licit",
+   "titulo": "O passo a passo\ncompleto está\n*no blog*.",
+   "apoio": "Como o governo compra: do planejamento ao pagamento. 13 min de leitura.",
+   "chips": [
+    "30 dias sem cartão",
+    "Comece até 19/dez"
+   ],
+   "acao": "Link na bio"
+  }
+ ],
+ "prazos": [
+  {
+   "tipo": "capa",
+   "tema": "escuro",
+   "assinatura": "institucional",
+   "rotulo": "Operação",
+   "titulo": "Seis prazos.\nPerder um\n*tira você* da\nlicitação.",
+   "apoio": "Lei 14.133, na ordem em que aparecem.",
+   "acao": "Arraste →"
+  },
+  {
+   "tipo": "numero",
+   "tema": "floresta",
+   "rotulo": "Prazo 1 · Edital",
+   "numero": "3",
+   "titulo": "dias úteis antes\nda abertura.",
+   "apoio": "É o último dia para pedir esclarecimento ou impugnar o edital. Depois disso, a regra vale como está.",
+   "chips": [
+    "Art. 164"
+   ]
+  },
+  {
+   "tipo": "numero",
+   "tema": "escuro",
+   "rotulo": "Prazo 2 · Proposta",
+   "numero": "8",
+   "titulo": "dias úteis, no\nmínimo, de edital\nno ar.",
+   "apoio": "Para bens com menor preço. Serviços comuns: 10. É o tempo que você tem para ler, perguntar e preparar.",
+   "chips": [
+    "Art. 55"
+   ]
+  },
+  {
+   "tipo": "numero",
+   "tema": "floresta",
+   "rotulo": "Prazo 3 · Certidões",
+   "numero": "30",
+   "titulo": "dias de validade\ndo CRF do FGTS.",
+   "apoio": "A certidão federal e a trabalhista valem 180 dias. Vencida na hora da habilitação, pesa contra você.",
+   "chips": [
+    "Confira cada data"
+   ]
+  },
+  {
+   "tipo": "numero",
+   "tema": "escuro",
+   "rotulo": "Prazo 4 · Sessão",
+   "numero": "0",
+   "titulo": "minutos para\ndizer que vai\n*recorrer*.",
+   "apoio": "A intenção é manifestada na hora, na sessão. Sem ela, o direito se perde.",
+   "chips": [
+    "Art. 165"
+   ]
+  },
+  {
+   "tipo": "numero",
+   "tema": "floresta",
+   "rotulo": "Prazo 5 · Recurso",
+   "numero": "3",
+   "titulo": "dias úteis para\nas razões do\nrecurso.",
+   "apoio": "Contados da intimação ou da ata. O mesmo prazo vale para as contrarrazões.",
+   "chips": [
+    "Art. 165"
+   ]
+  },
+  {
+   "tipo": "numero",
+   "tema": "escuro",
+   "rotulo": "Prazo 6 · Contrato",
+   "numero": "1",
+   "titulo": "prorrogação para\nassinar, no\nmáximo.",
+   "apoio": "O prazo de convocação é o do edital. Quem não assina perde a vaga e fica sujeito a sanções.",
+   "chips": [
+    "Art. 90"
+   ]
+  },
+  {
+   "tipo": "fecho",
+   "tema": "acento",
+   "assinatura": "institucional",
+   "rotulo": "Na Licit",
+   "titulo": "Cada certidão\ncom a validade\n*à vista*.",
+   "apoio": "E cada tarefa da licitação com responsável e prazo.",
+   "chips": [
+    "30 dias sem cartão",
+    "Comece até 19/dez"
+   ],
+   "acao": "Link na bio"
+  }
+ ]
+}
