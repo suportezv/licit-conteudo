@@ -1,1 +1,4 @@
 out/
+video/tmp/
+video/*.mp4
+video/audio/
