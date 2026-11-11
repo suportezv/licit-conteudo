@@ -270,7 +270,7 @@ window.__CENAS.pregao = function (ctx) {
     rx.eE = placa(1.9, 0.77, et("EDITAL PEDE", "16 GB", "#A8F27A")); rx.eE.position.set(-1.6, 4.25, 0.8); F.add(rx.eE);
     rx.eP = placa(1.9, 0.77, et("PROPOSTA 01", "8 GB", "#FF6B5B")); rx.eP.position.set(1.6, 4.25, 0.8); F.add(rx.eP);
     rx.x = grp(1.55, 2.4, 1.6); for (const r of [0.78, -0.78]) { const b = box(2.2, 0.3, 0.16, P.erro, 0, 0, 0, { emissive: P.erro, emissiveIntensity: 0.7 }); b.rotation.z = r; rx.x.add(b); } rx.x.visible = false; F.add(rx.x);
-    rx.dt = placa(2.7, 0.75, tex(720, 200, (g, w, h) => { g.fillStyle = "#FF6B5B"; rr(g, 10, 10, w - 20, h - 20, 90); g.fill(); txt(g, "DESCLASSIFICADA", w / 2, h / 2 + 4, 78, "#101218", 700); })); rx.dt.position.set(0, 0.55, 2.2); rx.dt.visible = false; F.add(rx.dt);
+    rx.dt = placa(2.7, 0.75, tex(720, 200, (g, w, h) => { g.fillStyle = "#FF6B5B"; rr(g, 10, 10, w - 20, h - 20, 90); g.fill(); txt(g, "DESCLASSIFICADA", w / 2, h / 2 + 4, 62, "#101218", 700); })); rx.dt.position.set(0, 0.55, 2.2); rx.dt.visible = false; F.add(rx.dt);
     const luz = new THREE.PointLight(0xA8F27A, 12, 20, 1.6); luz.position.set(0, 6, 5); F.add(luz);
   }
 
