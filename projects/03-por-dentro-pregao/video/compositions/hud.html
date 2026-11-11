@@ -1,0 +1,40 @@
+<template>
+<style>
+  @font-face { font-family: Sora; src: url('assets/Sora-Variable.ttf') format('truetype'); font-weight: 100 800; }
+  #root { position:absolute; inset:0; font-family: Sora, sans-serif; }
+  #hud-wrap { position:absolute; left:0; right:0; top:196px; text-align:center;  }
+  #hud-pill, #hud-pill2 { display:inline-block; padding:14px 44px 16px; border-radius:40px; background:rgba(30,50,41,0.88); border:3px solid #B8C5BC; text-align:center; box-shadow:0 10px 40px rgba(16,18,24,0.5); vertical-align:top; }
+  #hud-pill2 { margin-left:18px; padding:12px 34px 14px; }
+  #hud-lbl, .lbl { color:#B8C5BC; font-size:28px; font-weight:700; letter-spacing:0.22em; }
+  #hud-val { color:#F4F6F9; font-size:62px; font-weight:700; letter-spacing:-0.01em; line-height:1.05; font-variant-numeric: tabular-nums; white-space:nowrap; }
+  #hud-val2 { color:#F4F6F9; font-size:50px; font-weight:700; letter-spacing:-0.01em; line-height:1.1; font-variant-numeric: tabular-nums; white-space:nowrap; }
+  #dots { display:flex; gap:14px; justify-content:center; margin-top:10px; }
+  #dots i { display:block; width:22px; height:22px; border-radius:50%; background:rgba(168,242,122,0.25); border:2px solid #B8C5BC; }
+  .hud-delta { position:absolute; left:0; right:0; top:336px; text-align:center; }
+  .hud-delta .in { display:inline-block; font-size:38px; line-height:1.1; font-weight:700; letter-spacing:-0.01em; white-space:nowrap; }
+  #hud-logo { position:absolute; left:56px; bottom:84px; width:210px; opacity:0.96; filter: drop-shadow(0 4px 14px rgba(16,18,24,0.6)); }
+</style>
+<div id="root" data-composition-id="hud" data-width="1080" data-height="1920">
+  <div id="hud-wrap"><div id="hud-pill"><div id="hud-lbl">SEU LANCE</div><div id="hud-val">0</div></div><div id="hud-pill2"><div class="lbl">CLASSIFICAÇÃO</div><div id="hud-val2">0</div></div></div>
+  
+  <img id="hud-logo" src="assets/logo_wordmark.png" alt="" data-layout-ignore />
+</div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  const st = { v: 438000 }; const el = document.querySelector("#hud-val");
+  function paint() { const v = st.v; el.textContent = (v<0?"- R$ ":"R$ ")+Math.abs(Math.round(v)).toLocaleString("pt-BR"); el.style.color = "#F4F6F9"; }
+  paint();
+  const st2 = { v: 0 }; const el2 = document.querySelector("#hud-val2");
+  function paint2() { if (!el2) return; const v = st2.v; el2.textContent = (v<0.5?"?":Math.round(v)+"º"); el2.style.color = "#F4F6F9"; }
+  paint2();
+  tl.fromTo("#hud-wrap", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.25);
+    tl.to(st2,{v:3,duration:0.4,ease:"power2.out",onUpdate:paint2},66.53);
+  tl.to(st2,{v:2,duration:0.4,ease:"power2.out",onUpdate:paint2},128.806);
+  tl.set("#hud-wrap", { opacity: 0 }, 0.3);
+  tl.to("#hud-wrap", { opacity: 1, y: 0, duration: 0.4 }, 27.481);
+  tl.to("#hud-logo", { opacity: 0, duration: 0.2 }, 147.48); tl.to("#hud-logo", { opacity: 0.96, duration: 0.3 }, 156.685);
+  tl.to("#hud-wrap", { opacity: 0, y: -30, duration: 0.4 }, 158.98499999999999);
+  tl.to("#hud-logo", { opacity: 0, duration: 0.4 }, 159.085);
+  window.__timelines["hud"] = tl;
+</script>
+</template>

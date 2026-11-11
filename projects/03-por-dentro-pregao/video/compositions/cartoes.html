@@ -1,0 +1,126 @@
+<template>
+<style>
+  @font-face { font-family: Sora; src: url('assets/Sora-Variable.ttf') format('truetype'); font-weight: 100 800; }
+  #root { position:absolute; inset:0; font-family: Sora, sans-serif; }
+  #pausa { position:absolute; inset:0; }
+  #pausa .bg { position:absolute; inset:0; background:rgba(16,18,24,0.62); }
+  #pausa .ic { position:absolute; left:50%; top:760px; width:230px; height:230px; margin-left:-115px; border-radius:50%; background:#F4F6F9; display:flex; align-items:center; justify-content:center; gap:26px; box-shadow:0 12px 50px rgba(0,0,0,0.5); }
+  #pausa .ic i { display:block; width:30px; height:92px; background:#101218; border-radius:8px; }
+  #pausa .t1 { position:absolute; left:0; right:0; top:1040px; text-align:center; color:#F4F6F9; font-size:70px; font-weight:700; }
+  #pausa .t2 { position:absolute; left:0; right:0; top:1140px; text-align:center; color:#F4F6F9; font-size:38px; font-weight:700; opacity:0.95; }
+  #pausa .t2 b { color:#A8F27A; }
+  .pil { display:inline-block; padding:22px 40px 26px; border-radius:40px; background:rgba(30,50,41,0.9); border:3px solid #B8C5BC; text-align:center; min-width:380px; }
+  .pil .k { color:#B8C5BC; font-size:28px; font-weight:700; letter-spacing:0.2em; }
+  .pil .v { color:#F4F6F9; font-size:60px; font-weight:700; line-height:1.1; white-space:nowrap; }
+  .tag { position:absolute; display:inline-block; padding:12px 28px 14px; border-radius:28px; background:rgba(16,18,24,0.78); color:#F4F6F9; font-size:34px; font-weight:700; white-space:nowrap; }
+  .tag.mag { color:#A8F27A; } .tag.verde { color:#A8F27A; } .tag.amarelo { color:#F2C94C; }
+  #fim { position:absolute; inset:0; }
+  #fim .bg { position:absolute; left:0; right:0; bottom:0; height:1150px; background:linear-gradient(180deg, rgba(16,18,24,0) 0%, rgba(16,18,24,0.9) 22%, rgba(16,18,24,0.97) 100%); }
+  #fim .logo { position:absolute; left:50%; top:1080px; width:340px; margin-left:-170px; }
+  #fim .logo img { width:340px; display:block; }
+  #fim .nome { position:absolute; left:50%; top:1440px; width:560px; margin-left:-280px; }
+  #fim .nome img { width:560px; display:block; }
+  #fim .sub { position:absolute; left:0; right:0; top:1640px; text-align:center; color:#B8C5BC; font-size:34px; font-weight:700; }
+
+
+
+
+
+
+
+  #regua { position:absolute; left:90px; width:900px; top:1440px; padding:22px 34px 28px; border-radius:30px; background:rgba(16,18,24,0.82); }
+  #regua .k { color:#B8C5BC; font-size:28px; font-weight:600; letter-spacing:0.12em; }
+  #regua .tr { position:relative; height:26px; margin-top:42px; border-radius:13px; background:rgba(244,246,249,0.14); }
+  #regua .faixa { position:absolute; left:0; top:0; height:26px; width:51%; border-radius:13px; background:#A8F27A; transform-origin:left; }
+  #regua .mk { position:absolute; top:-46px; font-size:28px; font-weight:600; color:#F4F6F9; white-space:nowrap; transform:translateX(-50%); }
+  #regua .pt { position:absolute; top:-6px; width:38px; height:38px; margin-left:-19px; border-radius:50%; }
+  #regua .esc { position:relative; height:40px; margin-top:16px; } #regua .esc span { position:absolute; transform:translateX(-50%); color:#F4F6F9; font-size:30px; font-weight:600; }
+  .tag.erro { color:#FF6B5B; }
+
+
+
+
+  #prod { position:absolute; left:110px; width:860px; top:1120px; border-radius:34px; background:#F4F6F9; box-shadow:0 22px 70px rgba(0,0,0,0.45); overflow:hidden; }
+  #prod .top { display:flex; align-items:center; gap:18px; padding:20px 30px; background:#243D32; }
+  #prod .top img { height:44px; } #prod .top span { color:#B8C5BC; font-size:28px; font-weight:500; }
+  #prod .corpo { padding:26px 30px 30px; display:flex; flex-direction:column; gap:18px; }
+  #prod .q { align-self:flex-end; max-width:80%; padding:18px 26px; border-radius:24px 24px 6px 24px; background:#243D32; color:#F4F6F9; font-size:34px; font-weight:500; line-height:1.25; }
+  #prod .r { align-self:flex-start; max-width:88%; padding:18px 26px; border-radius:24px 24px 24px 6px; background:#FFFFFF; border:2px solid #D8E0D9; color:#101218; font-size:34px; font-weight:500; line-height:1.3; }
+  #prod .r b { font-weight:600; } #prod .ref { display:inline-block; margin-top:12px; padding:6px 16px 8px; border-radius:16px; background:#E1F4D4; color:#243D32; font-size:28px; font-weight:600; }
+  #prod .ilu { color:#59616E; font-size:28px; text-align:right; padding:0 30px 20px; }
+</style>
+<div id="root" data-composition-id="cartoes" data-width="1080" data-height="1920">
+  <div id="pausa" class="clip" data-start="80.05" data-duration="6.85" data-track-index="0" data-layout-allow-overlap>
+    <div class="bg"></div><div class="ic"><i></i><i></i></div>
+    <div class="t1">Pausa rapidinha!</div>
+    <div class="t2">Deixa o like e segue a <b>Licit</b></div>
+  </div>
+  <div id="c480" class="clip tag mag" style="left:380px; top:1180px" data-start="2.3" data-duration="3.6" data-track-index="3">R$ 480 mil</div>
+  <div id="cmod" class="clip tag mag" style="left:680px; top:1250px" data-start="16.841" data-duration="3.46" data-track-index="3">Lei 14.133</div>
+  <div id="p1" class="clip tag mag" style="left:640px; top:1200px" data-start="55.197" data-duration="1.5" data-track-index="3">+2:00</div>
+  <div id="p2" class="clip tag mag" style="left:640px; top:1200px" data-start="56.447" data-duration="1.4" data-track-index="3">+2:00</div>
+  <div id="ff" class="clip tag " style="left:470px; top:1500px" data-start="56.947" data-duration="0.433" data-track-index="3">▶▶</div>
+  <div id="t5" class="clip tag mag" style="left:470px; top:1150px" data-start="74.204" data-duration="2.22" data-track-index="3">5:00</div>
+  <div id="d10" class="clip tag erro" style="left:600px; top:1230px" data-start="77.844" data-duration="2.206" data-track-index="3">9,8% acima</div>
+  <div id="regua" class="clip" data-start="72.044" data-duration="7.956" data-track-index="1">
+    <div class="k">FAIXA DO EMPATE FICTO (5%)</div>
+    <div class="tr"><div class="faixa"></div><div class="mk" style="left:0%">1º</div><div class="mk" style="left:51%">+5%</div><div class="mk" id="rg-voce" style="left:100%;color:#FF6B5B">você</div>
+      <div class="pt" style="left:0%;background:#F4F6F9"></div><div class="pt" id="rg-pt" style="left:100%;background:#FF6B5B"></div></div>
+    <div class="esc"><span style="left:0%">399</span><span style="left:51%">419</span><span style="left:100%">438</span></div></div>
+  <div id="n1" class="clip tag " style="left:330px; top:1180px" data-start="106.482" data-duration="2.4" data-track-index="3">Consegue melhorar?</div>
+  <div id="n2" class="clip tag mag" style="left:250px; top:1280px" data-start="108.982" data-duration="4.26" data-track-index="3">Ficamos em R$ 426 mil</div>
+  <div id="falta" class="clip tag erro" style="left:210px; top:1300px" data-start="123.054" data-duration="3.52" data-track-index="3">falta 1 documento = fora</div>
+  <div id="rec" class="clip tag mag" style="left:180px; top:1250px" data-start="131.946" data-duration="2.62" data-track-index="3">Intenção de recurso: agora</div>
+  <div id="prod" class="clip" data-start="147.48" data-duration="9.205" data-track-index="2">
+    <div class="top"><img src="assets/logo_wordmark.png" alt=""><span>Edital: aquisição de computadores</span></div>
+    <div class="corpo"><div class="q" id="pq">Qual a memória mínima exigida?</div>
+      <div class="r" id="pr"><b>16 GB</b> por equipamento.<br><span class="ref">Edital, página 18</span></div></div>
+    <div class="ilu">exemplo ilustrativo</div></div>
+  <div id="fim" class="clip" data-start="159.085" data-duration="5.435" data-track-index="0" data-layout-allow-overlap>
+    <div class="bg"></div><div class="logo"><img src="assets/logo_marca.png" alt="" /></div><div class="nome"><img src="assets/logo_wordmark.png" alt="" /></div><div class="sub">Próximo episódio: a habilitação</div>
+  </div>
+</div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo("#pausa .bg", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 80.05);
+  tl.fromTo("#pausa .ic", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 80.14999999999999);
+  tl.fromTo("#pausa .t1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 }, 80.3);
+  tl.fromTo("#pausa .t2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 }, 80.5);
+  tl.fromTo("#c480", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 2.3);
+  tl.to("#c480", { opacity: 0, duration: 0.3 }, 5.6000000000000005);
+  tl.fromTo("#cmod", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 16.841);
+  tl.to("#cmod", { opacity: 0, duration: 0.3 }, 20.000999999999998);
+  tl.fromTo("#p1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 55.197);
+  tl.to("#p1", { opacity: 0, duration: 0.3 }, 56.397000000000006);
+  tl.fromTo("#p2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 56.447);
+  tl.to("#p2", { opacity: 0, duration: 0.3 }, 57.547000000000004);
+  tl.fromTo("#ff", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 56.947);
+  tl.to("#ff", { opacity: 0, duration: 0.3 }, 57.080000000000005);
+  tl.fromTo("#t5", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 74.204);
+  tl.to("#t5", { opacity: 0, duration: 0.3 }, 76.12400000000001);
+  tl.fromTo("#d10", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 77.844);
+  tl.to("#d10", { opacity: 0, duration: 0.3 }, 79.75);
+  tl.fromTo("#regua", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 72.044);
+  tl.fromTo("#regua .faixa", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, 72.344);
+  tl.fromTo("#rg-pt, #rg-voce", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 76.524);
+  tl.to("#regua", { opacity: 0, duration: 0.3 }, 79.7);
+  tl.fromTo("#n1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 106.482);
+  tl.to("#n1", { opacity: 0, duration: 0.3 }, 108.58200000000001);
+  tl.fromTo("#n2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 108.982);
+  tl.to("#n2", { opacity: 0, duration: 0.3 }, 112.94200000000001);
+  tl.fromTo("#falta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 123.054);
+  tl.to("#falta", { opacity: 0, duration: 0.3 }, 126.274);
+  tl.fromTo("#rec", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 131.946);
+  tl.to("#rec", { opacity: 0, duration: 0.3 }, 134.266);
+  tl.fromTo("#prod", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 147.48);
+  tl.fromTo("#pq", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, 148.56);
+  tl.fromTo("#pr", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, 151.02);
+  tl.fromTo("#pr .ref", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 152.2);
+  tl.to("#prod", { opacity: 0, y: 40, duration: 0.4 }, 156.285);
+  tl.fromTo("#fim .bg", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 159.085);
+  tl.fromTo("#fim .logo", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 159.235);
+  tl.fromTo("#fim .nome", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 159.435);
+  tl.fromTo("#fim .sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 159.63500000000002);
+  window.__timelines["cartoes"] = tl;
+</script>
+</template>
