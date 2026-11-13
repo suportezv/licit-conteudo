@@ -30,7 +30,7 @@ def chip(id_, t0, t1, texto, x, y, cls=""): p.card(*tag(id_, round(t0, 3), round
 E = p.ev
 FH = 3.3
 def andar(t, i, cut=True, dur=1.6):  # plano frontal de um andar da torre
-    y = i * FH; cam(t, "torre", (0, y + 2.3, 13.8), (0, y + 2.55, 0), 52, cut=cut, mv=(0, 0, -0.12), dur=dur); FOCO.append([round(t + 0.05, 3), i])
+    y = i * FH; cam(t, "torre", (0, y + 2.3, 13.8), (0, y + 2.55, 0), 52, cut=cut, mv=(0.1, 0.02, -0.2), dur=dur); FOCO.append([round(t + 0.05, 3), i])
 def geral(t, cut=True, dur=1.6): cam(t, "torre", (0, 7.6, 26), (0, 8.6, 0), 46, cut=cut, mv=(0, 0, -0.3), dur=dur); FOCO.append([round(t + 0.05, 3), -1])
 FOCO = [[0, -1]]
 p.diorama(podio2=True)
@@ -79,6 +79,7 @@ cap(at("03", "Cada"), "Cada uma responde", "a uma pergunta")
 # ======================= 04: juridica
 andar(st("04") - 0.15, 0); sfx(st("04") - 0.15, "whoosh", 0.6)
 cap(at("04", "A"), "Existe e pode", "fazer isso?")
+cam(at("04", "Contrato") - 0.15, "torre", (2.6, 2.1, 8.2), (0, 1.4, 0), 48, mv=(-0.18, 0, -0.1)); sfx(at("04", "Contrato") - 0.15, "whoosh", 0.4)
 cap(at("04", "Contrato"), "Contrato social: o objeto", "bate com a compra")
 E("jur_ok", at("04", "compatível")); sfx(at("04", "compatível"), "pop_soft", 0.6); sfx(at("04", "compatível") + 0.5, "levelup", 0.6)
 E("t_jur", at("04", "compatível") + 0.6); p.val2(at("04", "compatível") + 0.6, 1, 0.4)
@@ -88,7 +89,7 @@ andar(st("05") - 0.15, 1); sfx(st("05") - 0.15, "whoosh", 0.6)
 cap(at("05", "A"), "Já fez isso", "antes?")
 E("at", at("05", "Atestados")); [sfx(at("05", "Atestados") + 0.35 * k + 0.3, "pop_soft", 0.5) for k in range(3)]
 cap(at("05", "Atestados"), "Atestados de quem já recebeu", "o mesmo fornecimento")
-E("barra", at("05", "edital")); sfx(at("05", "metade"), "pop_low", 0.6)
+E("barra", at("05", "edital")); cam(at("05", "edital") - 0.15, "torre", (1.6, FH + 2.1, 9.6), (0.4, FH + 1.7, -0.5), 46, mv=(-0.15, 0, -0.08)); sfx(at("05", "edital") - 0.15, "whoosh", 0.4); sfx(at("05", "metade"), "pop_low", 0.6)
 cap(at("05", "edital"), "Exigência de até metade", "da quantidade comprada")
 E("t_tec", at("05", "comprada") + 0.4); sfx(at("05", "comprada") + 0.4, "levelup", 0.6); p.val2(at("05", "comprada") + 0.4, 2, 0.4)
 
@@ -98,6 +99,7 @@ cap(at("06", "A"), "Está em", "dia?")
 E("certs", at("06", "CNPJ")); [sfx(at("06", "CNPJ") + 0.18 * k + 0.1, "pop_soft", 0.45) for k in range(6)]
 cap(at("06", "CNPJ"), "CNPJ e certidões federal, estadual", "municipal, FGTS e trabalhista")
 E("fgts_pisca", at("06", "validade")); sfx(at("06", "validade"), "alert", 0.6)
+cam(at("06", "E", 2) - 0.15, "torre", (2.6, 2 * FH + 1.9, 6.2), (1.4, 2 * FH + 1.5, 0.2), 42, mv=(-0.1, 0, -0.08)); sfx(at("06", "E", 2) - 0.15, "whoosh", 0.4)
 cap(at("06", "E", 2), "E cada certidão", "tem a sua validade")
 
 # ======================= 07: pausa
@@ -107,7 +109,7 @@ p.pausa("07", fim="Bora")
 andar(at("08", "A") - 0.2, 3); sfx(at("08", "A") - 0.2, "whoosh", 0.6)
 cap(at("08", "A"), "Aguenta", "o contrato?")
 cap(at("08", "Balanço"), "Balanço dos dois últimos anos", "e certidão de falência")
-E("eco_ok", at("08", "patrimônio")); sfx(at("08", "patrimônio"), "pop_low", 0.6)
+E("eco_ok", at("08", "patrimônio")); cam(at("08", "Balanço") - 0.15, "torre", (-1.2, 3 * FH + 1.6, 13.0), (0, 3 * FH + 2.0, 0), 50, mv=(0.2, 0.02, -0.12)); sfx(at("08", "Balanço") - 0.15, "whoosh", 0.4); sfx(at("08", "patrimônio"), "pop_low", 0.6)
 cap(at("08", "patrimônio"), "Patrimônio mínimo, se pedido:", "até 10% do valor")
 E("t_eco", at("08", "valor")); sfx(at("08", "valor"), "levelup", 0.6); p.val2(at("08", "valor"), 3, 0.4)
 
@@ -123,11 +125,11 @@ cap(at("09", "Inabilitada"), "Inabilitada?", ""); sfx(at("09", "Inabilitada"), "
 cap(at("09", "Ainda"), "Ainda não.", ""); sfx(at("09", "Ainda"), "sting", 0.6)
 
 # ======================= 10: a diligencia
-cam(st("10") - 0.15, "linha", (-0.5, 2.7, 11), (-0.5, 2.9, 0), 46, mv=(0.12, 0, -0.15)); E("fgts_fecha", st("10") - 0.15); sfx(st("10") - 0.15, "whoosh", 0.6)
+cam(st("10") - 0.15, "linha", (-0.5, 2.7, 11), (-0.5, 2.9, 0), 46, mv=(0.22, 0.03, -0.4)); E("fgts_fecha", st("10") - 0.15); sfx(st("10") - 0.15, "whoosh", 0.6)
 cap(at("10", "Se"), "Venceu depois da data", "das propostas?")
 E("seta", at("10", "atualizar")); E("dil", at("10", "diligência")); sfx(at("10", "atualizar"), "whoosh", 0.6); sfx(at("10", "diligência"), "levelup", 0.8)
 cap(at("10", "a", 2), "Dá para atualizar", "em diligência")
-chip("art64", at("10", "diligência"), at("10", "que") - 0.1, "Lei 14.133, art. 64", 560, 1250, "mag")
+chip("art64", at("10", "diligência"), at("10", "tinha") + 0.3, "Lei 14.133, art. 64", 560, 1250, "mag")
 cam(at("10", "que") - 0.15, "linha", (2.9, 2.7, 11.5), (2.9, 2.9, 0), 46, mv=(0.1, 0, -0.2)); sfx(at("10", "que") - 0.15, "whoosh", 0.5)
 cap(at("10", "que"), "Documento que não existia", "não entra depois")
 E("doc_novo", at("10", "tinha")); sfx(at("10", "tinha"), "error_click", 0.8)
