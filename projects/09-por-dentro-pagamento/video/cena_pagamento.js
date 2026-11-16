@@ -318,7 +318,7 @@ window.__CENAS.pagamento = function (ctx) {
       tp.emp = placa(2.8, 0.9, tex(840, 270, (gg, w, h) => { gg.fillStyle = "#F4F6F9"; rr(gg, 4, 4, w - 8, h - 8, 30); gg.fill(); txt(gg, "NOTA DE EMPENHO", w / 2, 80, 50, "#59616E", 700); txt(gg, "R$ 438.000 reservados", w / 2, 180, 64, "#243D32", 700); })); tp.emp.position.set(0, 2.85, 0.4); g.add(tp.emp); }
     // 3 caminhao e calendario de 30 dias
     tp.cam = K.caminhao({ gaiola: false, cor: 0x243D32, cab: 0x59616E }); tp.cam.scale.setScalar(0.7); T.add(tp.cam);
-    tp.cal = mk(2.4, 2.1); tp.cal.p.position.set(14 + 3.6, 2.0, -3.4); T.add(tp.cal.p);
+    tp.cal = mk(2.4, 2.1); tp.cal.p.position.set(14 + 3.6, 3.5, -3.4); T.add(tp.cal.p);
     // 4 recebimento: caixas, fiscal e carimbos
     tp.caixas = []; for (let k = 0; k < 6; k++) { const c = box(0.8, 0.6, 0.8, 0xC9A27A, 24 - 1.0 + (k % 3) * 0.85, 0.3 + Math.floor(k / 3) * 0.61, -3.6); T.add(c); tp.caixas.push(c); }
     tp.fiscal = gente({ camisa: 0xF4F6F9, calca: 0x2D3640, pele: P.pele[1], cabelo: P.cabelo[1], gravata: 0x243D32, oculos: true }); tp.fiscal.position.set(24 + 2.0, 0, -2.6); tp.fiscal.rotation.y = -0.6; tp.fiscal.userData.y0 = 0; T.add(tp.fiscal);
