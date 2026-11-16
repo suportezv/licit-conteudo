@@ -97,7 +97,7 @@ p.pausa("07", fim="Bora")
 estacao(at("08", "Agora") - 0.2, 2); sfx(at("08", "Agora") - 0.2, "whoosh", 0.6)
 E("st3", at("08", "Agora")); sfx(at("08", "Agora") + 0.1, "levelup", 0.5)
 cap(at("08", "Agora"), "3. Sua vez:", "contrarrazões")
-cam(at("08", "três") - 0.1, "rito", (12.9, 2.5, 4.4), (12.4, 0.6, 1.2), 46, mv=(-0.12, 0, -0.1)); sfx(at("08", "três") - 0.1, "whoosh", 0.4)
+cam(at("08", "três") - 0.1, "rito", (13.9, 3.0, 5.6), (12.3, 0.9, 0.7), 46, mv=(-0.15, 0, -0.1)); sfx(at("08", "três") - 0.1, "whoosh", 0.4)
 estacao(at("08", "onde") - 0.15, 2)
 E("con_d", at("08", "três")); [sfx(at("08", "três") + 0.35 * k, "metal_click", 0.45) for k in range(3)]
 p.val2(at("08", "três"), 3, 0.4); p.val2(at("08", "três") + 1.4, 2, 0.4); p.val2(at("08", "três") + 2.8, 1, 0.4)

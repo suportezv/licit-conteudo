@@ -310,7 +310,7 @@ window.__CENAS.recurso = function (ctx) {
     const E5 = [["1", "INTENÇÃO", "na sessão"], ["2", "RAZÕES", "3 dias úteis"], ["3", "CONTRARRAZÕES", "3 dias úteis"], ["4", "PREGOEIRO REVÊ", "3 dias úteis"], ["5", "AUTORIDADE SUPERIOR", "até 10 dias úteis"]];
     const AL = [0, 0, 0, 0.6, 1.4];
     E5.forEach(([n, t1, t2], i) => { const x = i * 6; const h = 0.3 + AL[i]; const g = grp(x, 0, 0); T.add(g);
-      const base = cyl(1.9, 2.0, h, 0x26332D, 0, h / 2, 0, 28); g.add(base); const aro = cyl(1.98, 1.98, 0.06, P.lim, 0, h + 0.03, 0, 28, { emissive: P.lim, emissiveIntensity: 0.2 }); g.add(aro);
+      const base = cyl(1.9, 2.0, h, 0x26332D, 0, h / 2, 0, 28); g.add(base); const aro = new THREE.Mesh(new THREE.TorusGeometry(1.93, 0.06, 8, 48), mat(P.lim, { emissive: P.lim, emissiveIntensity: 0.2 })); aro.rotation.x = Math.PI / 2; aro.position.y = h + 0.02; g.add(aro);
       const pl = placa(3.6, 1.25, tex(720, 250, (gg, w, hh) => { gg.fillStyle = "rgba(16,18,24,0.92)"; rr(gg, 4, 4, w - 8, hh - 8, 36); gg.fill(); gg.strokeStyle = "#A8F27A"; gg.lineWidth = 6; rr(gg, 8, 8, w - 16, hh - 16, 32); gg.stroke();
         txt(gg, n, 70, hh / 2 + 4, 120, "#A8F27A", 700); txt(gg, t1, 150, 96, t1.length > 14 ? 40 : (t1.length > 9 ? 48 : 62), "#F4F6F9", 700, "left"); txt(gg, t2, 150, 178, 50, "#B8C5BC", 500, "left"); }));
       pl.position.set(0, h + 3.3, -1.6); g.add(pl); g.add(box(0.08, 3.0, 0.08, 0x59616E, -1.4, h + 1.5, -1.65)); g.add(box(0.08, 3.0, 0.08, 0x59616E, 1.4, h + 1.5, -1.65));
