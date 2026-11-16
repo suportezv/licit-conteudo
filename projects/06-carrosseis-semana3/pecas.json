@@ -1,0 +1,21 @@
+{
+ "rodape": "Toda a sua operação de licitações",
+ "operacao": [
+  {"tipo": "capa", "tema": "escuro", "assinatura": "institucional", "rotulo": "Operação", "titulo": "Cada licitação\ncomeça *do zero*?", "apoio": "Onde a informação da equipe se espalha entre uma participação e a próxima.", "acao": "Arraste →"},
+  {"tipo": "passos", "tema": "floresta", "rotulo": "Um retrato comum", "titulo": "A mesma licitação,\n*em quatro lugares*.", "passos": ["Edital no e-mail", "Certidões numa pasta", "Prazos numa planilha", "Tarefas no grupo da equipe"]},
+  {"tipo": "numero", "tema": "escuro", "rotulo": "Certidões", "numero": "6", "titulo": "certidões, cada\numa com a sua\nvalidade.", "apoio": "CNPJ, federal, estadual, municipal, FGTS e trabalhista. Uma vencida na véspera pesa na habilitação.", "chips": ["Lei 14.133, art. 68"]},
+  {"tipo": "tempo", "tema": "floresta", "rotulo": "Prazos", "titulo": "Cada prazo conta\n*de um jeito*.", "marcos": [["3 dias úteis antes", "Último dia para esclarecer ou impugnar o edital."], ["Na sessão", "A hora de dizer que vai recorrer."], ["3 dias úteis depois", "As razões do recurso."]]},
+  {"tipo": "etapa", "tema": "escuro", "rotulo": "O que fica para trás", "titulo": "O que a equipe\naprendeu fica\n*na cabeça de alguém*.", "apoio": "Qual atestado serviu, qual exigência pegou, qual documento faltou. Na próxima licitação, a busca recomeça.", "mock": "checklist", "giro": 1.5},
+  {"tipo": "etapa", "tema": "floresta", "rotulo": "Na Licit", "titulo": "Documentos, prazos\ne tarefas no\n*mesmo ambiente*.", "apoio": "Cada pendência com responsável e prazo. A equipe e a assessoria trabalhando no mesmo lugar.", "mock": "tarefas", "giro": -1.5},
+  {"tipo": "fecho", "tema": "acento", "assinatura": "institucional", "rotulo": "Conheça a operação na Licit", "titulo": "A próxima licitação\nnão precisa\n*começar do zero*.", "apoio": "Cada certidão com a validade à vista e cada tarefa com dono.", "chips": ["30 dias sem cartão", "Comece até 19/dez"], "acao": "Link na bio"}
+ ],
+ "primeira": [
+  {"tipo": "capa", "tema": "escuro", "assinatura": "institucional", "rotulo": "Quem licita pergunta", "titulo": "Nunca participei\nde uma licitação.\n*Consigo começar?*", "apoio": "Consegue. E o primeiro passo não é o edital.", "acao": "Arraste →"},
+  {"tipo": "numero", "tema": "floresta", "rotulo": "Passo 1 · A empresa", "numero": "1", "titulo": "CNPJ ativo, com\na atividade\n*compatível*.", "apoio": "O objeto do contrato social precisa combinar com o que o órgão vai comprar.", "chips": ["Habilitação jurídica"]},
+  {"tipo": "passos", "tema": "escuro", "rotulo": "Passo 2 · Cadastro", "titulo": "Cadastro no\n*portal de compras*.", "passos": ["Compras.gov.br para órgãos federais", "Estados e municípios podem ter portal próprio", "O edital diz onde a disputa acontece"]},
+  {"tipo": "numero", "tema": "floresta", "rotulo": "Passo 3 · Documentos", "numero": "6", "titulo": "certidões para\ndeixar em dia\nantes.", "apoio": "CNPJ, federal, estadual, municipal, FGTS e trabalhista. Cada uma vence numa data diferente.", "chips": ["Confira cada data"]},
+  {"tipo": "etapa", "tema": "escuro", "rotulo": "Passo 4 · O edital", "titulo": "Leia primeiro\no que *elimina*.", "apoio": "Objeto, prazo de entrega, documentos de habilitação e a data da sessão. O preço vem depois.", "mock": "chat", "giro": 1.5},
+  {"tipo": "numero", "tema": "floresta", "rotulo": "Micro e pequena empresa", "numero": "5%", "titulo": "de margem para\ncobrir o melhor\nlance no pregão.", "apoio": "ME e EPP com proposta até 5% acima da melhor podem apresentar uma oferta menor. É o empate ficto.", "chips": ["LC 123, art. 44"]},
+  {"tipo": "fecho", "tema": "acento", "assinatura": "institucional", "rotulo": "Primeira licitação", "titulo": "Comece pelo\n*seu CNPJ*.", "apoio": "Consulta grátis pelo CNPJ. Sem criar uma conta.", "chips": ["30 dias sem cartão", "Comece até 19/dez"], "acao": "Link na bio"}
+ ]
+}
