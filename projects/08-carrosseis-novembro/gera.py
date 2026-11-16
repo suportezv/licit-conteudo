@@ -18,7 +18,7 @@ def remotion(*args):
     r = subprocess.run(["npx", "--no-install", "remotion", *args], cwd=REM, capture_output=True, text=True)
     if r.returncode: sys.exit(r.stdout[-1500:] + r.stderr[-1500:])
 
-for nome in ("edital", "empate", "oferta"):
+for nome in ("edital", "empate", "oferta", "dono"):
     if nome not in quais: continue
     telas = P[nome]
     for i, t in enumerate(telas, 1):
