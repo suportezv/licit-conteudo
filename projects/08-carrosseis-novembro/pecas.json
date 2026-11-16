@@ -1,0 +1,30 @@
+{
+ "rodape": "Toda a sua operação de licitações",
+ "edital": [
+  {"tipo": "capa", "tema": "escuro", "assinatura": "institucional", "rotulo": "Antes de disputar", "titulo": "Cinco perguntas\npara fazer\n*ao edital*.", "apoio": "Antes do preço, a leitura que decide se vale participar.", "acao": "Arraste →"},
+  {"tipo": "numero", "tema": "floresta", "rotulo": "Pergunta 1 · Objeto", "numero": "1", "titulo": "O objeto é o\nque você vende?", "apoio": "Quantidade, especificação e lotes. Uma especificação que você não atende já elimina a proposta.", "chips": ["Termo de referência"]},
+  {"tipo": "numero", "tema": "escuro", "rotulo": "Pergunta 2 · Entrega", "numero": "2", "titulo": "Qual é o prazo\ne o local de\nentrega?", "apoio": "Prazo curto para o seu estoque ou entrega longe da sua operação também é motivo para não participar.", "chips": ["Prazo e local"]},
+  {"tipo": "numero", "tema": "floresta", "rotulo": "Pergunta 3 · Habilitação", "numero": "3", "titulo": "Que documentos\no edital pede?", "apoio": "Atestados, balanço, certidões. Confira o que a empresa já tem antes da sessão, não depois.", "chips": ["Lei 14.133, arts. 62 a 69"]},
+  {"tipo": "numero", "tema": "escuro", "rotulo": "Pergunta 4 · Datas", "numero": "4", "titulo": "Quando é\na sessão?", "apoio": "E até quando dá para pedir esclarecimento ou impugnar: 3 dias úteis antes da abertura.", "chips": ["Art. 164"]},
+  {"tipo": "numero", "tema": "floresta", "rotulo": "Pergunta 5 · Contrato", "numero": "5", "titulo": "Como e quando\n*você recebe*?", "apoio": "Pagamento, garantia e penalidades estão na minuta do contrato. Eles pesam no preço que você vai oferecer.", "chips": ["Minuta do contrato"]},
+  {"tipo": "etapa", "tema": "escuro", "rotulo": "Na Licit", "titulo": "Pergunte ao edital\ne veja *a página*.", "apoio": "A resposta vem com a referência ao arquivo e à página, para a equipe conferir.", "mock": "chat", "giro": 1.5},
+  {"tipo": "fecho", "tema": "acento", "assinatura": "institucional", "rotulo": "Já tem um edital?", "titulo": "Comece\n*por ele*.", "apoio": "Envie o edital e veja requisitos, documentos e prazos organizados.", "chips": ["30 dias sem cartão", "Comece até 19/dez"], "acao": "Link na bio"}
+ ],
+ "empate": [
+  {"tipo": "capa", "tema": "escuro", "assinatura": "institucional", "rotulo": "Primeira licitação", "titulo": "Ficou em 2º.\nAinda dá\n*para levar*?", "apoio": "Se a sua empresa é ME ou EPP, talvez. É o empate ficto.", "acao": "Arraste →"},
+  {"tipo": "numero", "tema": "floresta", "rotulo": "No pregão", "numero": "5%", "titulo": "acima do melhor\nlance contam\ncomo empate.", "apoio": "Para micro e pequena empresa. Nas outras modalidades, a margem é de 10%.", "chips": ["LC 123, art. 44"]},
+  {"tipo": "tempo", "tema": "escuro", "rotulo": "Antes de tudo", "titulo": "Depende de\n*quem está em 1º*.", "marcos": [["1º é ME ou EPP", "Não há empate ficto."], ["1º não é ME nem EPP", "A ME ou EPP até 5% acima pode cobrir a oferta."]]},
+  {"tipo": "passos", "tema": "floresta", "rotulo": "Como funciona", "titulo": "Três passos,\n*na sessão*.", "passos": ["Os lances terminam", "A ME ou EPP até 5% acima é chamada", "Ela pode apresentar uma oferta menor"]},
+  {"tipo": "numero", "tema": "escuro", "rotulo": "Prazo", "numero": "5", "titulo": "minutos para\na nova oferta.", "apoio": "No pregão, o prazo corre logo depois do encerramento dos lances. Quem não cobre, perde a vez.", "chips": ["LC 123, art. 45"]},
+  {"tipo": "numero", "tema": "floresta", "rotulo": "Na habilitação", "numero": "5", "titulo": "dias úteis para\nregularizar a\ncertidão fiscal.", "apoio": "Prorrogáveis por mais 5. A certidão precisa ser apresentada, mesmo com pendência.", "chips": ["LC 123, art. 43"]},
+  {"tipo": "fecho", "tema": "acento", "assinatura": "institucional", "rotulo": "Por Dentro da Licitação", "titulo": "Veja o pregão\n*por dentro*.", "apoio": "O episódio do pregão eletrônico está no perfil.", "chips": ["30 dias sem cartão", "Comece até 19/dez"], "acao": "Link na bio"}
+ ],
+ "oferta": [
+  {"tipo": "capa", "tema": "escuro", "assinatura": "institucional", "rotulo": "Quem licita pergunta", "titulo": "30 dias para\nusar a Licit.\n*E depois?*", "apoio": "As dúvidas sobre a condição de lançamento, respondidas.", "acao": "Arraste →"},
+  {"tipo": "numero", "tema": "floresta", "rotulo": "Quanto tempo", "numero": "30", "titulo": "dias para usar\na Licit.", "apoio": "Vale para quem começa até 19 de dezembro de 2026.", "chips": ["Até 19/dez"]},
+  {"tipo": "numero", "tema": "escuro", "rotulo": "Pagamento", "numero": "0", "titulo": "cartões pedidos\npara começar.", "apoio": "Você começa sem cadastrar meio de pagamento.", "chips": ["Sem cartão"]},
+  {"tipo": "etapa", "tema": "floresta", "rotulo": "Depois dos 30 dias", "titulo": "A contratação\nsó aparece se\n*você voltar a usar*.", "apoio": "Sem cartão cadastrado, nada é cobrado sozinho no fim do período.", "mock": "tarefas", "giro": -1.5},
+  {"tipo": "passos", "tema": "escuro", "rotulo": "Como começar", "titulo": "Três passos\n*para começar*.", "passos": ["Consulte o seu CNPJ", "Escolha uma licitação", "Envie o edital para análise"]},
+  {"tipo": "fecho", "tema": "acento", "assinatura": "institucional", "rotulo": "Condição de lançamento", "titulo": "Comece até\n*19 de dezembro*.", "apoio": "Consulta grátis pelo CNPJ. Sem criar uma conta.", "chips": ["30 dias sem cartão", "Comece até 19/dez"], "acao": "Link na bio"}
+ ]
+}
