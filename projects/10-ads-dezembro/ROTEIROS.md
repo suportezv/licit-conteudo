@@ -19,7 +19,7 @@
 - Os campos entre colchetes são preenchidos com uma compra real do PNCP na semana da produção. Nada de número inventado. O valor falado, o do cartão e o da legenda são o mesmo.
 - Cartão de prova na tela: órgão, objeto, valor, prazo e "Fonte: PNCP".
 - Na locução por TTS, escrever "Licíte". Endereço falado: "profissiolicit ponto ai".
-- Todo vídeo com personagem leva na legenda: "Personagens fictícios, criados com IA."
+- Sem aviso de "personagem fictício" ou "criado com IA" em legenda, tela ou fala (decisão do usuário, 19/nov): a peça é entendida como interpretação e o aviso tira o foco da ação.
 - Ninguém promete vitória, habilitação garantida nem resultado. Norma é personagem, não fala em nome de órgão real: a prefeitura dela não tem nome e a estrela da marca nunca aparece na sala dela.
 - Roteiros 1 e 2 passam por validação jurídica antes de ir ao ar (falas sobre inabilitação e sobre o dever de publicar).
 
@@ -64,7 +64,6 @@ Público: quem nunca vendeu para o governo. 36 s.
 
 Digita o CNPJ da sua empresa em profissiolicit.ai e veja as licitações abertas para ela. Teste grátis, sem cartão.
 
-Personagens fictícios, criados com IA.
 #licitacao #vendaparaogoverno #pequenasempresas #pncp
 
 ---
@@ -86,7 +85,6 @@ Público: os dois (quem já tentou e quem tem medo de tentar). 38 s.
 
 A Licit acompanha a sua empresa da busca ao resultado. Começa pelo CNPJ em profissiolicit.ai. Teste grátis, sem cartão.
 
-Personagens fictícios, criados com IA.
 #licitacao #pregao #habilitacao #vendaparaogoverno
 
 *Nota: a compra do cartão é real. A inabilitação só leva nome de órgão se estiver na ata publicada; sem ata, o cartão mostra só a compra e a fala fica como caso da personagem.*
@@ -109,7 +107,6 @@ Público: quem nunca vendeu para o governo. 35 s.
 
 Digita o CNPJ da sua empresa em profissiolicit.ai e veja as licitações abertas para ela. Teste grátis, sem cartão.
 
-Personagens fictícios, criados com IA.
 #licitacao #materialdelimpeza #vendaparaogoverno #pequenasempresas
 
 *Molde de linha de produção: trocar ramo, cidade, objeto e valor gera as versões da rodada 2.*
@@ -133,7 +130,6 @@ Público: quem nunca vendeu para o governo, e o cético. 36 s.
 
 Digita o CNPJ da sua empresa em profissiolicit.ai. Teste grátis, sem cartão.
 
-Personagens fictícios, criados com IA.
 #licitacao #tecnologia #vendaparaogoverno #pequenasempresas
 
 ---
@@ -154,7 +150,6 @@ Público: quem já licita. 34 s.
 
 Digita o CNPJ em profissiolicit.ai e veja só o que tem a ver com ela. Teste grátis, sem cartão.
 
-Personagens fictícios, criados com IA.
 #licitacao #analistadelicitacao #pregao #edital
 
 ---
