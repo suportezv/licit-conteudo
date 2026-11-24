@@ -37,11 +37,11 @@ FIM=T0+DASS
 tb=s('q08b')+rel('q08b','cnpj',True)+0.15      # entra a busca em tela cheia
 tc=s('q08c')
 P=[('c','omni/q01',s('q01'),A['q01'][1],None,0),
-   ('c','omni/q02',s('q02'),A['q02'][1],'o02',rel('q02','duas')),
-   ('c','omni/q03',s('q03'),A['q03'][1],'o03',0.4),
+   ('c','omni/q02',s('q02'),A['q02'][1],None,0),
+   ('c','omni/q03',s('q03'),A['q03'][1],None,0),
    ('c','omni/q04_tela',s('q05'),0.6,None,0),
    ('c','omni/q05',s('q05')+rel('q05','r$')-0.05,A['q05'][1]+rel('q05','r$')-0.05,'o05',0.15),
-   ('c','omni/q06',s('q06'),A['q06'][1],'o06',0.6),
+   ('c','omni/q06',s('q06'),A['q06'][1],None,0),
    ('c','omni/q07',s('q07'),A['q07'][1],None,0),
    ('c','omni/q08_tela',s('q08'),A['q08'][1],None,0),
    ('c','omni/q08b_tela',s('q08b'),A['q08b'][1],None,0),
@@ -70,7 +70,7 @@ subprocess.run(X+['-f','concat','-safe','0','-i','tmp/l.txt','-c','copy','tmp/v.
 def ts(x): h=int(x//3600); m=int(x%3600//60); return f"{h}:{m:02d}:{x%60:05.2f}"
 sub=["[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 2\n\n[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\nStyle: L,Sora,84,&H00FFFFFF,&H00FFFFFF,&H00181210,&H80000000,1,0,0,0,100,100,-1,0,1,7,2,2,60,60,300,1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"]
 DEST={'duas','duas.','ligar','ligar.','cnpj','cnpj.','aparece','aparece,','publicar'}
-FIX={'Proficio':'Profissio','Licite':'Licit','Licite.':'Licit.','Pregueira.':'Pregoeira.','230':'R$ 230'}
+FIX={'Proficio':'Profissio','Licite':'Licit','Licite.':'Licit.','Pregueira.':'Pregoeira.','230':'R$ 230','990.000':'990 mil','para':'pra'}
 blk=[]
 def flush():
     global blk
@@ -86,7 +86,7 @@ for a,b,w in words:
     blk.append((a,b,w))
 flush(); open('tmp/l.ass','w').write(''.join(sub))
 S='/home/user/licit-conteudo/remotion/public/sfx/'; TR='/home/user/licit-conteudo/remotion/public/trilha-tech-warm-33s.mp3'
-ev=[('pop',s('q02')+rel('q02','duas'),0.45),('click',s('q05')+0.4,0.35),('sweep',P[4][2]+0.15,0.3),
+ev=[('click',s('q05')+0.4,0.35),('sweep',P[4][2]+0.15,0.3),
     ('typing',s('q08b')+rel('q08b','digita'),0.25),('tique',tb+0.45,0.45),('tique',tb+0.9,0.45),('tique',tb+1.35,0.45),
     ('tique',P[14][2],0.45),('tique',P[15][2],0.45),('tique',P[16][2],0.45),
     ('swell',T0+0.05,0.35),('typing',T0+T_CAMPO+0.2,0.3),('pop',T0+T_PIL,0.5),('shimmer',T0+T_URL,0.35)]
@@ -100,7 +100,7 @@ cmd+=['-stream_loop','-1','-i',TR]; mi=n+len(ev)
 fc.append(f"[{mi}]volume=0.09,atrim=0:{FIM},afade=t=in:d=1.5,afade=t=out:st={FIM-1.5}:d=1.5[m]"); mix.append('[m]')
 fc.append(''.join(mix)+f"amix=inputs={len(mix)}:normalize=0:duration=longest,atrim=0:{FIM},loudnorm=I=-14.6:TP=-1.5:LRA=11,alimiter=limit=0.84[o]")
 subprocess.run(cmd+['-filter_complex',';'.join(fc),'-map','[o]','-ar','48000','tmp/a.wav'],timeout=300)
-OUT='Licit_Ad01_DonaNorma_v6.mp4'
+OUT='Licit_Ad01_DonaNorma_v7.mp4'
 subprocess.run(X+['-i','tmp/v.mp4','-i','tmp/a.wav','-vf',"ass=tmp/l.ass:fontsdir=/home/user/licit-conteudo/assets/fonts",'-c:v','libx264','-crf','18','-preset','medium','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart',OUT],timeout=900)
 json.dump([(p[1],round(p[2],2)) for p in P]+[('FIM',round(FIM,2))],open('tmp/planos.json','w'))
 print('dur',dur(OUT),[(p[1].split('/')[-1],round(p[2],2)) for p in P])

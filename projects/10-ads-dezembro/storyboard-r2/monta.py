@@ -34,15 +34,15 @@ subprocess.run(['/usr/bin/python3','../assinatura.py','tmp/ass.mp4']+[f'{v:.2f}'
 FIM=T0+DASS
 t7=s('r07'); t8=s('r08'); o8=A['r08'][1]
 P=[('c','omni/r01',s('r01'),A['r01'][1],None,0),
-   ('c','omni/r02',s('r02'),A['r02'][1],'o02',rel('r02','vencida')),
-   ('c','omni/r03',s('r03'),A['r03'][1],'o03',0.3),
+   ('c','omni/r02',s('r02'),A['r02'][1],None,0),
+   ('c','omni/r03',s('r03'),A['r03'][1],None,0),
    ('c','omni/r04',s('r04'),A['r04'][1],None,0),
-   ('c','omni/r05',s('r05'),A['r05'][1],'o05',rel('r05','faltou')),
+   ('c','omni/r05',s('r05'),A['r05'][1],None,0),
    ('c','omni/r06_tela',s('r06'),A['r06'][1],None,0),
    ('c','omni/r07_tela',t7,A['r07'][1],None,0),
    ('g','tdoc_1',t7+rel('r07','documentos')+0.25,0,None,0),('g','tdoc_2',t7+rel('r07','empresa')+0.3,0,None,0),('g','tdoc_3',t7+rel('r07','vence')-0.05,0,None,0),
    ('c','omni/r08',t8,o8,None,0),
-   ('c','omni/r08a_tela',t8+rel('r08','bocaiúva')-0.2,0.3,None,0),
+   ('c','omni/r08a_tela',t8+rel('r08','nova')-0.2,0.3,None,0),
    ('c','omni/r08',t8+rel('r08','r$')-0.05,o8+rel('r08','r$')-0.05,'o08',0.12),
    ('c','omni/r09',s('r09'),A['r09'][1],None,0),
    ('a','tmp/ass',T0,0,None,0)]
@@ -79,7 +79,7 @@ for a,b,w in words:
     blk.append((a,b,w))
 flush(); open('tmp/l.ass','w').write(''.join(sub))
 S='/home/user/licit-conteudo/remotion/public/sfx/'; TR='/home/user/licit-conteudo/remotion/public/trilha-tech-warm-33s.mp3'
-ev=[('pop',s('r02')+rel('r02','vencida'),0.4),('pop',s('r05')+rel('r05','faltou'),0.35),('tique',P[7][2],0.45),('tique',P[8][2],0.45),('ping',P[9][2],0.4),
+ev=[('tique',P[7][2],0.45),('tique',P[8][2],0.45),('ping',P[9][2],0.4),
     ('click',P[11][2]+0.1,0.35),('sweep',P[12][2]+0.12,0.3),
     ('swell',T0+0.05,0.35),('typing',T0+T_CAMPO+0.2,0.3),('pop',T0+T_PIL,0.5),('shimmer',T0+T_URL,0.35)]
 ks=SEG+['q11']; cmd=X[:]; fc=[]; mix=[]
@@ -92,6 +92,6 @@ cmd+=['-stream_loop','-1','-i',TR]; mi=n+len(ev)
 fc.append(f"[{mi}]volume=0.09,atrim=0:{FIM},afade=t=in:d=1.5,afade=t=out:st={FIM-1.5}:d=1.5[m]"); mix.append('[m]')
 fc.append(''.join(mix)+f"amix=inputs={len(mix)}:normalize=0:duration=longest,atrim=0:{FIM},loudnorm=I=-14.6:TP=-1.5:LRA=11,alimiter=limit=0.84[o]")
 subprocess.run(cmd+['-filter_complex',';'.join(fc),'-map','[o]','-ar','48000','tmp/a.wav'],timeout=300)
-OUT='Licit_Ad02_DonaNorma_certidao_v4.mp4'
+OUT='Licit_Ad02_DonaNorma_certidao_v5.mp4'
 subprocess.run(X+['-i','tmp/v.mp4','-i','tmp/a.wav','-vf',"ass=tmp/l.ass:fontsdir=/home/user/licit-conteudo/assets/fonts",'-c:v','libx264','-crf','18','-preset','medium','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart',OUT],timeout=900)
 print('dur',dur(OUT),[(p[1].split('/')[-1],round(p[2],2)) for p in P])

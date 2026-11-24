@@ -13,7 +13,7 @@ G.C={
 'r05':(8,"She holds her glasses in her hand, looks down at first, then lifts her eyes to the camera and says, word for word, calm and fair: \"A culpa não é dela. A regra é igual pra todo mundo. Faltou alguém avisar antes.\" She finishes well before the video ends and stays silent for the last second."),
 'r06':(5,VERDE+"Leaning beside the monitor with a relieved small smile, she says to the camera, word for word: \"A Profíssio Licíti avisa.\" ('Profíssio Licíti' is a product name, pronounced pro-FEE-see-oh lee-SEE-chee). She taps the top of the monitor frame once."),
 'r07':(8,VERDE+"Leaning beside the monitor, she explains to the camera, word for word: \"Ela guarda os documentos da empresa e mostra o que vence antes da entrega.\" She finishes well before the video ends and nods."),
-'r08':(9,"She points at the monitor with the pen, glancing between the screen and the camera, and says, word for word: \"E tem licitação aberta agora. Bocaiúva, Minas Gerais: seiscentos e sessenta e nove mil reais em material de limpeza.\" ('Bocaiúva' is a town name, pronounced bo-kai-OO-va). She finishes well before the video ends."),
+'r08':(9,"She points at the monitor with the pen, glancing between the screen and the camera, and says, word for word: \"E tem licitação aberta agora. Nova Santa Rosa, Paraná: seiscentos e cinquenta mil reais pra reformar uma quadra de esportes.\" ('Nova Santa Rosa' is a town name). She finishes well before the video ends."),
 'r09':(4,"Hands crossed on the files, she says warmly to the camera, word for word: \"Eu prefiro mil vezes habilitar.\" Right after, her face opens into a wide genuine smile."),
 }
 if __name__=='__main__':
