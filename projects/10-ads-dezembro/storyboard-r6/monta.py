@@ -41,7 +41,7 @@ subprocess.run(['/usr/bin/python3','../assinatura.py','tmp/ass.mp4']+[f'{v:.2f}'
 FIM=T0+DASS
 # ---------- ancoras
 tQ=at('n1','quantos'); tB=S['n2']; tDep=at('n2','depois'); t80=at('n2','80'); tLin=at('n2','uma'); tC=S['n3']-0.1; tVal=at('n3','r$'); tD=S['n4']-0.1
-tLag=at('n3','lagoa'); tMin=at('n3','minas'); tPg=at('n4','página')-0.1
+tLag=at('n3','lagoa'); tAb=at('n3','aberta'); tMin=at('n3','minas'); tPg=at('n4','página')-0.1
 tCn=at('n4','você'); tCnF=at('n4','cnpj',True); tVe=at('n4','vê'); tEx=at('n4','cada')-0.1; tDoc=at('n4','documento')-0.15
 grade=Image.new('RGBA',(W,H),(0,0,0,0)); g=ImageDraw.Draw(grade)
 for x in range(0,W,90): g.line((x,0,x,H),fill=(255,255,255,9))
@@ -76,7 +76,13 @@ def cenaA(t):
     if k>0:
         d.text((W/2,250),str(n),font=font(int(150*max(k,0.1)),600),fill=BR,anchor='mm'); d.text((W/2,350),'avisos esta semana',font=font(38),fill=(200,206,214),anchor='mm')
     k=back((t-tQ)/0.35)
-    if t>=tQ: pill(d,W/2,1760+40*(1-k),'0 abertos',font(64,600))
+    if t>=tQ:
+        kk=cl((t-tQ)/0.2); s=1.9-0.9*ease(kk)
+        lay=Image.new('RGBA',(720,280),(0,0,0,0)); pill(ImageDraw.Draw(lay),360,140,'0 abertos',font(84,600),pad=(56,28))
+        lay=lay.rotate(-7,resample=Image.BICUBIC).resize((int(720*s),int(280*s)),Image.BICUBIC)
+        a=int(255*cl((t-tQ)/0.08)); lay.putalpha(lay.getchannel('A').point(lambda v:v*a//255))
+        sh=int(6*math.sin((t-tQ-0.2)*60)*max(0,1-(t-tQ-0.2)/0.25)) if t>tQ+0.2 else 0
+        im.paste(lay,(int(W/2-lay.width/2)+sh,int(330-lay.height/2)),lay)
     return im
 def pagina(d,x0,y0,x1,y1,scroll,hl):
     d.rounded_rectangle((x0,y0,x1,y1),18,fill=BR)
@@ -91,20 +97,46 @@ def pagina(d,x0,y0,x1,y1,scroll,hl):
     if hl>0:
         ym=(y0+y1)/2+40; d.rectangle((x0+30,ym-34,x0+30+(x1-x0-60)*hl,ym+34),fill=LIM)
         if hl>0.9: d.text((x0+56,ym),'Atestado de capacidade técnica',font=font(38 if x1-x0>760 else 32,600),fill=GRAF,anchor='lm')
+ETAPAS=['Encontre a licitação','Analise o edital','Prepare os documentos','Acompanhe a sessão','Confira o resultado']
+tAch=at('n2','achar'); tSo=at('n2','só'); tCom=at('n2','começo'); tT=tDep-0.3
+CARD=(104,420,976,632); PAG=(140,360,940,1540)
 def cenaB(t):
     im=fundo(); d=ImageDraw.Draw(im)
-    k=ease((t-tDep+0.15)/0.45)
-    if k<1:                                            # o aviso cresce no centro
-        s=ease((t-tB)/(tDep-tB)); w=632+240*s; h=152+60*s; cy=760-60*s
-        d.rounded_rectangle((W/2-w/2,cy-h/2,W/2+w/2,cy+h/2),30,fill=SUP)
-        d.text((W/2-w/2+50,cy-44),'Novo aviso de licitação',font=font(int(28+10*s)),fill=AP); d.text((W/2-w/2+50,cy+2),'Ampliação de creche',font=font(int(34+14*s),600),fill=GRAF)
-    if k>0:
+    ko=ease((t-tT-0.12)/0.45)
+    if ko<1:
+        lay=Image.new('RGBA',(W,H),(0,0,0,0)); ld=ImageDraw.Draw(lay)
+        for i,e in enumerate(ETAPAS):
+            ti=tAch if i==0 else tCom-0.25+0.16*i
+            if t<ti: continue
+            k=back((t-ti)/0.35,1.2); y=760+130*i+40*(1-k)
+            if i>0: ld.line((150,y-86,150,y-44),fill=(90,96,108),width=4)
+            if i==0:
+                ld.ellipse((116,y-34,184,y+34),fill=LIM); ld.line((133,y,146,y+13,167,y-12),fill=GRAF,width=7)
+                ld.text((214,y),e,font=font(46,600),fill=BR,anchor='lm')
+            else:
+                ld.ellipse((116,y-34,184,y+34),outline=(110,116,128),width=4); ld.text((150,y),str(i+1),font=font(32,600),fill=(130,136,148),anchor='mm')
+                ld.text((214,y),e,font=font(42),fill=(130,136,148),anchor='lm')
+        if t>=tSo:
+            k=back((t-tSo)/0.35); pill(ld,880,760,'você está aqui',font(30,600),pad=(26,14)) if k>0.05 else None
+        if ko>0: lay.putalpha(lay.getchannel('A').point(lambda v:int(v*(1-ko))))
+        im.paste(lay,(0,0),lay); d=ImageDraw.Draw(im)
+        s=ease((t-tB)/0.6); w=632+240*s; h=152+60*s; cy=760-(760-526)*s
+        pr=cl((t-tT)/0.08)-cl((t-tT-0.1)/0.15); w-=24*pr; h-=8*pr
+        if ko==0:
+            d.rounded_rectangle((W/2-w/2,cy-h/2,W/2+w/2,cy+h/2),30,fill=SUP,outline=LIM if t>=tT else None,width=5 if t>=tT else 0)
+            d.text((W/2-w/2+50,cy-44),'Novo aviso de licitação',font=font(int(28+10*s)),fill=AP); d.text((W/2-w/2+50,cy+2),'Ampliação de creche',font=font(int(34+14*s),600),fill=GRAF)
+        if tT-0.4<=t<tT+0.5:                           # dedo chega, toca e o anel se abre
+            km=ease((t-tT+0.4)/0.4); fx=600; fy=int(860-(860-540)*km); r=46-10*pr
+            od=ImageDraw.Draw(im,'RGBA'); od.ellipse((fx-r,fy-r,fx+r,fy+r),fill=(255,255,255,int(150*(1-cl((t-tT-0.2)/0.3)))))
+            if t>=tT:
+                kr=ease((t-tT)/0.4); R=50+90*kr; od.ellipse((fx-R,fy-R,fx+R,fy+R),outline=(168,242,122,int(255*(1-kr))),width=6)
+    if ko>0:
         sc=0 if t<t80 else 2600*ease((t-t80)/(tLin-t80)) if t<tLin else 2600
         pg=1 if t<t80 else min(80,1+int(79*cl((t-t80)/max(tLin-t80-0.1,0.3))))
-        y0=360+H*(1-k)*0.6; z=ease((t-tLin)/0.4)
-        x0=140-40*z; x1=940+40*z
-        pagina(d,x0,y0,x1,y0+1180,sc,ease((t-tLin-0.1)/0.35) if t>tLin else 0)
-        pill(d,W/2,250,f'página {pg} de 80',font(52,600))
+        z=ease((t-tLin)/0.4); L=lambda a,b:a+(b-a)*ko
+        x0=L(CARD[0],PAG[0])-40*z; y0=L(CARD[1],PAG[1]); x1=L(CARD[2],PAG[2])+40*z; y1=L(CARD[3],PAG[3])
+        pagina(d,x0,y0,x1,y1,sc,ease((t-tLin-0.1)/0.35) if t>tLin else 0)
+        if ko>0.6: pill(d,W/2,250,f'página {pg} de 80',font(52,600))
     return im
 def cenaC(t):
     im=fundo(FLO); d=ImageDraw.Draw(im); k=back((t-tC-0.05)/0.45,1.2)
@@ -112,6 +144,20 @@ def cenaC(t):
     y=640+80*(1-k)
     d.rounded_rectangle((70,y,W-70,y+760),44,fill=GRAF)
     ka=ease((t-tLag)/0.35); kb=ease((t-tMin-0.5)/0.35)
+    if t<tLag+0.3:
+        lay=Image.new('RGBA',(W,H),(0,0,0,0)); ld=ImageDraw.Draw(lay); cx,cy=W/2,y+400
+        o=back((t-tAb)/0.35,2.2) if t>=tAb else 0; up=60*o
+        ld.rounded_rectangle((cx-120,cy-30,cx+120,cy+170),36,fill=LIM)
+        ld.ellipse((cx-22,cy+40,cx+22,cy+84),fill=GRAF); ld.rectangle((cx-9,cy+70,cx+9,cy+120),fill=GRAF)
+        ld.arc((cx-82,cy-170-up,cx+82,cy-6-up),180,360,fill=BR,width=28)
+        ld.line((cx-68,cy-88-up,cx-68,cy-20),fill=BR,width=28); ld.line((cx+68,cy-88-up,cx+68,cy-20-up*1.0),fill=BR,width=28)
+        if t>=tAb:
+            kr=ease((t-tAb)/0.5)
+            for a in range(0,360,45):
+                r0=170+60*kr; r1=r0+40; c=math.cos(math.radians(a)); s_=math.sin(math.radians(a))
+                ld.line((cx+r0*c,cy+60+r0*s_,cx+r1*c,cy+60+r1*s_),fill=(168,242,122,int(255*(1-kr))),width=8)
+        al=1-ease((t-tLag+0.05)/0.3); lay.putalpha(lay.getchannel('A').point(lambda v:int(v*al)))
+        im.paste(lay,(0,0),lay); d=ImageDraw.Draw(im)
     if ka>0: d.text((130+40*(1-ka),y+60),'Prefeitura de Lagoa da Prata/MG',font=font(42),fill=LIM)
     if kb>0: d.text((130+40*(1-kb),y+140),'Ampliação da creche',font=font(70,600),fill=BR); d.text((130+40*(1-kb),y+232),'Risoleta Neves',font=font(52,600),fill=BR)
     v=int(660837*ease((t-tVal+0.1)/0.7)) if t>tVal-0.1 else 0
@@ -182,20 +228,21 @@ for a,b,w in words:
     if blk and (a-blk[-1][1]>0.35 or len(blk)>=4 or sum(len(x[2]) for x in blk)+len(w)>22 or blk[-1][2][-1] in '.?!:'): flush()
     blk.append((a,b,w))
 flush(); open('tmp/l.ass','w').write(''.join(sub))
-Sx=R+'remotion/public/sfx/'; TR=R+'remotion/public/trilha-tech-warm-33s.mp3'
-ev=[('pop',x,0.22) for x in TN]+[('ping',tQ,0.4),('sweep',tB,0.3),('sweep',tDep-0.15,0.3),('typing',t80,0.25),('pop',tLin+0.1,0.45),('sweep',tC,0.3),('ping',tVal+0.6,0.4),('sweep',tD,0.3),('typing',tCn,0.25)]
-ev+=[('tique',tVe+0.3*i,0.45) for i in range(3)]+[('move',tEx,0.3),('pop',tPg,0.4),('tique',tLag,0.4),('tique',tMin+0.5,0.4),('tique',tDoc,0.45),('tique',tDoc+0.35,0.45),('swell',T0+0.05,0.35),('typing',T0+T_CAMPO+0.2,0.3),('pop',T0+T_PIL,0.5),('shimmer',T0+T_URL,0.35)]
-ev=[e for e in ev if os.path.exists(Sx+e[0]+'.mp3')]
+Sx=R+'remotion/public/sfx/'; CARIMBO=os.path.abspath('../storyboard-r2/audio/carimbo.wav'); TR=R+'remotion/public/trilha-tech-warm-33s.mp3'
+ev=[('pop',x,0.22) for x in TN]+[(CARIMBO,tQ+0.17,0.9),('sweep',tB,0.3),('tique',tAch,0.4),('pop',tSo,0.35),('click',tT,0.6),('sweep',tT+0.12,0.3),('typing',t80,0.25),('pop',tLin+0.1,0.45),('sweep',tC,0.3),('pop',tAb+0.05,0.5),('ping',tVal+0.6,0.4),('sweep',tD,0.3),('typing',tCn,0.25)]
+ev+=[('tique',tCom-0.25+0.16*i,0.4) for i in range(1,5)]+[('tique',tVe+0.3*i,0.45) for i in range(3)]+[('move',tEx,0.3),('pop',tPg,0.4),('tique',tLag,0.4),('tique',tMin+0.5,0.4),('tique',tDoc,0.45),('tique',tDoc+0.35,0.45),('swell',T0+0.05,0.35),('typing',T0+T_CAMPO+0.2,0.3),('pop',T0+T_PIL,0.5),('shimmer',T0+T_URL,0.35)]
+CAM=lambda nm:nm if nm.startswith('/') else Sx+nm+'.mp3'
+ev=[e for e in ev if os.path.exists(CAM(e[0]))]
 cmd=X[:]; fc=[]; mix=[]
 for i,k in enumerate(SEG+['n5']):
     cmd+=['-i',f'tmp/{k}.wav']; fc.append(f"[{i}]adelay={int((S[k] if k in S else T0+LEAD)*1000)}:all=1[a{i}]"); mix.append(f'[a{i}]')
 n=len(SEG)+1
 for j,(nm,tt,vol) in enumerate(ev):
-    cmd+=['-i',Sx+nm+'.mp3']; fc.append(f"[{n+j}]volume={vol},adelay={int(max(tt,0)*1000)}:all=1[e{j}]"); mix.append(f'[e{j}]')
+    cmd+=['-i',CAM(nm)]; fc.append(f"[{n+j}]volume={vol},adelay={int(max(tt,0)*1000)}:all=1[e{j}]"); mix.append(f'[e{j}]')
 cmd+=['-stream_loop','-1','-i',TR]; mi=n+len(ev)
 fc.append(f"[{mi}]volume=0.10,atrim=0:{FIM},afade=t=in:d=1.0,afade=t=out:st={FIM-1.5}:d=1.5[m]"); mix.append('[m]')
 fc.append(''.join(mix)+f"amix=inputs={len(mix)}:normalize=0:duration=longest,atrim=0:{FIM},loudnorm=I=-14.6:TP=-1.5:LRA=11,alimiter=limit=0.84[o]")
 subprocess.run(cmd+['-filter_complex',';'.join(fc),'-map','[o]','-ar','48000','tmp/a.wav'],timeout=300)
-OUT='Licit_Ad06_TelaEVoz_v1.mp4'
+OUT='Licit_Ad06_TelaEVoz_v2.mp4'
 subprocess.run(X+['-i','tmp/v.mp4','-i','tmp/a.wav','-vf',f"ass=tmp/l.ass:fontsdir={R}assets/fonts",'-c:v','libx264','-crf','18','-preset','medium','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart',OUT],timeout=900)
 print('dur',dur(OUT),round(T0,2),[round(x,2) for x in (tQ,tB,tDep,t80,tLin,tC,tVal,tD,tCn,tVe,tEx,tDoc)])
