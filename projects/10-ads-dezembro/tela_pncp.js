@@ -25,7 +25,7 @@ td:first-child{width:250px;color:#555;background:#f8f8f8;font-weight:700;font-si
 <div class="bc">Início › Editais › ${d.orgao}</div>
 <div class="ct"><h1>Edital nº ${d.num}<span class="st">Recebendo propostas</span></h1><div class="sub">${d.orgao} · ${d.cidade}</div>
 <table>
-<tr><td>Modalidade da contratação</td><td>Pregão eletrônico</td></tr>
+<tr><td>Modalidade da contratação</td><td>${d.mod||"Pregão eletrônico"}</td></tr>
 <tr><td>Objeto</td><td>${d.objeto}</td></tr>
 <tr><td>Valor total estimado</td><td class="v">${d.valor}</td></tr>
 <tr><td>Fim do recebimento de propostas</td><td><b>${d.fim}</b></td></tr>
