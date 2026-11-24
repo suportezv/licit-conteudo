@@ -15,14 +15,14 @@ def nivela(src,dst,ss=None,t=None):
     mean=float(m.split('mean_volume:')[1].split('dB')[0])
     subprocess.run(X+['-i','tmp/x.wav','-af',f'volume={-21-mean:.2f}dB,alimiter=limit=0.8,afade=t=in:d=0.03',dst],timeout=60)
 SEG=['j01','j02','f03','f04','j05','f06','f07','j08']
-PRE={'j05':0.5,'j08':1.2}; POS={'j02':0.5,'f03':0.35,'j05':0.5,'j08':1.5,'f06':0.5}
+PRE={'j05':0.5,'j08':0.25}; POS={'j02':0.5,'f03':0.35,'j05':0.5,'j08':1.35,'f06':0.85}
 t=0.0; A={}; words=[]
 for k in SEG:
     w=Wd(k); a=max(w[0]['start']-PRE.get(k,0.22),0); b=min(w[-1]['end']+POS.get(k,0.22),dur(f'omni/{k}.mp4'))
     nivela(f'omni/{k}_norma.mp3',f'tmp/{k}.wav',a,b-a)
     A[k]=(t,a,b-a)
     for x in w: words.append((t+x['start']-a,t+x['end']-a,x['text']))
-    t+=b-a+GAP+{'f03':1.9,'f07':0.8}.get(k,0)
+    t+=b-a+GAP+{'f03':1.9,'f07':0.15}.get(k,0)
 s=lambda k:A[k][0]; rel=lambda k,word,fim=False:anc(k,word,fim)-A[k][1]
 T0=t; LEAD=0.95
 subprocess.run(X+['-i','audio/f11.wav','-af','atempo=1.08','tmp/f11a.wav'],timeout=60); nivela('tmp/f11a.wav','tmp/q11.wav')
@@ -33,16 +33,15 @@ T_CAMPO=LEAD-0.1; T_DIG=LEAD+tw('cnpj',True); T_PIL=LEAD+tw('teste')-0.05; T_URL
 subprocess.run(['/usr/bin/python3','../assinatura.py','tmp/ass.mp4']+[f'{v:.2f}' for v in (T_CAMPO,T_DIG,T_PIL,T_URL,DASS)],timeout=600)
 FIM=T0+DASS
 tb=s('f03')+rel('f03','pronto')+0.25; t4=s('f04'); o4=A['f04'][1]; t7=s('f07')
-P=[('c','omni/j01',s('j01'),A['j01'][1],'o01',0.4),
-   ('c','omni/j02',s('j02'),A['j02'][1],'o02',rel('j02','quero')),
+P=[('c','omni/j01',s('j01'),A['j01'][1],None,0),
+   ('c','omni/j02',s('j02'),A['j02'][1],None,0),
    ('c','omni/f03',s('f03'),A['f03'][1],None,0),
    ('g','t09_0',tb,0,None,0),('g','t09_1',tb+0.4,0,None,0),('g','t09_2',tb+0.8,0,None,0),('g','t09_3',tb+1.2,0,None,0),
    ('c','omni/f04_tela',t4,o4,None,0),
    ('c','omni/f04_tela',t4+rel('f04','r$')-0.05,o4+rel('f04','r$')-0.05,'o04',0.12),
-   ('c','omni/j05',s('j05'),A['j05'][1],'o05',rel('j05','ninguém')),
+   ('c','omni/j05',s('j05'),A['j05'][1],None,0),
    ('c','omni/f06',s('f06'),A['f06'][1],'o06',0.25),
-   ('c','omni/f07',t7,A['f07'][1],None,0),
-   ('g','tav_1',t7+rel('f07','exigência')-0.08,0,None,0),('g','tav_2',t7+rel('f07','documento')-0.08,0,None,0),
+   ('g','tav_1',t7,0,None,0),('g','tav_2',t7+rel('f07','documento')-0.08,0,None,0),
    ('c','omni/j08',s('j08'),A['j08'][1],None,0),
    ('a','tmp/ass',T0,0,None,0)]
 clips=[]
@@ -78,8 +77,8 @@ for a,b,w in words:
     blk.append((a,b,w))
 flush(); open('tmp/l.ass','w').write(''.join(sub))
 S='/home/user/licit-conteudo/remotion/public/sfx/'; TR='/home/user/licit-conteudo/remotion/public/trilha-tech-warm-33s.mp3'
-ev=[('pop',s('j02')+rel('j02','quero'),0.4),('typing',s('f03')+rel('f03','coloquei'),0.25),('tique',tb+0.4,0.45),('tique',tb+0.8,0.45),('tique',tb+1.2,0.45),
-    ('sweep',P[8][2]+0.12,0.3),('pop',s('j05')+rel('j05','ninguém'),0.35),('move',s('f06')+0.25,0.3),('tique',P[12][2],0.45),('ping',P[13][2],0.4),
+ev=[('typing',s('f03')+rel('f03','coloquei'),0.25),('tique',tb+0.4,0.45),('tique',tb+0.8,0.45),('tique',tb+1.2,0.45),
+    ('sweep',P[8][2]+0.12,0.3),('move',s('f06')+0.25,0.3),('sweep',P[11][2],0.3),('ping',P[12][2],0.4),
     ('swell',T0+0.05,0.35),('typing',T0+T_CAMPO+0.2,0.3),('pop',T0+T_PIL,0.5),('shimmer',T0+T_URL,0.35)]
 ks=SEG+['q11']; cmd=X[:]; fc=[]; mix=[]
 for i,k in enumerate(ks):
@@ -91,6 +90,6 @@ cmd+=['-stream_loop','-1','-i',TR]; mi=n+len(ev)
 fc.append(f"[{mi}]volume=0.09,atrim=0:{FIM},afade=t=in:d=1.5,afade=t=out:st={FIM-1.5}:d=1.5[m]"); mix.append('[m]')
 fc.append(''.join(mix)+f"amix=inputs={len(mix)}:normalize=0:duration=longest,atrim=0:{FIM},loudnorm=I=-14.6:TP=-1.5:LRA=11,alimiter=limit=0.84[o]")
 subprocess.run(cmd+['-filter_complex',';'.join(fc),'-map','[o]','-ar','48000','tmp/a.wav'],timeout=300)
-OUT='Licit_Ad04_Socios_v1.mp4'
+OUT='Licit_Ad04_Socios_v2.mp4'
 subprocess.run(X+['-i','tmp/v.mp4','-i','tmp/a.wav','-vf',"ass=tmp/l.ass:fontsdir=/home/user/licit-conteudo/assets/fonts",'-c:v','libx264','-crf','18','-preset','medium','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart',OUT],timeout=900)
 print('dur',dur(OUT),[(p[1].split('/')[-1],round(p[2],2)) for p in P])
