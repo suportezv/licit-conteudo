@@ -3,6 +3,14 @@ import cv2,numpy as np,sys,subprocess
 src,cont,out,modo=sys.argv[1],sys.argv[2],sys.argv[3],(sys.argv[4] if len(sys.argv)>4 else 'verde')
 cap=cv2.VideoCapture(src); fps=cap.get(cv2.CAP_PROP_FPS); w=int(cap.get(3)); h=int(cap.get(4))
 C=cv2.imread(cont); ch,cw=C.shape[:2]
+# aparencia de monitor de tubo: menos contraste, cantos mais escuros, reflexo leve, linhas de varredura
+Cf=C.astype(np.float32)*0.86+14
+yy,xx=np.mgrid[0:ch,0:cw].astype(np.float32); r=((xx/cw-0.5)**2+(yy/ch-0.5)**2)**0.5
+Cf*=(1-0.34*np.clip(r-0.25,0,1)**1.4)[...,None]
+Cf+=(26*np.clip(1-((xx/cw-0.18)**2+(yy/ch-0.10)**2)**0.5/0.55,0,1)**2)[...,None]
+Cf[1::3]*=0.955
+Cf*=np.array([1.03,1.0,0.96],np.float32)          # leve frio de tubo (BGR)
+C=cv2.GaussianBlur(Cf.clip(0,255).astype(np.uint8),(0,0),1.1)
 p=subprocess.Popen(['ffmpeg','-nostdin','-v','error','-y','-f','rawvideo','-pix_fmt','bgr24','-s',f'{w}x{h}','-r',str(fps),'-i','-','-c:v','libx264','-crf','14','-preset','fast','-pix_fmt','yuv420p',out],stdin=subprocess.PIPE)
 ref=None; box=None
 def ordena(q):
@@ -36,7 +44,7 @@ areas=np.array(areas); bons=[q for q,a_ in zip(quads,areas) if a_>=0.985*areas.m
 quad=np.median(np.array(bons),axis=0).astype(np.float32); print('quadrilatero fixo de',len(bons),'quadros')
 cen=quad.mean(0); Q=(cen+(quad-cen)*1.045).astype(np.float32)
 M=cv2.getPerspectiveTransform(np.float32([[0,0],[cw,0],[cw,ch],[0,ch]]),Q)
-wp=cv2.warpPerspective(C,M,(w,h),flags=cv2.INTER_AREA,borderMode=cv2.BORDER_REPLICATE).astype(np.float32)*0.93+8
+wp=cv2.warpPerspective(C,M,(w,h),flags=cv2.INTER_AREA,borderMode=cv2.BORDER_REPLICATE).astype(np.float32)
 cap.release(); cap=cv2.VideoCapture(src); n=0
 while True:
     ok,f=cap.read()

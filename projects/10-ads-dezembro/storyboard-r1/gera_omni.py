@@ -3,7 +3,7 @@
 import json,os,base64,urllib.request,subprocess,sys,uuid,io
 from concurrent.futures import ThreadPoolExecutor
 from PIL import Image
-GK=os.environ['GEMINI_API_KEY']; EK=os.environ['ELEVENLABS_API_KEY']; VOZ='a16c9WjbxD7rsBrbu5UX'
+GK=os.environ['GEMINI_API_KEY']; EK=os.environ['ELEVENLABS_API_KEY']; VOZ='AHgZJh5DUFzVkrYaKD4J'
 BASE=("Animate this image as the first frame of a realistic vertical video. Keep the woman's face, hair, clothes and the office exactly as in the image. Static camera. "
       "She speaks in Brazilian Portuguese with a dry, calm, low voice, at a natural conversational pace, finishing the whole line before the video ends. "
       "Audio: only her voice and quiet office room tone. Do not add music, text or subtitles. ")
@@ -42,7 +42,7 @@ def voz(k):
     s=json.loads(mp('https://api.elevenlabs.io/v1/speech-to-text',[('model_id','scribe_v1'),('language_code','pt'),('timestamps_granularity','word')],f'omni/{k}_a.mp3','file'))
     json.dump([w for w in s['words'] if w['type']=='word'],open(f'omni/{k}.json','w'),ensure_ascii=False)
     if not os.path.exists(f'omni/{k}_norma.mp3'):
-        open(f'omni/{k}_norma.mp3','wb').write(mp(f'https://api.elevenlabs.io/v1/speech-to-speech/{VOZ}?output_format=mp3_44100_192',[('model_id','eleven_multilingual_sts_v2'),('remove_background_noise','true')],f'omni/{k}_a.mp3','audio'))
+        open(f'omni/{k}_norma.mp3','wb').write(mp(f'https://api.elevenlabs.io/v1/speech-to-speech/{VOZ}?output_format=mp3_44100_128',[('model_id','eleven_multilingual_sts_v2'),('remove_background_noise','true')],f'omni/{k}_a.mp3','audio'))
     w=json.load(open(f'omni/{k}.json'))
     return k,s['text'],(w[0]['start'],w[-1]['end']) if w else None
 if __name__=='__main__':

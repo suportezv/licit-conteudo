@@ -15,7 +15,7 @@ def nivela(src,dst,ss=None,t=None):
     mean=float(m.split('mean_volume:')[1].split('dB')[0])
     subprocess.run(X+['-i','tmp/x.wav','-af',f'volume={-21-mean:.2f}dB,alimiter=limit=0.8,afade=t=in:d=0.03',dst],timeout=60)
 SEG=['r01','r02','r03','r04','r05','r06','r07','r08','r09']
-PRE={'r01':0.6,'r02':0.5,'r05':0.6}; POS={'r01':0.5,'r02':0.55,'r07':0.9,'r09':1.1,'r05':0.5}
+PRE={'r01':0.6,'r02':0.5,'r05':0.6}; POS={'r01':3.2,'r02':0.55,'r07':0.9,'r09':1.1,'r05':0.5}
 t=0.0; A={}; words=[]
 for k in SEG:
     w=Wd(k); a=max(w[0]['start']-PRE.get(k,0.22),0); b=min(w[-1]['end']+POS.get(k,0.22),dur(f'omni/{k}.mp4'))
@@ -92,6 +92,6 @@ cmd+=['-stream_loop','-1','-i',TR]; mi=n+len(ev)
 fc.append(f"[{mi}]volume=0.09,atrim=0:{FIM},afade=t=in:d=1.5,afade=t=out:st={FIM-1.5}:d=1.5[m]"); mix.append('[m]')
 fc.append(''.join(mix)+f"amix=inputs={len(mix)}:normalize=0:duration=longest,atrim=0:{FIM},loudnorm=I=-14.6:TP=-1.5:LRA=11,alimiter=limit=0.84[o]")
 subprocess.run(cmd+['-filter_complex',';'.join(fc),'-map','[o]','-ar','48000','tmp/a.wav'],timeout=300)
-OUT='Licit_Ad02_DonaNorma_certidao_v1.mp4'
+OUT='Licit_Ad02_DonaNorma_certidao_v2.mp4'
 subprocess.run(X+['-i','tmp/v.mp4','-i','tmp/a.wav','-vf',"ass=tmp/l.ass:fontsdir=/home/user/licit-conteudo/assets/fonts",'-c:v','libx264','-crf','18','-preset','medium','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart',OUT],timeout=900)
 print('dur',dur(OUT),[(p[1].split('/')[-1],round(p[2],2)) for p in P])
