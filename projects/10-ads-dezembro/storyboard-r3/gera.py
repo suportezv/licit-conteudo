@@ -10,12 +10,12 @@ G.BASE=("Animate this image as the first frame of a realistic vertical video. Ke
 VERDE="The computer monitor stays completely still and its screen stays a flat solid bright green rectangle the whole time (it is a chroma key, do not change it, nothing appears on it). Her hands never go in front of the screen. "
 G.IMG={'m05':'mon','m06':'mon','m07':'mon'}
 G.C={
-'m01':(5,"She walks slowly toward the camera down the aisle with the clipboard in her hand and says, word for word: \"Vinte anos vendendo material de construção nessa cidade.\""),
-'m02':(5,"She says to the camera, word for word, indignant: \"E a prefeitura daqui comprou de uma empresa de fora.\""),
-'m03':(6,"Leaning on the counter, she says to the camera, word for word, a bit embarrassed: \"Eu achava que licitação era coisa de quem tem conhecido.\""),
-'m04':(6,"With arms crossed she says to the camera, word for word, firm, in one fluid continuous line: \"Não é. Ela não é maior do que eu. Ela apareceu.\""),
+'m01':(5,"She walks slowly toward the camera down the aisle with the clipboard in her hand and says, word for word: \"Vinte anos vendendo material de limpeza nessa cidade.\""),
+'m02':(5,"She says to the camera, word for word, indignant: \"E a prefeitura daqui comprou de uma empresa de fora.\" She shakes her head once."),
+'m03':(6,"Leaning on the counter, she says to the camera, word for word, a bit embarrassed: \"Eu achava que licitação era coisa de quem tem conhecido.\" She taps the calculator once with a finger."),
+'m04':(6,"With arms crossed she says to the camera, word for word, firm, with a short pause between the sentences: \"Não é. Ela não é maior do que eu. Ela apareceu.\" On the last sentence she uncrosses her arms and points one finger down at the floor."),
 'm05':(5,VERDE+"With one hand on top of the monitor frame she says to the camera, word for word: \"Aí eu conheci a Profíssio Licíti.\" ('Profíssio Licíti' is a product name, pronounced pro-FEE-see-oh lee-SEE-chee)."),
-'m06':(8,VERDE+"She says to the camera, word for word: \"Digitei o C-N-P-J e apareceu o que está aberto pra o que eu vendo.\" (C-N-P-J is an acronym spelled letter by letter in Portuguese: cê, ene, pê, jota). She raises her eyebrows, impressed. Her hands stay still."),
+'m06':(8,VERDE+"She says to the camera, word for word: \"Digitei o C-N-P-J e apareceu o que está aberto pra o que eu vendo.\" (C-N-P-J is an acronym spelled letter by letter in Portuguese: cê, ene, pê, jota). She taps the top of the monitor frame once and raises her eyebrows, impressed."),
 'm07':(9,VERDE+"She points at the monitor frame from the side with her pen and says to the camera, word for word: \"Olha essa: Capim Grosso, Bahia. Sete milhões e oitocentos mil reais em limpeza, higiene e descartáveis.\" ('Capim Grosso' is a town name). She finishes well before the video ends."),
 'm08':(6,"She hugs the clipboard against her chest, looks straight at the camera and says, word for word, decided: \"A próxima eu vou ler antes de dizer que não é pra mim.\" She ends with a short firm nod and a small proud closed-mouth smile."),
 }
