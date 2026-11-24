@@ -15,7 +15,7 @@ def nivela(src,dst,ss=None,t=None):
     mean=float(m.split('mean_volume:')[1].split('dB')[0])
     subprocess.run(X+['-i','tmp/x.wav','-af',f'volume={-21-mean:.2f}dB,alimiter=limit=0.8,afade=t=in:d=0.03',dst],timeout=60)
 SEG=['r01','r02','r03','r04','r05','r06','r07','r08','r09']
-PRE={'r01':0.6,'r02':0.5,'r05':0.6}; POS={'r01':3.2,'r02':0.55,'r07':0.9,'r09':1.1,'r05':0.5}
+PRE={'r01':0.6,'r02':0.28,'r05':0.6}; POS={'r01':1.16,'r02':0.55,'r07':0.9,'r09':1.1,'r05':0.5}
 t=0.0; A={}; words=[]
 for k in SEG:
     w=Wd(k); a=max(w[0]['start']-PRE.get(k,0.22),0); b=min(w[-1]['end']+POS.get(k,0.22),dur(f'omni/{k}.mp4'))
